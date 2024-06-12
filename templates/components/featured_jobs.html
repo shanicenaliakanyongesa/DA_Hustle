@@ -1,0 +1,62 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="featured-title-box">
+                    <h3 class="text-blue text-center">
+                        Featured Jobs on Digital Age Hustler
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="featured-filter-box">
+                    <div class="featured-filter-box-wrapper">
+                        <div class="featured-filter-box-title">
+                            <span class="text-gray1">Filter Search</span>
+                        </div>
+                        <div class="featured-filter-form-container">
+                            <div class="filter-form">
+                                <form action="javascript:void(0);" method="POST">
+                                    <select id="search_category" name="search_category" class="form-select mb-3">
+                                        <option>Job Type</option>
+                                        {% for jobtype in jobtypes %}
+                                        <option value="{{ jobtype[0] }}">{{ jobtype[1] }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <select id="search_salary" name="search_salary" class="form-select mb-3">
+                                        <option>Salary Range</option>
+                                        {% for salaryrange in salaryranges %}
+                                        <option value="{{ salaryrange[0] }}">
+                                            {{ salaryrange[1] }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    
+                                    <select id="search_location2" name="search_location" class="form-select msb-3">
+                                        <option>Select Location</option>
+                                        {% for location in locations %}
+                                        <option value="{{ location[0] }}">{{ location[0] }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <button class="btn form-control mt-2" id="btn-filter"><li class="fas fa-search"><span class="ms-2">Filter</span></li></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col-md-9" id="filtered">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap 5 JS Bundle (Popper.js included) -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script> -->
+</body>
+</html>

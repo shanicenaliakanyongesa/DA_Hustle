@@ -1,0 +1,24 @@
+{% include 'components/header.html' %}
+
+
+{% include 'components/navbar.html' %}
+
+<section>
+    <div class="auth-form-container">
+        <div class="auth-form-wrapper">
+            <div class="auth-form-title">
+                <p class="text-blue3">Choose Your Path</p>
+            </div>
+            <div class="auth-form-box">
+                <div class="auth-form-group">
+                    <a href="candidate/login" type="submit" value="Login" class="auth-form-btn choose-btn">{{ "I'm Looking For A Job" }}</a>
+                </div>
+            </div>
+            <div class="auth-form-box">
+                <div class="auth-form-group">
+                    <a href="company/login" type="submit" value="Login" class="auth-form-btn choose-btn">{{ "I Want To Hire" }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

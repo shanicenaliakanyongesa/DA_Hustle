@@ -1,0 +1,78 @@
+.candidate-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.slide-container{
+    max-width: 1120px;
+
+    width: 100%;
+    padding:40px 0;
+}
+.slide-content{
+    margin:0 60px;
+
+    overflow: hidden;
+    border-radius: 10px;
+}
+.card{
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    /* padding: 10px 10px; */
+    border:solid rgb(224, 224, 224) 1px;
+}
+.image-content,
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 4px;
+}
+.image-content{
+    row-gap: 5px;
+}
+.card-image{
+    position:relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding:3px;
+}
+
+.card-image .card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #727272;
+}
+.name{
+    font-size: 18px;
+    font-weight: 700;
+    color:#2471FC;
+}
+.job-title{
+    font-size: 14px;
+    color:#2471FC;
+    text-align: center;
+}
+.swiper-button-prev{
+    left: 0;
+}
+.swiper-button-next{
+    right: 0;
+}
+
+
+@media screen and (max-width: 768px){
+    .slide-content{
+        margin: 0;
+    }
+    .swiper-navBtn{
+        display: none;
+    }
+}

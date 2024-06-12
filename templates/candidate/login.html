@@ -1,0 +1,34 @@
+{% include '/components/header.html' %}
+{% include '/components/navbar.html' %}
+<section>
+    <div class="auth-form-container">
+        <div class="auth-form-wrapper">
+            <div class="auth-form-title">
+                <p class="text-blue3">{{message}}</p>
+            </div>
+            <div class="auth-form-box">
+                <form action="/candidate/login" method="POST">
+                    
+                    <div class="auth-form-group">
+                        <label for="email" class="auth-form-label">Email</label>
+                        <input id="email" class="auth-form-input auth-form-login" type="email" name="email"><br>
+                        <small class="auth-form-error">
+                        <!-- error message -->
+                        </small>
+                    </div>
+                    <div class="auth-form-group">
+                        <label for="password" class="auth-form-label">Password</label>
+                        <input id="password" class="auth-form-input auth-form-login" type="password" name="password"><br>
+                        <small>
+                                <!-- error to come here -->
+                        </small><br>
+                    </div>
+                    <div class="auth-form-group">
+                        <button type="submit" value="Login" class="auth-form-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+            <a href="#" class="auth-form-link">Don't have an account? Click here</a>
+        </div>
+    </div>
+</section>

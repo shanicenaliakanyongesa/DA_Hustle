@@ -1,0 +1,15 @@
+.hero-2-container{
+    border: solid 1px #0c7a91;
+    height: 30vh;
+    background: rgb(48,123,254);
+    background: linear-gradient(0deg, rgba(48,123,254,1) 0%, rgba(12,52,145,1) 82%);
+    padding:0 50px;
+}
+
+.hero-2-wrapper{
+    padding:30px 0;
+}
+.hero-2-title h1{
+    font-size: 2rem;
+}
+.hero-2-text{}

@@ -1,0 +1,45 @@
+ /* Hero section styles */
+ .hero {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  .hero-left {
+    flex-basis: 50%;
+    background-image: url('../img/hero_left_03.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+
+  .hero-right {
+    flex-basis: 50%;
+    background-image: url('../img/hero_right_03.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+
+  .hero-heading {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    padding:0px 20px;
+    font-weight: 700;
+  }
+
+  .hero-text {
+    font-size: .75rem;
+    margin-bottom: 2rem;
+    padding:0px 20px;
+  }
+
+

@@ -1,0 +1,53 @@
+.post-jobs-form{
+    width: 100%;
+}
+.post-jobs-form-row{
+    display: flex;
+    width: 100%;
+
+}
+.post-jobs-form-group{
+    flex: 1;
+    margin:.1rem 1rem;
+}
+.post-jobs-label{
+    display: block;
+    font-size: .8rem;
+    color:var(--blue-1);
+}
+.post-jobs-input{
+    display: block;
+    height:2.2rem;
+    width: 100%;
+    border-radius: 5px;
+    border:solid 1px var(--blue-1);
+    padding-left:.4rem;
+}
+.post-jobs-select{
+    display: block;
+    height:2.5rem;
+    width: 100%;
+    border-radius: 5px;
+    border:solid 1px var(--blue-1);
+    padding-left:.4rem;
+}
+.post-jobs-textarea{
+    display: block;
+    height:4rem;
+    width: 100%;
+
+    border-radius: 5px;
+}
+.post-jobs-skills{
+    border:solid 1px var(--blue-1);
+}
+.company-posted-jobs-list{}
+.company-posted-job{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 1rem;
+}
+.company-posted-job-title{}
+.company-posted-job-description{}
+/* ff */

@@ -1,0 +1,42 @@
+.search-container{
+    background-color: var(--blue-6);
+    padding: 20px 0px;
+}
+.search-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-title-box{
+    padding:10px 0;
+}
+.search-field{
+    border-radius: 5px;
+    font-size: 14px;
+    border:none;
+}
+.search-job-title{
+    height: 40px;
+    /* col:20; */
+}
+.select-search-location{
+    height:40px
+}
+.search-btn{
+
+}
+/* ---------------search 2----------------- */
+
+.search-2-container{
+    background-color: var(--blue-6);
+    padding:20px 0;
+}
+.search-2-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-2-title-box{
+    padding: 10px 0;
+}
+.search-2-box{}

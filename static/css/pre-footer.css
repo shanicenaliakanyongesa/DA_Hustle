@@ -1,0 +1,11 @@
+.pre-footer-container{}
+.pre-footer-wrapper{}
+.pre-footer-links{
+    height: 300px;
+    background-color: var(--purple-1);
+}
+.pre-footer-footnote{
+    height: 50px;
+    background-color: var(--blue-5);
+}
+

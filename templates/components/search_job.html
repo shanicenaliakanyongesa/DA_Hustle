@@ -1,0 +1,45 @@
+<style>
+        #btn-searchfeature{
+            border: 1px; 
+            border-color: #007CAD; 
+            border-style: double;
+            color: #f0ffff;
+            background-color: #007CAD;
+        }
+        #btn-searchfeature:hover{            
+            background-color: #f0ffff;
+            color: #007CAD;
+            border-color: #007CAD; 
+        }
+</style>
+
+
+<div class="search-container">
+  <div class="search-wrapper">
+    <div class="search-title-box">
+      <h2 class="text-white">Search For Jobs</h2>
+    </div>
+    <div class="search-box">
+      <div class="row">
+        <form action="javascript:void(0);" method="POST" class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <input id="search_text" class="search-field search-job-title form-control" type="text" name="job_title" placeholder="Job Title e.g: Web Developer" />
+          </div>
+          <div class="col-md-4">
+            <select id="search_location" name="location" class="search-field select-search-location form-control">
+              <option>Select Location</option>
+              {% for location in locations %}
+              <option value="{{ location[0] }}">{{ location[0] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-primary float-end" id="btn-searchfeature">
+              <i class="fas fa-search"></i><span class="ms-2">Search</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

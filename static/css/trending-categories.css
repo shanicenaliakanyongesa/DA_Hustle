@@ -1,0 +1,24 @@
+.trending-container{
+    padding:40px 0;
+}
+.trending-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.trending-box{
+
+}
+.trending-title{
+    font-weight: 700;
+}
+.trending-pill{
+    font-size: .75rem;
+    padding: .5rem .5rem;
+    background-color: var(--blue-7);
+    border-radius: 15px;
+    text-decoration: none;
+}
+.trending-pill:hover{
+    background-color: var(--blue-4);
+}

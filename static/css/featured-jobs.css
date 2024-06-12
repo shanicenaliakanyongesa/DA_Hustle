@@ -1,0 +1,121 @@
+.featured-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.featured-wrapper{}
+.featured-title-box{}
+.featured-title-box{
+
+}
+.featured-jobs-container{
+    display: flex;
+
+}
+.featured-filter-box{
+    padding:0 10px;
+    margin:0 10px;
+}
+.featured-filter-box-wrapper{}
+.featured-filter-box-title span{
+    font-weight: 700;
+}
+.featured-filter-form-container{
+    border:solid 1px var(--gray-1);
+
+}
+.filter-form form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding:10px 10px;
+}
+.search-select{
+    width: 100%;
+    height: 40px;
+    margin:5px 0;
+}
+.featured-result-box{}
+.featured-result-box-wrapper{}
+.featured-result-item{
+    display: flex;
+    padding:20px 15px;
+    position: relative;
+    margin:10px 0;
+    text-decoration: none;
+}
+.featured-result-item:hover{
+    background-color: var(--gray-3);
+}
+.featured-odd{
+    background-color: var(--gray-2);
+}
+.company-logo-area{}
+.company-logo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.company-logo-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.job-details-area{
+    padding:0px 20px;
+
+
+}
+.job-details-upload-time{
+    position: absolute;
+    right: 0;
+    top:0;
+    background-color: var(--blue-4);
+    border-radius: 10px;
+    font-size: .6rem;
+    padding:.1rem .5rem;
+}
+.job-details-title span{
+    font-weight: 700;
+}
+.job-details-company-name span{
+    font-weight: 700;
+}
+.job-details-type span{
+    font-size: .8rem;
+}
+.job-details-location span{
+    font-size: .7rem;
+}
+.job-details-skill-list p{
+    font-size:.75rem;
+}
+.featured-result-pagination {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .featured-result-pagination p button {
+    color: rgb(252, 249, 249);
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: none;
+    margin: 0 5px;
+    border-radius: 5px;
+    background-color: #2471FC;
+    
+  }
+  
+  .featured-result-pagination p button.active {
+    background-color: #19386B;
+    color: white;
+    border-radius: 5px;
+  }
+  .featured-result-pagination p button:hover:not(.active) {
+    background-color: #ddd;
+    color: black;
+}
+

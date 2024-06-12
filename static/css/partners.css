@@ -1,0 +1,24 @@
+.partners-container{
+    margin:50px 0;
+    padding:0 50px;
+}
+.partners-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.partners-line{
+    width: 100%;
+}
+.partners-title{}
+.partners-logos{
+    display: flex;
+}
+.partner-logo{
+    width: 180px;
+    padding:0 30px;
+}
+.partner-logo-img{
+    width: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,64 @@
+{% include '../components/header.html' %}
+{% include '../components/navbar.html' %}
+<section>
+    <div class="auth-form-container">
+        <div class="auth-form-wrapper">
+            <div class="auth-form-title">
+                <p class="text-blue3">Sign-up Below</p>
+            </div>
+            <div class="auth-form-box">
+                <form action="#" method="POST">
+                    <div class="auth-from-row">
+                        <div class="auth-form-group">
+                            <label for="email" class="auth-form-label">Email</label>
+                            <input id="email" class="auth-form-input" type="email" name="email" value="{{ old('email.html' %} }}">
+                            <small class="auth-form-error">
+                                    {{ $message }}
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="auth-form-row">
+                        <div class="auth-form-group">
+                            <label for="fname" class="auth-form-label">First Name</label>
+                            <input id="fname" class="auth-form-input" type="text" name="fname" value="{{ old('fname.html' %} }}">
+                            <small class="auth-form-error">
+                                    {{ message }}
+                            </small>
+                        </div>
+                        <div class="auth-form-group">
+                            <label for="surname" class="auth-form-label">Surname</label>
+                            <input id="surname" class="auth-form-input" type="text" name="surname" value="{{ old('surname.html' %} }}">
+                            <small class="auth-form-error">
+                                    {{ message }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="auth-form-row">
+                        <div class="auth-form-group">
+                            <label for="password" class="auth-form-label">Password</label>
+                            <input id="password" class="auth-form-input" type="password" name="password" >
+                            <small class="auth-form-error">
+                                    {{ message }}
+                            </small>
+                        </div>
+                        <div class="auth-form-group">
+                            <label for="c_password" class="auth-form-label">Confirm Password</label>
+                            <input id="c_password" class="auth-form-input" type="password" name="password_confirmation" >
+                            <small class="auth-form-error">
+                                    {{ message }}
+                            </small>
+                        </div>
+                    </div>
+                    <div class="auth-from-row">
+                        <div class="auth-form-group">
+                            <button type="submit" value="Register" class="auth-form-btn">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <a href="#" class="auth-form-link">Already have an account? Click here</a>
+        </div>
+    </div>
+</section>
+
