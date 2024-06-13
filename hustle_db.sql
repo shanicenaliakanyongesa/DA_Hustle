@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 12, 2024 at 04:13 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Host: 127.0.0.1
+-- Generation Time: Jun 13, 2024 at 04:25 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admins` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `surname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `fname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -48,22 +48,22 @@ CREATE TABLE `admins` (
 
 CREATE TABLE `candidates` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) DEFAULT NULL,
-  `surname` varchar(255) NOT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `cv_upload` varchar(200) DEFAULT NULL,
-  `profile_pic` varchar(255) DEFAULT 'candidate_profile_pic_placeholder.png',
-  `professional_title` varchar(255) DEFAULT NULL,
-  `gender` varchar(255) DEFAULT NULL,
-  `dob` varchar(255) DEFAULT NULL,
-  `national_id_no` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `bio` text DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cv_upload` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'candidate_profile_pic_placeholder.png',
+  `professional_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dob` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `national_id_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bio` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `country_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `email_verified_at` varchar(255) DEFAULT NULL,
+  `email_verified_at` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -78,53 +78,53 @@ INSERT INTO `candidates` (`id`, `email`, `fname`, `lname`, `surname`, `phone`, `
 (3, 'ken@gmail.com', 'Ken', 'Steven', 'Boone', '0712345678', '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Database Engineer', '1', '2000-01-01', '22345678', 'Limuru', 'This is my bio :)', NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:03:39'),
 (4, 'lin@gmail.com', 'Winnie', 'Josephine', 'Lin', '0722345678', '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p4.jpg', 'Cisco Certified Network Associate', '2', '2000-01-01', '13345678', 'Limuru', 'THis is my bio :)', NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:05:24'),
 (5, 'caron@gmail.com', 'Caron', 'Ranada', 'Lynn', '0733345678', '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p5.jpg', 'Graphics Designer', '1', '2000-01-01', '12445678', 'Limuru', 'THis is my bio :)', NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:08:56'),
-(6, 'boris@gmail.com', 'Boris', NULL, 'Johnson', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p1.jpeg', 'Data Analyst', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:10:03'),
-(7, 'meg@gmail.com', 'Megan', NULL, 'Markle', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Data Entry Clerk', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:10:45'),
-(8, 'james@gmail.com', 'James', NULL, 'Corden', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p1.jpeg', 'IT Specialist', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:11:34'),
-(9, 'smith@gmail.com', 'Will', NULL, 'Smith', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_04.jpg', 'Video Editor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:12:46'),
-(10, 'pink@gmail.com', 'Jaydah', NULL, 'Pinkett', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Photographer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:16:09'),
-(11, 'landen.kub@walker.biz', 'Delphine', NULL, 'Leuschke', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p1.jpeg', 'Coil Winders', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 05:20:43'),
-(12, 'abe41@gmail.com', 'Joshua', NULL, 'Morissette', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_05.jpg', 'Atmospheric and Space Scientist', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 05:20:43'),
-(13, 'douglas.roy@hotmail.com', 'Keara', NULL, 'Zboncak', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_06.jpg', 'Foreign Language Teacher', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 05:20:43'),
-(14, 'kamille93@gmail.com', 'Jason', NULL, 'Lang', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Control Valve Installer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(15, 'river66@hotmail.com', 'Jarod', NULL, 'Conroy', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p2.jpeg', 'Social Worker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(16, 'mark69@gmail.com', 'Moriah', NULL, 'Stoltenberg', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p5.jpg', 'Audio and Video Equipment Technician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(17, 'jerel00@yahoo.com', 'Austin', NULL, 'Hill', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_07.jpg', 'Carpenter Assembler and Repairer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(18, 'gibson.layla@leannon.org', 'Paolo', NULL, 'Gutmann', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p5.jpg', 'Postsecondary Teacher', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(19, 'ecronin@hotmail.com', 'Demetrius', NULL, 'Tromp', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p4.jpg', 'Music Arranger and Orchestrator', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(20, 'eichmann.corrine@schmitt.org', 'Karen', NULL, 'Torphy', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Electrical Engineering Technician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(21, 'hfarrell@kemmer.com', 'Adolf', NULL, 'Gislason', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p2.jpeg', 'Fiberglass Laminator and Fabricator', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(22, 'electa21@turcotte.com', 'Amparo', NULL, 'Kassulke', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p1.jpeg', 'Marine Architect', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(23, 'owhite@hotmail.com', 'Gene', NULL, 'Donnelly', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p4.jpg', 'Chemistry Teacher', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(24, 'rfadel@bernier.org', 'Citlalli', NULL, 'McKenzie', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p5.jpg', 'Railroad Conductors', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(25, 'salma86@yahoo.com', 'Mandy', NULL, 'Hettinger', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_08.jpg', 'Physicist', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(26, 'tiffany72@marquardt.com', 'Mariane', NULL, 'Dickinson', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Dental Hygienist', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(27, 'sbeier@schimmel.com', 'Johan', NULL, 'Steuber', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Cafeteria Cook', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
-(28, 'qhand@hotmail.com', 'Antwon', NULL, 'Rosenbaum', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Engineering Technician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(29, 'zkuhic@watsica.info', 'Madge', NULL, 'Wuckert', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Desktop Publisher', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(30, 'dach.wiley@yahoo.com', 'Dario', NULL, 'Mueller', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Marine Cargo Inspector', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(31, 'yupton@hotmail.com', 'Eryn', NULL, 'Predovic', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Gaming Supervisor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(32, 'cweissnat@gmail.com', 'Damaris', NULL, 'Morissette', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Cost Estimator', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(33, 'colby.runolfsson@hotmail.com', 'Carmella', NULL, 'Hirthe', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'HR Manager', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(34, 'reba39@hane.info', 'Justen', NULL, 'Grimes', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'System Administrator', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(35, 'elise55@yahoo.com', 'Fidel', NULL, 'Terry', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Dancer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(36, 'senger.levi@yahoo.com', 'Lucile', NULL, 'Rohan', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Fiber Product Cutting Machine Operator', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(37, 'adrianna16@gmail.com', 'Fanny', NULL, 'Shields', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Employment Interviewer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(38, 'laverna.wiegand@rath.com', 'Elfrieda', NULL, 'Schaefer', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Transit Police OR Railroad Police', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(39, 'qtoy@larson.info', 'Constantin', NULL, 'Grant', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Landscape Architect', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
-(40, 'hdoyle@gmail.com', 'Annamae', NULL, 'Ledner', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Outdoor Power Equipment Mechanic', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(41, 'cwalsh@rogahn.com', 'Novella', NULL, 'Satterfield', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Physical Scientist', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(42, 'rosalia.runte@bednar.com', 'Lyric', NULL, 'Harvey', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Architectural Drafter', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(43, 'nickolas28@hane.com', 'Deron', NULL, 'Hill', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Bill and Account Collector', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(44, 'ardella.bernhard@lemke.com', 'Deondre', NULL, 'Rosenbaum', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Obstetrician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(45, 'kerluke.audreanne@labadie.com', 'Marjolaine', NULL, 'Reilly', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Deburring Machine Operator', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(46, 'kovacek.austen@gmail.com', 'Joy', NULL, 'Adams', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Conservation Scientist', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(47, 'treutel.flo@gmail.com', 'Sven', NULL, 'Denesik', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Forest Fire Inspector', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(48, 'xpacocha@gmail.com', 'Isadore', NULL, 'Gislason', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Logging Worker', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(49, 'blanche.wiegand@hotmail.com', 'Chandler', NULL, 'Powlowski', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Photographer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(50, 'mvonrueden@koss.com', 'Matilda', NULL, 'Wilkinson', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Financial Services Sales Agent', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
-(51, 'j@gmail.com', 'Jman', NULL, 'manJay', NULL, '$2y$10$IKFkLnAQXQ.9RqVA7zWNEuoJSYAbXAMXhzLBy9TM9CZVfM8Dc.HS6', '', 'candidate_profile_pic_placeholder.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-05-18 08:29:22', '2023-05-18 08:29:22'),
-(52, 'newman@gmail.com', 'New', NULL, 'Man', NULL, '$2y$10$p3zj.MkT5jYQT/9nI.ASAOPQgpc4iY0PRf/2pnvqirLV0qJAmk.U6', NULL, 'candidate_profile_pic_placeholder.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-06-07 20:39:53', '2023-06-07 20:39:53');
+(6, 'boris@gmail.com', 'Boris', NULL, 'Johnson', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p1.jpeg', 'Data Analyst', NULL, NULL, NULL, 'Bungoma', NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:10:03'),
+(7, 'meg@gmail.com', 'Megan', NULL, 'Markle', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Data Entry Clerk', NULL, NULL, NULL, 'Machakos', NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:10:45'),
+(8, 'james@gmail.com', 'James', NULL, 'Corden', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p1.jpeg', 'IT Specialist', NULL, NULL, NULL, 'Mandera', NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:11:34'),
+(9, 'smith@gmail.com', 'Will', NULL, 'Smith', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_04.jpg', 'Video Editor', NULL, NULL, NULL, 'Nanyuki', NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:12:46'),
+(10, 'pink@gmail.com', 'Jaydah', NULL, 'Pinkett', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Photographer', NULL, NULL, NULL, 'Kapenguria', NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 15:16:09'),
+(11, 'landen.kub@walker.biz', 'Delphine', NULL, 'Leuschke', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p1.jpeg', 'Coil Winders', NULL, NULL, NULL, 'Nyeri', NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 05:20:43'),
+(12, 'abe41@gmail.com', 'Joshua', NULL, 'Morissette', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_05.jpg', 'Atmospheric and Space Scientist', NULL, NULL, NULL, 'Lamu', NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 05:20:43'),
+(13, 'douglas.roy@hotmail.com', 'Keara', NULL, 'Zboncak', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_06.jpg', 'Foreign Language Teacher', NULL, NULL, NULL, 'Nyahururu', NULL, NULL, NULL, '2023-05-18 05:20:43', '2023-05-18 05:20:43'),
+(14, 'kamille93@gmail.com', 'Jason', NULL, 'Lang', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Control Valve Installer', NULL, NULL, NULL, 'Kajiado', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(15, 'river66@hotmail.com', 'Jarod', NULL, 'Conroy', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p2.jpeg', 'Social Worker', NULL, NULL, NULL, 'Mombasa', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(16, 'mark69@gmail.com', 'Moriah', NULL, 'Stoltenberg', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p5.jpg', 'Audio and Video Equipment Technician', NULL, NULL, NULL, 'Moyale', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(17, 'jerel00@yahoo.com', 'Austin', NULL, 'Hill', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_07.jpg', 'Carpenter Assembler and Repairer', NULL, NULL, NULL, 'Mutomo', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(18, 'gibson.layla@leannon.org', 'Paolo', NULL, 'Gutmann', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p5.jpg', 'Postsecondary Teacher', NULL, NULL, NULL, 'Kapsabet', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(19, 'ecronin@hotmail.com', 'Demetrius', NULL, 'Tromp', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p4.jpg', 'Music Arranger and Orchestrator', NULL, NULL, NULL, 'Lodwar', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(20, 'eichmann.corrine@schmitt.org', 'Karen', NULL, 'Torphy', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p3.jpg', 'Electrical Engineering Technician', NULL, NULL, NULL, 'Kisumu', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(21, 'hfarrell@kemmer.com', 'Adolf', NULL, 'Gislason', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p2.jpeg', 'Fiberglass Laminator and Fabricator', NULL, NULL, NULL, 'Keroka', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(22, 'electa21@turcotte.com', 'Amparo', NULL, 'Kassulke', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p1.jpeg', 'Marine Architect', NULL, NULL, NULL, 'Litein', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(23, 'owhite@hotmail.com', 'Gene', NULL, 'Donnelly', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p4.jpg', 'Chemistry Teacher', NULL, NULL, NULL, 'Homa Bay', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(24, 'rfadel@bernier.org', 'Citlalli', NULL, 'McKenzie', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'p5.jpg', 'Railroad Conductors', NULL, NULL, NULL, 'Diani', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(25, 'salma86@yahoo.com', 'Mandy', NULL, 'Hettinger', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'profile_08.jpg', 'Physicist', NULL, NULL, NULL, 'Thika', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(26, 'tiffany72@marquardt.com', 'Mariane', NULL, 'Dickinson', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Dental Hygienist', NULL, NULL, NULL, 'Homa Bay', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(27, 'sbeier@schimmel.com', 'Johan', NULL, 'Steuber', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Cafeteria Cook', NULL, NULL, NULL, 'Migori', NULL, NULL, NULL, '2023-05-18 05:20:44', '2023-05-18 05:20:44'),
+(28, 'qhand@hotmail.com', 'Antwon', NULL, 'Rosenbaum', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Engineering Technician', NULL, NULL, NULL, 'Migori', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(29, 'zkuhic@watsica.info', 'Madge', NULL, 'Wuckert', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Desktop Publisher', NULL, NULL, NULL, 'Bungoma', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(30, 'dach.wiley@yahoo.com', 'Dario', NULL, 'Mueller', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Marine Cargo Inspector', NULL, NULL, NULL, 'Murang\'a', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(31, 'yupton@hotmail.com', 'Eryn', NULL, 'Predovic', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Gaming Supervisor', NULL, NULL, NULL, 'Marsabit', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(32, 'cweissnat@gmail.com', 'Damaris', NULL, 'Morissette', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Cost Estimator', NULL, NULL, NULL, 'Kapsabet', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(33, 'colby.runolfsson@hotmail.com', 'Carmella', NULL, 'Hirthe', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'HR Manager', NULL, NULL, NULL, 'Chuka', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(34, 'reba39@hane.info', 'Justen', NULL, 'Grimes', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'System Administrator', NULL, NULL, NULL, 'Rongo', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(35, 'elise55@yahoo.com', 'Fidel', NULL, 'Terry', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Dancer', NULL, NULL, NULL, 'Wajir', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(36, 'senger.levi@yahoo.com', 'Lucile', NULL, 'Rohan', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Fiber Product Cutting Machine Operator', NULL, NULL, NULL, 'Lamu', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(37, 'adrianna16@gmail.com', 'Fanny', NULL, 'Shields', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Employment Interviewer', NULL, NULL, NULL, 'Maua', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(38, 'laverna.wiegand@rath.com', 'Elfrieda', NULL, 'Schaefer', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Transit Police OR Railroad Police', NULL, NULL, NULL, 'Bungoma', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(39, 'qtoy@larson.info', 'Constantin', NULL, 'Grant', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Landscape Architect', NULL, NULL, NULL, 'Kajiado', NULL, NULL, NULL, '2023-05-18 05:20:45', '2023-05-18 05:20:45'),
+(40, 'hdoyle@gmail.com', 'Annamae', NULL, 'Ledner', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Outdoor Power Equipment Mechanic', NULL, NULL, NULL, 'Mandera', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(41, 'cwalsh@rogahn.com', 'Novella', NULL, 'Satterfield', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Physical Scientist', NULL, NULL, NULL, 'Chuka', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(42, 'rosalia.runte@bednar.com', 'Lyric', NULL, 'Harvey', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Architectural Drafter', NULL, NULL, NULL, 'Maralal', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(43, 'nickolas28@hane.com', 'Deron', NULL, 'Hill', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Bill and Account Collector', NULL, NULL, NULL, 'Murang\'a', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(44, 'ardella.bernhard@lemke.com', 'Deondre', NULL, 'Rosenbaum', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Obstetrician', NULL, NULL, NULL, 'Murang\'a', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(45, 'kerluke.audreanne@labadie.com', 'Marjolaine', NULL, 'Reilly', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Deburring Machine Operator', NULL, NULL, NULL, 'Litein', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(46, 'kovacek.austen@gmail.com', 'Joy', NULL, 'Adams', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Conservation Scientist', NULL, NULL, NULL, 'Wajir', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(47, 'treutel.flo@gmail.com', 'Sven', NULL, 'Denesik', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Forest Fire Inspector', NULL, NULL, NULL, 'Kwale', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(48, 'xpacocha@gmail.com', 'Isadore', NULL, 'Gislason', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Logging Worker', NULL, NULL, NULL, 'Kabarnet', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(49, 'blanche.wiegand@hotmail.com', 'Chandler', NULL, 'Powlowski', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Photographer', NULL, NULL, NULL, 'Garissa', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(50, 'mvonrueden@koss.com', 'Matilda', NULL, 'Wilkinson', NULL, '$2y$10$/R.g.d/comQEx8G7J8DmjOh5AcAcXerW7y/7D12PWooSPDb24Xh8m', '', 'candidate_profile_pic_placeholder.png', 'Financial Services Sales Agent', NULL, NULL, NULL, 'Taveta', NULL, NULL, NULL, '2023-05-18 05:20:46', '2023-05-18 05:20:46'),
+(51, 'j@gmail.com', 'Jman', NULL, 'manJay', NULL, '$2y$10$IKFkLnAQXQ.9RqVA7zWNEuoJSYAbXAMXhzLBy9TM9CZVfM8Dc.HS6', '', 'candidate_profile_pic_placeholder.png', NULL, NULL, NULL, NULL, 'Kisumu', NULL, NULL, NULL, '2023-05-18 08:29:22', '2023-05-18 08:29:22'),
+(52, 'newman@gmail.com', 'New', NULL, 'Man', NULL, '$2y$10$p3zj.MkT5jYQT/9nI.ASAOPQgpc4iY0PRf/2pnvqirLV0qJAmk.U6', NULL, 'candidate_profile_pic_placeholder.png', NULL, NULL, NULL, NULL, 'Lodwar', NULL, NULL, NULL, '2023-06-07 20:39:53', '2023-06-07 20:39:53');
 
 -- --------------------------------------------------------
 
@@ -151,7 +151,7 @@ CREATE TABLE `candidates_rating` (
   `company_id` int(50) NOT NULL,
   `rating` int(50) NOT NULL,
   `job_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -188,9 +188,9 @@ CREATE TABLE `candidates_technicalskills` (
 CREATE TABLE `certifications` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `candidate_id` bigint(20) UNSIGNED NOT NULL,
-  `certification_name` varchar(255) NOT NULL,
-  `date_awarded` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `certification_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_awarded` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -203,16 +203,16 @@ CREATE TABLE `certifications` (
 
 CREATE TABLE `companies` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `company_name` varchar(255) NOT NULL,
-  `company_email` varchar(255) NOT NULL,
-  `company_logo` varchar(255) DEFAULT 'image_placeholder.png',
-  `company_phone` varchar(255) DEFAULT NULL,
-  `admin_fname` varchar(255) DEFAULT NULL,
-  `admin_lname` varchar(255) DEFAULT NULL,
-  `admin_surname` varchar(255) DEFAULT NULL,
-  `admin_phone` varchar(255) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `company_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `company_logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'image_placeholder.png',
+  `company_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `admin_fname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `admin_lname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `admin_surname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `admin_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -238,11 +238,11 @@ INSERT INTO `companies` (`id`, `company_name`, `company_email`, `company_logo`, 
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -254,7 +254,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `jobtypes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `jobtype_name` varchar(255) NOT NULL,
+  `jobtype_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -277,7 +277,7 @@ INSERT INTO `jobtypes` (`id`, `jobtype_name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `languages` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `language` varchar(255) NOT NULL,
+  `language` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -301,7 +301,7 @@ INSERT INTO `languages` (`id`, `language`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `locations` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `location_name` varchar(255) NOT NULL,
+  `location_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -325,7 +325,7 @@ INSERT INTO `locations` (`id`, `location_name`, `created_at`, `updated_at`) VALU
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -363,8 +363,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -376,11 +376,11 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -395,11 +395,11 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `postedjobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `job_title` varchar(255) NOT NULL,
-  `jobtype_id` varchar(255) NOT NULL,
-  `job_location_id` varchar(255) NOT NULL,
-  `salary_range_id` varchar(255) NOT NULL,
-  `job_description` text NOT NULL,
+  `job_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jobtype_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `job_location_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `salary_range_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `job_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `company_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp()
@@ -468,7 +468,7 @@ INSERT INTO `postedjobs_skills` (`posted_job_id`, `skill_id`, `created_at`, `upd
 
 CREATE TABLE `salaryranges` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `salary_range` varchar(255) NOT NULL,
+  `salary_range` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -492,7 +492,7 @@ INSERT INTO `salaryranges` (`id`, `salary_range`, `created_at`, `updated_at`) VA
 
 CREATE TABLE `skills` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `skill_name` varchar(255) NOT NULL,
+  `skill_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -521,7 +521,7 @@ INSERT INTO `skills` (`id`, `skill_name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `soft_skills` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `skill_name` varchar(255) NOT NULL,
+  `skill_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -542,11 +542,11 @@ INSERT INTO `soft_skills` (`id`, `skill_name`, `created_at`, `updated_at`) VALUE
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -560,11 +560,11 @@ CREATE TABLE `users` (
 CREATE TABLE `workexperiences` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `candidate_id` bigint(20) UNSIGNED NOT NULL,
-  `company_name` varchar(255) NOT NULL,
-  `job_title` varchar(255) NOT NULL,
-  `from_date` varchar(255) NOT NULL,
-  `to_date` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `job_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `from_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `to_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
