@@ -1,3 +1,18 @@
 SELECT companies.company_name, companies.company_logo, postedjobs.job_title, jobtypes.jobtype_name, locations.location_name, GROUP_CONCAT( skills.skill_name SEPARATOR',') as skills FROM postedjobs LEFT JOIN companies ON postedjobs.company_id = companies.id left JOIN locations ON locations.id = postedjobs.job_location_id LEFT JOIN jobtypes ON jobtypes.id = postedjobs.jobtype_id LEFT JOIN postedjobs_skills ON postedjobs.id = postedjobs_skills.posted_job_id LEFT JOIN skills ON skills.id = postedjobs_skills.skill_id GROUP BY companies.company_name, companies.company_logo, postedjobs.job_title, jobtypes.jobtype_name, locations.location_name
 
 
+towns_in_kenya = [
+    "Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret", "Thika", "Kitale", 
+    "Malindi", "Naivasha", "Machakos", "Kakamega", "Nyeri", "Meru", "Embu",
+    "Kericho", "Bungoma", "Busia", "Garissa", "Isiolo", "Kilifi", "Lamu", 
+    "Lodwar", "Maralal", "Marsabit", "Moyale", "Narok", "Nyahururu", "Nanyuki",
+    "Wajir", "Voi", "Siaya", "Homa Bay", "Migori", "Kapenguria", "Mandera", 
+    "Murang'a", "Mumias", "Bomet", "Kiambu", "Ongata Rongai", "Ruiru", "Kajiado", 
+    "Limuru", "Keroka", "Kisii", "Maua", "Chuka", "Rongo", "Webuye", "Kapsabet", 
+    "Kabarnet", "Litein", "Namanga", "Taveta", "Kwale", "Diani", "Gatundu", "Mutomo"
+]
+    # for dev in devs:
+    #     if not (dev[13]):
+    #         sql = """update candidates set address=%s where id=%s"""
+    #         cursor.execute(sql,(random.choice(towns_in_kenya),dev[0]))
+    #         connection.commit()

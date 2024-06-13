@@ -1,0 +1,45 @@
+<div class="featured-talent-result-box">
+    <div class="featured-talent-result-box-inner">
+        <div class="da-row">
+            {% if candidates %}
+            {% for candidate in candidates %}
+                <div class="da-col-xs-12 da-col-sm-6 da-col-md-6 da-col-lg-3">
+                    <div class="featured-talent-result-card">
+                        <div class="featured-talent-profile-pic">
+                            <img src="../../static/candidate_profile_pics/{{candidate[8]}}" alt="" class="featured-talent-profile-img">
+                        </div>
+                        <span class="featured-talent-name text-blue text-center">{{ candidate[2] }} {{ candidate[4] }}.</span>
+                        <span class="featured-talent-title text-blue text-center">{{ candidate[9] }}</span>
+                        <span class="featured-talent-rating text-blue text-center">4.1/5</span>
+                        <div class="featured-talent-skills">
+
+                            <span class="talent-skill-pill">Python</span>
+                            
+                        </div>
+                        <div class="featurd-talent-view-btn">
+                            <a href="" class="btn btn-blue2">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+                  
+        {% else %}
+        <h5 style="color: #007CAD; text-align: center; font-size: 26px;" class="m-5">{{ postedjobs|length }} Developer(s) Found</h5>
+        {% endif %}
+
+        </div>
+    </div>
+</div>
+<div style="text-align: center;">
+    <div class="featured-result-pagination" id="paginate">
+        <p>
+        <input type="hidden" id="currentPage" value="{{page}}">
+        <input type="hidden" id="total" value="{{total}}">
+        <button id="prev" onclick="prev()"><i class="fas fa-chevron-left"></i> prev</button>
+        {% for i in range(1, (total+1)) %}
+        <button class="{% if i == page %} active {% endif %}" id="{{i}}" onclick="pages(this.id)">{{i}}</button>
+        {% endfor %}
+        <button id="next" onclick="next()">Next <i class="fas fa-chevron-right"></i> </button>
+        </p>
+    </div>
+</div>

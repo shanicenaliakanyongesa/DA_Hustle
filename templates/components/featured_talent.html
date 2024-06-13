@@ -4,41 +4,11 @@
             <div class="featured-talent-title-box">
                 <h1 class="text-blue text-center">Top I.T Professionals</h1>
             </div>
-            <div class="featured-talent-result-box">
-                <div class="featured-talent-result-box-inner">
-                    <div class="da-row">
 
-                        {% for candidate in candidates %}
-                            <div class="da-col-xs-12 da-col-sm-6 da-col-md-6 da-col-lg-3">
-                                <div class="featured-talent-result-card">
-                                    <div class="featured-talent-profile-pic">
-                                        <img src="../../static/img/candidate_profile/'{{ candidate['profile_pic'] }}" alt="" class="featured-talent-profile-img">
-                                    </div>
-                                    <span class="featured-talent-name text-blue text-center">{{ candidate['fname'] }} {{ candidate['surname'][0] }}.</span>
-                                    <span class="featured-talent-title text-blue text-center">{{ candidate['professional_title'] }}</span>
-                                    <span class="featured-talent-rating text-blue text-center">4.1/5</span>
-                                    <div class="featured-talent-skills">
-
-                                        <span class="talent-skill-pill">Python</span>
-                                        <span class="talent-skill-pill">JS</span>
-                                        <span class="talent-skill-pill">MySQL</span>
-                                        <span class="talent-skill-pill">FullStack</span>
-                                        <span class="talent-skill-pill">Project Management</span>
-                                        <span class="talent-skill-pill">React Native</span>
-                                    </div>
-                                    <div class="featurd-talent-view-btn">
-                                        <a href="" class="btn btn-blue2">View Profile</a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-
-                    </div>
-                </div>
+            <div class="featured-talent-result-box " id="filtered_talents">
+               
             </div>
-            <div class="featured-talent-result-pagination">
-                <!-- pasgination goes here -->
-            </div>
+            
         </div>
     </div>
 </section>

@@ -61,7 +61,10 @@ def findJobs():
 
 @app.route('/find-talent')
 def findTalent():
-    return render_template('find-talent.html')
+    candidates = get_talents()
+    locations = candidates_locations()
+
+    return render_template('find-talent.html',candidates=candidates,locations=locations)
 
 @app.route('/choose')
 def choose():
@@ -97,7 +100,28 @@ def candidateLogin():
         return render_template('candidate/login.html', message = 'Login Below')
 
 
+@app.route('/search_talent', methods=['POST'])
+def search_talent():
 
+    if request.form.get('job_title') != "None":
+
+        job_title = request.form.get('job_title')
+    else:
+        job_title=None
+    location = request.form.get('location')
+    page = int(request.form.get('currentPage', 1))
+    print(job_title)
+    if location == "None" or location == "Select Location":
+        location = None
+    
+    candidates = get_talents(job_title=job_title, location=location)
+    per_page = 24
+    pages = math.ceil(len(candidates) / per_page)
+    start = (page - 1) * per_page
+    end = start + per_page
+    paginated_data = candidates[start:end]
+    
+    return jsonify({'htmlresponse': render_template('components/devs_response.html', candidates=paginated_data, page = page, per_page =per_page, total = pages  )})
 
 @app.route('/company/register')
 def companyReg():
