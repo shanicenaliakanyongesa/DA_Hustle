@@ -8,8 +8,48 @@
                 <p class="text-white text-start">
                     Join Digital Age Hustler today and get access to the best I.T professionals to join your team.
                 </p>
+                <a href="#devs" class="btn btn-light text-primary rounded-pill">Hire Top Talent</a>
             </div>
             
         </div>
+        <section class="candidate-slide">
+            <div class="slide-container swiper">
+                <div class="slide-content">
+                    <div class="card-wrapper swiper-wrapper">
+                                    {% for item in candidates %}
+                                        <div class="card swiper-slide dev_slider">
+                                            <div class="image-content mt-3">
+                                                <span class="overlay"></span>
+                                                <div class="card-image">
+                                                    <img src="../../static/candidate_profile_pics/{{item[8]}}" alt="" class="card-img">
+                                                </div>
+                                            </div>
+                                            <div class="card-content mt-2">
+                                                <span class="name">
+                                                    {{ item[2] }}   </span>
+                                                <!-- <span class="job-title">{{ item[9] }} </span> -->
+                                                {% if item[9] is not none %}
+                                                    {% if item[9]|length > 15 %}
+                                                        <span class="job-title">{{ item[9][:15] }}...</span>
+                                                    {% else %}
+                                                        <span class="job-title">{{ item[9] }}</span>
+                                                    {% endif %}
+                                                {% else %}
+                                                    <span class="job-title">Unknown</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                    
+                                    {% endfor %}
+                    </div>
+                                <div class="swiper-button-next swiper-navBtn text-light" ></div>
+                                <div class="swiper-button-prev swiper-navBtn text-light" ></div>
+                                <!-- <div class="swiper-pagination light"></div> -->
+                        </div>
+                </div>
+        
+        </section>
+        <br><br><br>
     </div>
 </section>

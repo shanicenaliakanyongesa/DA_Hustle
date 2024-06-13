@@ -1,3 +1,17 @@
+<style>
+    #btn-searchfeature{
+        border: 1px; 
+        border-color: #007CAD; 
+        border-style: double;
+        color: #f0ffff;
+        background-color: #007CAD;
+    }
+    #btn-searchfeature:hover{            
+        background-color: #f0ffff;
+        color: #007CAD;
+        border-color: #007CAD; 
+    }
+</style>
 <section>
     <div class="search-2-container">
         <div class="search-2-wrapper">
@@ -6,18 +20,16 @@
             </div>
             <div class="search-2-box">
                 <form action="" class="" method="POST">
-                    <input type="text" class="search-field search-job-title" placeholder="e.g Web Developer">
-                    <select name="location" id="" class="search-field select-search-location">
+                    <input type="text" class="search-field search-job-title" placeholder="e.g Web Developer" id="search_text">
+                    <select name="location" id="search_location" class="search-field select-search-location" >
                         <option>Select Location</option>
-                        <option value="">Location 1</option>
-                        <option value="">Location 2</option>
-                        <option value="">Location 3</option>
-                        <option value="">Location 4</option>
-                        <option value="">Location 5</option>
+                        {% for location in locations %}
+                            <option value="{{location[0]}}">{{location[0]}}</option>
+                        {% endfor %}
                     </select>
-                    <button class="btn btn-blue1">
-                        <span class="search-icon">Search</span>
-                    </button>
+                    <button class="btn btn-primary float-end ms-2" id="btn-searchfeature ">
+                        <i class="fas fa-search"></i><span class="ms-2">Search</span>
+                      </button>
                 </form>
             </div>
         </div>

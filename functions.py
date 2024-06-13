@@ -116,7 +116,33 @@ def get_jobs():
     sql = '''
     SELECT companies.company_name, companies.company_email, postedjobs.job_title, jobtypes.jobtype_name, locations.location_name FROM ( (postedjobs INNER JOIN companies ON postedjobs.company_id = companies.id) INNER JOIN locations ON companies.id = locations.id) INNER JOIN jobtypes ON companies.id = jobtypes.id
        '''
-    
+
+def get_talents(job_title=None,location=None):
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    sql = """select * from  candidates
+    where 1=1 """
+    params = []
+    if job_title:
+        sql += " AND professional_title LIKE %s"
+        params.append(f"%{job_title}%")
+    if location:
+        sql += " AND address = %s"
+        params.append(location)
+    cursor.execute(sql)
+    devs = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return devs
+
+def candidates_locations():
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    cursor.execute("SELECT DISTINCT address FROM candidates ")
+    locations = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return locations
 
 from datetime import datetime, timedelta
 import pytz
