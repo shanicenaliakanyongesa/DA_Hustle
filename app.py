@@ -41,7 +41,7 @@ def search():
     start = (page - 1) * per_page
     end = start + per_page
     paginated_data = featured_jobs[start:end]
-    
+    print(featured_jobs)
     return jsonify({'htmlresponse': render_template('components/response.html', postedjobs=paginated_data, page = page, per_page =per_page, total = pages  )})
 
 

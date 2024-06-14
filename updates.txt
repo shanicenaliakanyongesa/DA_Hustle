@@ -10,3 +10,6 @@ grp 1
 home trending categories
 find jobs companies slider
 find devs - 
+
+
+search filter reset button neede
