@@ -18,7 +18,11 @@
     background-color: var(--blue-7);
     border-radius: 15px;
     text-decoration: none;
+    cursor: pointer;
 }
 .trending-pill:hover{
+    background-color: var(--blue-4);
+}
+.trending-pill .active {
     background-color: var(--blue-4);
 }

@@ -129,7 +129,7 @@ def get_talents(job_title=None,location=None):
     if location:
         sql += " AND address = %s"
         params.append(location)
-    cursor.execute(sql)
+    cursor.execute(sql, params)
     devs = cursor.fetchall()
     cursor.close()
     connection.close()
@@ -143,6 +143,15 @@ def candidates_locations():
     cursor.close()
     connection.close()
     return locations
+
+def developer_tags():
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    cursor.execute("SELECT DISTINCT professional_title FROM candidates limit 10")
+    tags = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return tags
 
 from datetime import datetime, timedelta
 import pytz

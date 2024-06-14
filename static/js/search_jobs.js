@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 
 
-function prev() {
+function prev_jobs() {
     var job_title = $('#search_text').val();
     var location = $('#search_location').val()=="Select Location" ? $('#search_location2').val() : $('#search_location').val();
     var job_type = $('#search_category').val();
@@ -103,7 +103,7 @@ function prev() {
     load_jobs(currentPage, job_title, location, job_type, search_salary);
 };
 
-function next() {
+function next_jobs() {
     var job_title = $('#search_text').val();
     var location = $('#search_location').val()=="Select Location" ? $('#search_location2').val() : $('#search_location').val();
     var job_type = $('#search_category').val();
@@ -112,7 +112,7 @@ function next() {
     currentPage += 1
     load_jobs(currentPage, job_title, location, job_type, search_salary);
 };
-function pages(page_no){
+function pages_jobs(page_no){
     var job_title = $('#search_text').val();
     var location = $('#search_location').val()=="Select Location" ? $('#search_location2').val() : $('#search_location').val();
     var job_type = $('#search_category').val();
