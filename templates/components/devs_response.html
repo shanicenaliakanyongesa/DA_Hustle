@@ -6,15 +6,20 @@
                 <div class="da-col-xs-12 da-col-sm-6 da-col-md-6 da-col-lg-3">
                     <div class="featured-talent-result-card">
                         <div class="featured-talent-profile-pic">
-                            <img src="../../static/candidate_profile_pics/{{candidate[8]}}" alt="" class="featured-talent-profile-img">
+                            <img src="../../static/candidate_profile_pics/{{candidate[4]}}" alt="" class="featured-talent-profile-img" height="75px" style="object-fit: cover;">
                         </div>
-                        <span class="featured-talent-name text-blue text-center">{{ candidate[2] }} {{ candidate[4] }}.</span>
-                        <span class="featured-talent-title text-blue text-center">{{ candidate[9] }}</span>
+                        <span class="featured-talent-name text-blue text-center">{{ candidate[1] }} {{ candidate[2] }}.</span>
+                        <span class="featured-talent-title text-blue text-center">{{ candidate[3] }}</span>
                         <span class="featured-talent-rating text-blue text-center">4.1/5</span>
-                        <div class="featured-talent-skills">
-
-                            <span class="talent-skill-pill">Python</span>
+                        <div class="featured-talent-skills text-center">
+                        {% if candidate[5] != None %}
+                            {% for i in candidate[5][:5]%}    
+                                <span class="talent-skill-pill text-light">{{i}}</span>
+                            {% endfor %}
                             
+                        {% else %}
+                            <span class="talent-skill-pill text-light mt-3">skills pending</span>
+                        {% endif %}
                         </div>
                         <div class="featurd-talent-view-btn">
                             <a href="" class="btn btn-primary btn-sm p-2 px-4 mt-2 text-light rounded-pill">View Profile</a>

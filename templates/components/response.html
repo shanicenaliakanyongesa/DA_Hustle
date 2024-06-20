@@ -43,11 +43,11 @@
             <p>
             <input type="hidden" id="currentPage" value="{{page}}">
             <input type="hidden" id="total" value="{{total}}">
-            <button id="prev" onclick="prev()"><i class="fas fa-chevron-left"></i> prev</button>
+            <button id="prev" onclick="prev_jobs()"><i class="fas fa-chevron-left"></i> prev</button>
             {% for i in range(1, (total+1)) %}
-            <button class="{% if i == page %} active {% endif %}" id="{{i}}" onclick="pages(this.id)">{{i}}</button>
+            <button class="{% if i == page %} active {% endif %}" id="{{i}}" onclick="pages_jobs(this.id)">{{i}}</button>
             {% endfor %}
-            <button id="next" onclick="next()">Next <i class="fas fa-chevron-right"></i> </button>
+            <button id="next" onclick="next_jobs()">Next <i class="fas fa-chevron-right"></i> </button>
             </p>
         </div>
     </div>

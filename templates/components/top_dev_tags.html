@@ -3,15 +3,9 @@
         <div class="trending-wrapper">
             <div class="trending-box">
                 <span class="trending-title text-gray1">Top Developer Tags</span>
-                <a href="#" class="trending-pill">Developer/Engineer</a>
-                <a href="#" class="trending-pill">Front End Developer</a>
-                <a href="#" class="trending-pill">iOS Developer</a>
-                <a href="#" class="trending-pill">Web Developer</a>
-                <a href="#" class="trending-pill">Project Manager</a>
-                <a href="#" class="trending-pill">Data Analyst</a>
-                <a href="#" class="trending-pill">CCNA</a>
-                <a href="#" class="trending-pill">Android Developer</a>
-                <a href="#" class="trending-pill">React Developer</a>
+                {% for tag in developertags%}
+                <span class="trending-pill" id="{{tag[0]}}" onclick="(devtags(this.id))">{{ tag[0]}}</span>
+                {% endfor%}
             </div>
         </div>
     </div>

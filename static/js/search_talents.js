@@ -1,15 +1,15 @@
 // $(document).ready(function(){
     // alert("hi")
     // const perPage = 2;
-    function load_data(currentPage, job_title, location){
+    function load_data(currentPage, job_title, location, tag){
         if(!currentPage) {
             currentPage = 1;
         }
         if (location === "Select Location") {
             location = null;
         }
-        // alert(job_title)
-        // alert(location)
+        alert(tag)
+        alert(job_title)
         $.ajax({
             url: "/search_talent",
             method: "POST",
@@ -17,6 +17,7 @@
                 currentPage: currentPage,
                 job_title: job_title,
                 location: location,
+                tag:tag
             },
             success: function(data){
                 $('#filtered_talents').html(data.htmlresponse);
@@ -87,4 +88,9 @@ function pages(page_no){
     var job_title = $('#search_text').val();
     var location = $('#search_location').val()
     load_data(page_no, job_title, location);
+}
+
+function devtags(tagd) {
+    alert(tagd)
+    load_data(1, "None", "None", tagd)
 }

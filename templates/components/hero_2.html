@@ -21,18 +21,18 @@
                                             <div class="image-content mt-3">
                                                 <span class="overlay"></span>
                                                 <div class="card-image">
-                                                    <img src="../../static/candidate_profile_pics/{{item[8]}}" alt="" class="card-img">
+                                                    <img src="../../static/candidate_profile_pics/{{item[4]}}" alt="" class="card-img">
                                                 </div>
                                             </div>
                                             <div class="card-content mt-2">
                                                 <span class="name">
                                                     {{ item[2] }}   </span>
                                                 <!-- <span class="job-title">{{ item[9] }} </span> -->
-                                                {% if item[9] is not none %}
-                                                    {% if item[9]|length > 15 %}
-                                                        <span class="job-title">{{ item[9][:15] }}...</span>
+                                                {% if item[3] is not none %}
+                                                    {% if item[3]|length > 15 %}
+                                                        <span class="job-title">{{ item[3][:15] }}...</span>
                                                     {% else %}
-                                                        <span class="job-title">{{ item[9] }}</span>
+                                                        <span class="job-title">{{ item[3] }}</span>
                                                     {% endif %}
                                                 {% else %}
                                                     <span class="job-title">Unknown</span>

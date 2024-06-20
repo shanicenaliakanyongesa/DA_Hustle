@@ -11,10 +11,11 @@ def home():
     jobType = get_jobType()
     salaryRange = get_salaryRange()
     candidates = get_candidates()
+    developertags = developer_tags()
     companies, total_records = get_companies(page=1, per_page=5)  # Initial load, first 5 companies
     total_pages = (total_records + 4) // 5  # Calculate total pages (5 items per page)
     featured_jobs = get_featured_jobs()
-    return render_template('home.html', locations=locations, jobtypes=jobType, salaryranges=salaryRange, companies=companies, total_pages=total_pages, postedjobs = featured_jobs, candidates=candidates)
+    return render_template('home.html', locations=locations, jobtypes=jobType, salaryranges=salaryRange, developertags=developertags, companies=companies, total_pages=total_pages, postedjobs = featured_jobs, candidates=candidates)
 
 
 @app.route('/search', methods=['POST'])
@@ -31,17 +32,11 @@ def search():
         job_type = None
     
     featured_jobs = get_featured_jobs(job_title=job_title, location=location, job_type=job_type, salary_range=salary_range)
-    print(page)
-    # print(job_title)
-    # print(location)
-    print(job_type)
-    # print(salary_range)
     per_page = 4
     pages = math.ceil(len(featured_jobs) / per_page)
     start = (page - 1) * per_page
     end = start + per_page
     paginated_data = featured_jobs[start:end]
-    print(featured_jobs)
     return jsonify({'htmlresponse': render_template('components/response.html', postedjobs=paginated_data, page = page, per_page =per_page, total = pages  )})
 
 
@@ -63,8 +58,9 @@ def findJobs():
 def findTalent():
     candidates = get_talents()
     locations = candidates_locations()
+    developertags = developer_tags()
 
-    return render_template('find-talent.html',candidates=candidates,locations=locations)
+    return render_template('find-talent.html',candidates=candidates,locations=locations,developertags=developertags)
 
 @app.route('/choose')
 def choose():
@@ -93,7 +89,6 @@ def candidateLogin():
         else:
             candidate = cursor.fetchone()
             session['key'] = candidate[2]
-            print(session['key'])
             return redirect('/')
 
     else:
@@ -109,12 +104,14 @@ def search_talent():
     else:
         job_title=None
     location = request.form.get('location')
+    tag = request.form.get('tag')
     page = int(request.form.get('currentPage', 1))
-    print(job_title)
+    if tag == "None" or tag == "":
+        tag = None
     if location == "None" or location == "Select Location":
         location = None
     
-    candidates = get_talents(job_title=job_title, location=location)
+    candidates = get_talents(job_title=job_title, location=location, tag=tag)
     per_page = 24
     pages = math.ceil(len(candidates) / per_page)
     start = (page - 1) * per_page

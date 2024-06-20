@@ -117,23 +117,44 @@ def get_jobs():
     SELECT companies.company_name, companies.company_email, postedjobs.job_title, jobtypes.jobtype_name, locations.location_name FROM ( (postedjobs INNER JOIN companies ON postedjobs.company_id = companies.id) INNER JOIN locations ON companies.id = locations.id) INNER JOIN jobtypes ON companies.id = jobtypes.id
        '''
 
-def get_talents(job_title=None,location=None):
+def get_talents(job_title=None,location=None, tag = None):
     connection = pymysql.connect(**db_config)
     cursor = connection.cursor()
-    sql = """select * from  candidates
-    where 1=1 """
+    sql = """
+            select candidates.id,
+            candidates.fname,
+            candidates.lname,
+            candidates.professional_title,
+            candidates.profile_pic,
+         GROUP_CONCAT(skills.skill_name SEPARATOR ',') AS skills
+            from candidates       
+            LEFT JOIN candidates_technicalskills ON candidates.id = candidates_technicalskills.candidate_id
+            LEFT JOIN skills ON skills.id = candidates_technicalskills.skill_id
+            where 1=1
+            GROUP BY candidates.id
+    """
+    print("my tag is " + tag)
     params = []
     if job_title:
-        sql += " AND professional_title LIKE %s"
+        sql += " AND candidates.professional_title LIKE %s"
         params.append(f"%{job_title}%")
     if location:
         sql += " AND address = %s"
         params.append(location)
-    cursor.execute(sql)
+    if tag:
+        sql += " AND candidates.professional_title = %s"
+        params.append(tag)
+    cursor.execute(sql, params)
     devs = cursor.fetchall()
     cursor.close()
     connection.close()
-    return devs
+    ldves = []
+    for dev in devs:
+        dev = list(dev)
+        if dev[5]:
+            dev[5] = dev[5].split(',')
+        ldves.append(dev)
+    return ldves
 
 def candidates_locations():
     connection = pymysql.connect(**db_config)
@@ -143,6 +164,15 @@ def candidates_locations():
     cursor.close()
     connection.close()
     return locations
+
+def developer_tags():
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    cursor.execute("SELECT DISTINCT professional_title FROM candidates limit 10")
+    tags = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return tags
 
 from datetime import datetime, timedelta
 import pytz
