@@ -1,7 +1,7 @@
 // $(document).ready(function(){
     // alert("hi")
     const perPage = 2;
-    function load_jobs(currentPage, job_title, location, job_type, search_salary){
+    function load_jobs(currentPage, job_title, location, job_type, search_salary,tag){
         if(!currentPage) {
             currentPage = 1;
         }
@@ -14,7 +14,6 @@
         if (search_salary  === "Salary Range") {
             search_salary = null;
         }
-        // alert(currentPage)
         $.ajax({
             url: "/search",
             method: "POST",
@@ -24,6 +23,7 @@
                 location: location,
                 job_type: job_type,
                 search_salary: search_salary,
+                tag: tag
             },
             success: function(data){
                 $('#filtered').html(data.htmlresponse);
@@ -118,4 +118,17 @@ function pages_jobs(page_no){
     var job_type = $('#search_category').val();
     var search_salary = $('#search_salary').val();
     load_jobs(page_no, job_title, location, job_type, search_salary);
+}
+
+function cat_tags(tagd) {
+    var job_title = $('#search_text').val();
+    var location = $('#search_location').val()=="Select Location" ? $('#search_location2').val() : $('#search_location').val();
+    var job_type = $('#search_category').val();
+    var search_salary = $('#search_salary').val();
+    var currentPage = parseInt($('#currentPage').val(), 0);
+    // if (currentPage > 1) {
+    //     load_jobs(currentPage - 1);
+    // }
+    currentPage -= 1;
+    load_jobs(currentPage, job_title, location, job_type, search_salary, tagd);
 }

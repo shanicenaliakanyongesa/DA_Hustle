@@ -10,10 +10,14 @@
                         </div>
                         <span class="featured-talent-name text-blue text-center">{{ candidate[1] }} {{ candidate[2] }}.</span>
                         <span class="featured-talent-title text-blue text-center">{{ candidate[3] }}</span>
-                        <span class="featured-talent-rating text-blue text-center">4.1/5</span>
-                        <div class="featured-talent-skills text-center">
                         {% if candidate[5] != None %}
-                            {% for i in candidate[5][:5]%}    
+                            <span class="featured-talent-rating text-blue text-center">{{ candidate[5]}}/5</span>
+                        {% else %}
+                            <span class="featured-talent-rating text-blue text-center">0.2/5</span>
+                        {% endif %}
+                        <div class="featured-talent-skills text-center">
+                        {% if candidate[6] != None %}
+                            {% for i in candidate[6][:]%}    
                                 <span class="talent-skill-pill text-light">{{i}}</span>
                             {% endfor %}
                             

@@ -3,9 +3,8 @@
         <div class="trending-wrapper">
             <div class="trending-box">
                 <span class="trending-title text-gray1">Trending Categories</span>
-                {% for tag in developertags %}
-                {% set x = 1 %}
-                <span id="{{tag[0]}}" class="trending-pill">{{ tag[0]}}</span>
+                {% for cat in categories %}
+                <span id="{{cat[0]}}" onclick="(cat_tags(this.id))" id="{{cat[0]}}" class="trending-pill">{{ cat[0]}}</span>
                 {% endfor %}
             </div>
         </div>

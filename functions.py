@@ -51,7 +51,7 @@ def get_salaryRange():
 #     return featured_jobs
 
 
-def get_featured_jobs(job_title=None, location=None, job_type=None, salary_range=None):
+def get_featured_jobs(job_title=None, location=None, job_type=None, salary_range=None, tag=None):
     connection = pymysql.connect(**db_config)
     cursor = connection.cursor()
 
@@ -74,7 +74,8 @@ def get_featured_jobs(job_title=None, location=None, job_type=None, salary_range
     LEFT JOIN skills ON skills.id = postedjobs_skills.skill_id
     WHERE 1=1
     """
-
+    
+    print(tag)
     params = []
     if job_title:
         query += " AND postedjobs.job_title LIKE %s"
@@ -88,12 +89,14 @@ def get_featured_jobs(job_title=None, location=None, job_type=None, salary_range
     if salary_range:
         query += " AND postedjobs.salary_range_id = %s"
         params.append(salary_range)
+    if tag:
+        query += " and postedjobs.job_title = %s"
+        params.append(tag)
 
-    query += " GROUP BY companies.company_name, companies.company_logo, postedjobs.job_title, jobtypes.jobtype_name, locations.location_name"
+    query += " GROUP BY postedjobs.id"
 
     cursor.execute(query, params)
     featured_jobs = cursor.fetchall()
-
     cursor.close()
     connection.close()
     return featured_jobs
@@ -117,7 +120,7 @@ def get_jobs():
     SELECT companies.company_name, companies.company_email, postedjobs.job_title, jobtypes.jobtype_name, locations.location_name FROM ( (postedjobs INNER JOIN companies ON postedjobs.company_id = companies.id) INNER JOIN locations ON companies.id = locations.id) INNER JOIN jobtypes ON companies.id = jobtypes.id
        '''
 
-def get_talents(job_title=None,location=None, tag = None):
+def get_talents(job_title=None,location=None, tag = None, rating= None):
     connection = pymysql.connect(**db_config)
     cursor = connection.cursor()
     sql = """
@@ -126,14 +129,15 @@ def get_talents(job_title=None,location=None, tag = None):
             candidates.lname,
             candidates.professional_title,
             candidates.profile_pic,
-         GROUP_CONCAT(skills.skill_name SEPARATOR ',') AS skills
+            ROUND(avg(candidates_rating.rating), 1) as av_rating,
+         GROUP_CONCAT(DISTINCT skills.skill_name SEPARATOR ',') AS skills
             from candidates       
             LEFT JOIN candidates_technicalskills ON candidates.id = candidates_technicalskills.candidate_id
             LEFT JOIN skills ON skills.id = candidates_technicalskills.skill_id
+            left join candidates_rating on candidates.id = candidates_rating.candidate_id
             where 1=1
-            GROUP BY candidates.id
+            GROUP BY candidates.id order by av_rating desc
     """
-    print("my tag is " + tag)
     params = []
     if job_title:
         sql += " AND candidates.professional_title LIKE %s"
@@ -144,6 +148,11 @@ def get_talents(job_title=None,location=None, tag = None):
     if tag:
         sql += " AND candidates.professional_title = %s"
         params.append(tag)
+    if rating:
+        print(rating)
+        sql += " HAVING av_rating >= %s"
+        params.append(rating)
+    print(sql)
     cursor.execute(sql, params)
     devs = cursor.fetchall()
     cursor.close()
@@ -151,8 +160,8 @@ def get_talents(job_title=None,location=None, tag = None):
     ldves = []
     for dev in devs:
         dev = list(dev)
-        if dev[5]:
-            dev[5] = dev[5].split(',')
+        if dev[6]:
+            dev[6] = dev[6].split(',')
         ldves.append(dev)
     return ldves
 
@@ -168,12 +177,24 @@ def candidates_locations():
 def developer_tags():
     connection = pymysql.connect(**db_config)
     cursor = connection.cursor()
-    cursor.execute("SELECT DISTINCT professional_title FROM candidates limit 10")
+    cursor.execute("SELECT professional_title, AVG(professional_title) as aver_cat FROM candidates GROUP BY professional_title ORDER BY aver_cat DESC limit 10")
     tags = cursor.fetchall()
     cursor.close()
     connection.close()
     return tags
 
+
+def category_tags():
+    sql = """SELECT job_title, AVG(job_title) as aver_cat FROM postedjobs 
+        GROUP BY job_title
+        ORDER BY aver_cat DESC limit 10"""
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    tags = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return tags
 from datetime import datetime, timedelta
 import pytz
 

@@ -12,10 +12,11 @@ def home():
     salaryRange = get_salaryRange()
     candidates = get_candidates()
     developertags = developer_tags()
+    categories = category_tags()
     companies, total_records = get_companies(page=1, per_page=5)  # Initial load, first 5 companies
     total_pages = (total_records + 4) // 5  # Calculate total pages (5 items per page)
     featured_jobs = get_featured_jobs()
-    return render_template('home.html', locations=locations, jobtypes=jobType, salaryranges=salaryRange, developertags=developertags, companies=companies, total_pages=total_pages, postedjobs = featured_jobs, candidates=candidates)
+    return render_template('home.html', locations=locations, jobtypes=jobType, salaryranges=salaryRange, categories=categories, companies=companies, total_pages=total_pages, postedjobs = featured_jobs, candidates=candidates)
 
 
 @app.route('/search', methods=['POST'])
@@ -25,13 +26,16 @@ def search():
     job_type = request.form.get('job_type')
     salary_range = request.form.get('search_salary')
     page = int(request.form.get('currentPage', 1))
-
+    tag = request.form.get('tag')
+    print(tag)
+    if tag == "None" or tag == "":
+        tag = None
     if location == "None" or location == "Select Location":
         location = None
     if job_type == "None" or location == "Job Type":
         job_type = None
     
-    featured_jobs = get_featured_jobs(job_title=job_title, location=location, job_type=job_type, salary_range=salary_range)
+    featured_jobs = get_featured_jobs(job_title=job_title, location=location, job_type=job_type, salary_range=salary_range, tag=tag)
     per_page = 4
     pages = math.ceil(len(featured_jobs) / per_page)
     start = (page - 1) * per_page
@@ -110,10 +114,15 @@ def search_talent():
     page = int(request.form.get('currentPage', 1))
     if tag == "None" or tag == "":
         tag = None
+    rating = request.form.get('rating')
+    if rating == "None" or rating == "" or not(rating):
+        rating = None
+    # else: 
+    #     rating = float(rating)
     if location == "None" or location == "Select Location":
         location = None
     
-    candidates = get_talents(job_title=job_title, location=location, tag=tag)
+    candidates = get_talents(job_title=job_title, location=location, tag=tag, rating=rating)
     per_page = 24
     pages = math.ceil(len(candidates) / per_page)
     start = (page - 1) * per_page

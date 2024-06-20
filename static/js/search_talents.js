@@ -1,15 +1,18 @@
 // $(document).ready(function(){
     // alert("hi")
     // const perPage = 2;
-    function load_data(currentPage, job_title, location, tag){
+    function load_data(currentPage, job_title, location, tag, rating){
         if(!currentPage) {
             currentPage = 1;
         }
         if (location === "Select Location") {
             location = null;
         }
-        alert(tag)
-        alert(job_title)
+        if (rating === "Select Rating") {
+            rating = null;
+        }
+        // alert(tag)
+        alert(rating)
         $.ajax({
             url: "/search_talent",
             method: "POST",
@@ -17,7 +20,8 @@
                 currentPage: currentPage,
                 job_title: job_title,
                 location: location,
-                tag:tag
+                tag:tag,
+                rating: rating
             },
             success: function(data){
                 $('#filtered_talents').html(data.htmlresponse);
@@ -44,9 +48,9 @@
     function fetch_results() {
         var job_title = $('#search_text').val();
         var location = $('#search_location').val()
+        var rating = $('#search_rating').val()
         var currentPage = 1;
-        // alert(job_type)
-        load_data(currentPage, job_title, location);
+        load_data(currentPage, job_title, location, "None", rating);
     }
 
     $('#search_text').keyup(function(){
@@ -57,11 +61,12 @@
         fetch_results();
     });
 
+    $('#search_rating').change(function(){
+        fetch_results();
+    });
+
 $(document).ready(function(){
     load_data();
-    // $('#paginate').customPaginator({
-    //     pageItems:  $('.job_item'),
-    // });
 });
 
 
@@ -91,6 +96,5 @@ function pages(page_no){
 }
 
 function devtags(tagd) {
-    alert(tagd)
     load_data(1, "None", "None", tagd)
 }
