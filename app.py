@@ -59,7 +59,9 @@ def findTalent():
     candidates = get_talents()
     locations = candidates_locations()
     developertags = developer_tags()
+    developertags = developer_tags()
 
+    return render_template('find-talent.html',candidates=candidates,locations=locations,developertags=developertags)
     return render_template('find-talent.html',candidates=candidates,locations=locations,developertags=developertags)
 
 @app.route('/choose')
