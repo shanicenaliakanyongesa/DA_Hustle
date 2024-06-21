@@ -12,7 +12,7 @@
             rating = null;
         }
         // alert(tag)
-        alert(rating)
+        // alert(rating)
         $.ajax({
             url: "/search_talent",
             method: "POST",

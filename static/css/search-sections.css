@@ -36,6 +36,7 @@
 .search-2-container{
     background-color: var(--blue-6);
     padding:20px 0;
+    /* padding: 10px 0; */
 }
 .search-2-wrapper{
     display: flex;

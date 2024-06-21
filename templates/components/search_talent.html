@@ -1,52 +1,58 @@
 <style>
-    #btn-searchfeature{
-        border: 1px; 
-        border-color: #007CAD; 
+    #btn-searchfeature {
+        border: 1px;
+        border-color: #007CAD;
         border-style: double;
         color: #f0ffff;
         background-color: #007CAD;
     }
-    #btn-searchfeature:hover{            
+    #btn-searchfeature:hover {
         background-color: #f0ffff;
         color: #007CAD;
-        border-color: #007CAD; 
+        border-color: #007CAD;
+    }
+    .search-field {
+        padding: 5px 10px; 
+        color: #007CAD;
+    }
+    .search-job-title, .select-search-rating, .select-search-location {
+        width: 100%;
     }
 </style>
 <section>
     <div class="search-2-container">
-        <div class="search-2-wrapper">
-            <div class="search-2-title-box">
-                <p class="text-white">Search for talented candidates</p>
+        <div class="container">
+            <div class="search-2-title-box text-center">
+                <h3 class="text-white">Search for talented candidates</h3>
             </div>
-            <div class="search-2-box">
-                <div class="row">
+            <div class="search-2-box ">
+                <div class="row mx-3">
                     <form action="javascript:void(0);" method="POST" class="row g-2 align-items-center">
-                        <div class="col-md-5">
+                        <div class="col-md-3">
                             <input type="text" class="search-field search-job-title" placeholder="e.g Web Developer" id="search_text">
-
                         </div>
-                        <select name="rating" id="search_rating" class="search-field select-search-rating">
-                            <option>Select Rating</option>
-                            <option value="1">1<i class="fas fa-star"></i></option>
-                            <option value="2">2<i class="fas fa-star"></i><i class="fas fa-star"></i></option>
-                            <option value="3">3<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></option>
-                            <option value="4">4<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></option>
-                            <option value="5">5<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></option>
-                        </select>
-                        <div class="col-md-4">
-                            <select name="location" id="search_location" class="search-field select-search-location" >
+                        <div class="col-md-3">
+                            <select name="rating" id="search_rating" class="search-field select-search-rating">
+                                <option>Select Rating</option>
+                                <option value="1">1 <i class="fas fa-search"></option>
+                                <option value="2">2<i class="fas fa-star"></i><i class="fas fa-star"></i></option>
+                                <option value="3">3<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></option>
+                                <option value="4">4<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></option>
+                                <option value="5">5<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="location" id="search_location" class="search-field select-search-location">
                                 <option>Select Location</option>
                                 {% for location in locations %}
                                     <option value="{{location[0]}}">{{location[0]}}</option>
                                 {% endfor %}
                             </select>
-
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-primary float-end ms-2" id="btn-searchfeature ">
+                            <button class="btn btn-primary w-100 " id="btn-searchfeature">
                                 <i class="fas fa-search"></i><span class="ms-2">Search</span>
                             </button>
-
                         </div>
                     </form>
                 </div>
@@ -54,3 +60,4 @@
         </div>
     </div>
 </section>
+

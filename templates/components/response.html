@@ -1,10 +1,10 @@
 <!-- <h5 style="color: #007CAD;">{{ postedjobs|length }} Job(s) Found</h5> -->
  <!-- <h5 style="color: #007CAD;">Jobs on Digital Age Hustler</h5> -->
-<div class="featured-result-box">
+<div class="featured-result-box ">
     <div class="featured-result-box-wrapper">
         {% if postedjobs %}
         {% for job in postedjobs %}
-        <div class="job_item">
+        <div class="job_item ">
             <a class="featured-result-item mb-3" href="#">
                 <div class="company-logo-area">
                     <div class="company-logo">
@@ -38,7 +38,7 @@
         {% endif %}
 
     </div>
-    <div style="text-align: center;">
+    <div style="text-align: center; ">
         <div class="featured-result-pagination" id="paginate">
             <p>
             <input type="hidden" id="currentPage" value="{{page}}">

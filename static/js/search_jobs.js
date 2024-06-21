@@ -78,7 +78,7 @@
     });
     $('#curr').click(function(){
         let num = $(this).text();
-        alert('hi')
+        // alert('hi')
     })
 
 $(document).ready(function(){
