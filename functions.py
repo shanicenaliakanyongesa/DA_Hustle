@@ -136,7 +136,7 @@ def get_talents(job_title=None,location=None, tag = None, rating= None):
             LEFT JOIN skills ON skills.id = candidates_technicalskills.skill_id
             left join candidates_rating on candidates.id = candidates_rating.candidate_id
             where 1=1
-            GROUP BY candidates.id order by av_rating desc
+            GROUP BY candidates.id 
     """
     params = []
     if job_title:
@@ -152,7 +152,7 @@ def get_talents(job_title=None,location=None, tag = None, rating= None):
         print(rating)
         sql += " HAVING av_rating >= %s"
         params.append(rating)
-    print(sql)
+    sql+=" order by av_rating desc"
     cursor.execute(sql, params)
     devs = cursor.fetchall()
     cursor.close()
