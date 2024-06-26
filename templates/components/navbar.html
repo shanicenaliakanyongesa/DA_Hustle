@@ -1,141 +1,56 @@
-<head>
-    <link rel="stylesheet" href="../../static/css/bootstrap.css">
-    <script src="../../static/js/bootstrap.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap'); /* Import a font from Google Fonts */
-
-        .navbar-brand {
-            color: rgb(93, 147, 240) !important; /* Use the same blue color as the example */
-            font-family: 'Robcoto', sans-serif; /* Use the Roboto font */
-            font-weight: bold;
-        }
-
-        .nav-link {
-            color: rgb(93, 147, 240) !important; /* Use the same blue color as the example */
-            font-family: 'Robcoto', sans-serif; /* Use the Roboto font */
-           
-        }
-
-
-
-
-        .nav-link {
-            margin-right: 15px; /* Add spacing between the links */
-        }
-
-        .nav-link.active {
-            background: rgb(93, 147, 240);
-            color: white !important;
-            border-radius: 10px;
-        }
-
-        .nav-link:hover {
-            background: rgb(86, 145, 248);
-            color: white !important;
-            border-radius: 10px;
-        }
-
-        .nav-link.button {
-            border: 2px solid #007BFF; /* Blue outline */
-            border-radius: 10px; /* Rounded corners */
-            padding: 6px 20px; /* Padding inside the badge */
-            color: rgb(93, 147, 240) !important; /* Text color */
-            display: inline-block;
-            text-align: center;
-        }
-
-        .nav-link.badge:hover {
-            background-color: #007BFF;
-            color: white !important; /* Text color on hover */
-        }
-        @media (max-width: 991.98px) {
-            .navbar-collapse {
-              text-align: center; /* Center the text when collapsed */
-            }
-            .navbar-nav {
-              flex-direction: column; /* Stack items vertically */
-            }
-            .nav-item {
-                margin: 4px 0; /* Add vertical margin to space out links */
-              }
-          .nav-link.button {
-            border: 2px solid #007BFF; /* Blue outline */
-            border-radius: 140px; /* Rounded corners */
-            padding: 10px 30px; /* Padding inside the badge */
-        
-            display: inline-block;
-            text-align: center;
-          }
-
-    
-
-        .nav-link.badge:hover {
-            background-color: #007BFF;
-            color: white !important; /* Text color on hover */
-        }
-
-        #signup:hover {
-            color: white;
-            border: 2px solid #007BFF; 
-        }
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Digital Hustle</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link text-blue" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/aboutus">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/find-jobs">Find Jobs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/find-talent">Find Talent</a>
+            </li>
+            {% if session['key'] %}
+            <li class="nav-item">
+                <a class="nav-link" style="border: 2px solid #007BFF; " href="/logout">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" style="border: 2px solid #007BFF; border-radius: 10px;"  href="/choose">Sign Up</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    </div>
+  </nav>
+  <script>
+    // Function to set the active link
+    function setActiveLink(event) {
+        // Remove 'active' class from all links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        // Add 'active' class to the clicked link
+        event.target.classList.add('active');
     }
-    </style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Digital Hustle</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-blue" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/aboutus">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/find-jobs">Find Jobs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/find-talent">Find Talent</a>
-                    </li>
-                    {% if session['key'] %}
-                    <li class="nav-item">
-                        <a class="nav-link" style="border: 2px solid #007BFF; " href="/logout">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" style="border: 2px solid #007BFF; border-radius: 10px;"  href="/choose">Sign Up</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <script>
-        // Function to set the active link
-        function setActiveLink(event) {
-            // Remove 'active' class from all links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            // Add 'active' class to the clicked link
-            event.target.classList.add('active');
-        }
-   
-        // Add event listeners to all links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', setActiveLink);
-        });
 
-        // Optional: Set active class based on current URL
-        document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.href === window.location.href) {
-                link.classList.add('active');
-            }
-        });
-    </script>
-</body>
+    // Add event listeners to all links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', setActiveLink);
+    });
+
+    // Optional: Set active class based on current URL
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        }
+    });
+</script>
