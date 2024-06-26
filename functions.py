@@ -232,3 +232,20 @@ def get_candidates():
     cursor.close()
     connection.close()
     return candidates
+
+
+import bcrypt
+def hash_password(password):
+    bytes = password.encode("utf-8")
+    salt = bcrypt.gensalt()
+    print('Salt: ', salt)
+    hash = bcrypt.hashpw(bytes, salt)
+    print("Hash", hash.decode())
+    return hash.decode()
+
+
+def hash_verify(password,  hashed_password):
+    bytes = password.encode('utf-8')
+    result = bcrypt.checkpw(bytes, hashed_password.encode())
+    print(result)
+    return result
