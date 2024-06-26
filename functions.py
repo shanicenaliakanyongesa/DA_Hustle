@@ -249,3 +249,12 @@ def hash_verify(password,  hashed_password):
     result = bcrypt.checkpw(bytes, hashed_password.encode())
     print(result)
     return result
+
+def get_allcompanies():
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM companies")
+    companies = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return companies

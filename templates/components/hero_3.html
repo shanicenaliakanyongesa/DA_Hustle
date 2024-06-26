@@ -1,15 +1,56 @@
 <section>
-    <div class="hero-3-container">
-        <div class="hero-3-wrapper">
-            <div class="hero-3-title">
-                <h1 class="text-white text-start">Get Your Dream I.T Job</h1>
-            </div>
-            <div class="hero-3-text">
-                <p class="text-white text-start">
-                    Checkout companies looking to hire I.T professionals just like yourself.
-                </p>
-            </div>
-            
-        </div>
+    <div class="hero-2-container">
+    <div class="hero-2-wrapper">
+    <div class="hero-2-title">
+    <h1 class="text-white text-start">Get Your Dream I.T Job</h1>
     </div>
-</section>
+    <div class="hero-2-text">
+    <p class="text-white text-start">
+    Checkout companies looking to hire I.T professionals just like yourself.
+    </p>
+    <a href="#search_text" class="btn btn-light text-primary rounded-pill p-2">Search For Jobs</a>
+    </div>
+     
+    
+    </div>
+    <section class="candidate-slide">
+    <div class="slide-container swiper">
+    <div class="slide-content">
+    <div class="card-wrapper swiper-wrapper">
+    {% for item in mycompanies %}
+    <div class="card swiper-slide dev_slider">
+    <div class="image-content mt-3">
+    <span class="overlay"></span>
+    <div class="card-image" style="width: 100px;height:100px;">
+    <img src="../../static/company_logos/{{item[3]}}" alt="" class="card-img" >
+    </div>
+    </div>
+    <div class="card-content mt-2">
+    {% if item[1] is not none %}
+    {% if item[1]|length > 15 %}
+    <span class="name">{{ item[1][:15] }}...</span>
+    {% else %}
+    <span class="name">{{ item[1] }}</span>
+    {% endif %}
+    {% else %}
+    <span class="name">Unknown</span>
+    {% endif %}
+    </div>
+    </div>
+     
+    
+     
+    
+    {% endfor %}
+    </div>
+    <div class="swiper-button-next swiper-navBtn text-light" ></div>
+    <div class="swiper-button-prev swiper-navBtn text-light" ></div>
+    <!-- <div class="swiper-pagination light"></div> -->
+    </div>
+    </div>
+     
+    
+    </section>
+    <br><br><br>
+    </div>
+    </section>
