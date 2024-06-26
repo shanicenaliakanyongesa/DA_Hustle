@@ -1,29 +1,32 @@
-{% include '../components/header.html' %}
-{% include '../components/navbar.html' %}
+{% include '/components/header.html' %}
+{% include '/components/navbar.html' %}
+
 <section>
     <div class="auth-form-container">
         <div class="auth-form-wrapper">
             <div class="auth-form-title">
-                <p class="text-blue3">Register Your Company Below</p>
+                <p class="text-blue3">{{message}}</p>
+                <p class="text-blue3" style="color: red;">{{warning}}</p>
+                <p class="text-blue3" style="color: green;">{{success}}</p>
             </div>
             <div class="auth-form-box">
-                <form action="#" method="POST">
-                    @csrf
+                <form action="/company/register" method="POST">
+                   
                     <div class="auth-from-row">
                         <div class="auth-form-group">
                             <label for="email" class="auth-form-label">Email</label>
-                            <input id="email" class="auth-form-input" type="email" name="company_email" value="{{ old('company_email.html' %} }}">
+                            <input id="email" class="auth-form-input" type="email" name="company_email" value="">
                             <small class="auth-form-error">
-                                    {{ $message }}
+                                    {{error1}}
                             </small>
                         </div>
                     </div>
                     <div class="auth-from-row">
                         <div class="auth-form-group">
                             <label for="name" class="auth-form-label">Company Name</label>
-                            <input id="name" class="auth-form-input" type="text" name="company_name" value="{{ old('company_name.html' %} }}">
+                            <input id="name" class="auth-form-input" type="text" name="company_name" value="">
                             <small class="auth-form-error">
-                                    {{ $message }}
+                                    {{error2}}
                             </small>
                         </div>
                     </div>
@@ -33,14 +36,15 @@
                             <label for="password" class="auth-form-label">Password</label>
                             <input id="password" class="auth-form-input" type="password" name="password" >
                             <small class="auth-form-error">
-                                    {{ $message }}
+                                     {{error3}}
+                                     {{error4}}
                             </small>
                         </div>
                         <div class="auth-form-group">
                             <label for="password_confirmation" class="auth-form-label">Confirm Password</label>
                             <input id="password_confirmation" class="auth-form-input" type="password" name="password_confirmation" >
                             <small class="auth-form-error">
-                                    {{ $message }}
+                                     {{error5}}
                             </small>
                         </div>
                     </div>
@@ -52,7 +56,7 @@
 
                 </form>
             </div>
-            <a href="#" class="auth-form-link">{{ 'Already have an account? Click here' }}</a>
+            <a href="#" class="auth-form-link"></a>
         </div>
     </div>
 </section>

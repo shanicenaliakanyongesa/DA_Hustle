@@ -72,9 +72,51 @@ def findTalent():
 def choose():
     return render_template('choose.html')
 
-@app.route('/candidate/register')
+@app.route('/candidate/register', methods = ['POST', 'GET'])
 def candidateReg():
-    return render_template('candidate/register.html')
+    if request.method == 'POST':
+        email = request.form['email']
+        firstname = request.form['fname']
+        surname = request.form['surname']
+        password = request.form['password']
+        confirm = request.form['password_confirmation']
+
+        connection = pymysql.connect(host='localhost', user='root',password='', database='hustle_db' )
+        cursor = connection.cursor()
+
+        data = (email, firstname, surname, hash_password(password))
+        sql = ''' insert into candidates (email, fname, surname, password) values (%s, %s, %s, %s) '''
+
+        if len(email) <= 0:
+            return render_template('candidate/register.html', error1 = 'Email Cannot be Empty')
+        
+        elif len(firstname) <= 0:
+            return render_template('candidate/register.html', error2 = 'First Name Cannot be Empty')
+        
+        elif len(surname) <= 0:
+            return render_template('candidate/register.html', error3 = 'Surname Cannot be Empty')
+        
+        elif len(password) <= 0:
+            return render_template('candidate/register.html', error4 = 'Password Cannot be Empty')
+        
+        elif len(password) < 8:
+            return render_template('candidate/register.html', error5 = 'Password Less Than 8 Characters')
+        
+        elif password != confirm:
+            return render_template('candidate/register.html', error6 = 'Password Not Matching')
+        
+        else:
+            try:
+                cursor.execute(sql, data)
+                connection.commit()
+                return render_template('candidate/register.html', success = 'Candidate Registered')
+            except:
+                connection.rollback()
+                return render_template('candidate/register.html', warning = 'Something Went Wrong')
+
+
+    else:
+        return render_template('candidate/register.html', message = "Sign-up Below")
 
 
 @app.route('/candidate/login', methods = ['POST', 'GET'])
@@ -83,19 +125,24 @@ def candidateLogin():
         candidate_email = request.form['email']
         candidate_password = request.form['password']
 
-        data = (candidate_email, candidate_password)
-        sql = 'select * from candidates where email = %s and password = %s'
+        sql = 'select * from candidates where email = %s'
 
         connection = pymysql.connect(host='localhost', user='root',password='', database='hustle_db' )
         cursor = connection.cursor()
-        cursor.execute(sql, data)
+        cursor.execute(sql, candidate_email)
+
         count = cursor.rowcount
         if count == 0:
-            return render_template('candidate/login.html', message = 'Invalid Credentials')
+            return render_template('candidate/login.html', error = 'Candidate Email not Found')
         else:
             candidate = cursor.fetchone()
-            session['key'] = candidate[2]
-            return redirect('/')
+            hashed_password = candidate[6]
+            if hash_verify(candidate_password, hashed_password):
+                session['key'] = candidate[2]
+                return redirect('/')
+            else:
+                return render_template('candidate/login.html', error = 'Password Not Found')
+
 
     else:
         return render_template('candidate/login.html', message = 'Login Below')
@@ -131,13 +178,80 @@ def search_talent():
     
     return jsonify({'htmlresponse': render_template('components/devs_response.html', candidates=paginated_data, page = page, per_page =per_page, total = pages  )})
 
-@app.route('/company/register')
+@app.route('/company/register',  methods = ['POST', 'GET'])
 def companyReg():
-    return render_template('company/register.html')
+    if request.method == 'POST':
+        company_email = request.form['company_email']
+        company_name = request.form['company_name']
+        password = request.form['password']
+        confirm = request.form['password_confirmation']
 
-@app.route('/company/login')
+        connection = pymysql.connect(host='localhost', user='root',password='', database='hustle_db' )
+        cursor = connection.cursor()
+
+        data = (company_name,company_email,hash_password(password))
+
+        sql = ''' insert into companies (company_name, company_email, password) values (%s, %s, %s) '''
+
+        if len(company_email) <= 0:
+            return render_template('company/register.html', error1 = 'Email Cannot be Empty')
+        
+        elif len(company_name) <= 0:
+            return render_template('company/register.html', error2 = 'Company Name Cannot be Empty')
+        
+        
+        
+        elif len(password) <= 0:
+            return render_template('company/register.html', error3 = 'Password Cannot be Empty')
+        
+        elif len(password) < 8:
+            return render_template('company/register.html', error4 = 'Password Less Than 8 Characters')
+        
+        elif password != confirm:
+            return render_template('company/register.html', error5 = 'Password Not Matching')
+        
+        else:
+            try:
+                cursor.execute(sql, data)
+                connection.commit()
+                return render_template('company/register.html', success = 'Company Registered')
+            except:
+                connection.rollback()
+                return render_template('company/register.html', warning = 'Something Went Wrong')
+
+
+    else:
+        return render_template('company/register.html', message = "Register Your Company Below")
+    
+
+@app.route('/company/login', methods = ['POST', 'GET'])
 def companyLogin():
-    return render_template('company/login.html')
+    if request.method == 'POST':
+        company_email = request.form['company_email']
+        company_password = request.form['password']
+
+        sql = 'select * from companies where company_email = %s'
+
+        connection = pymysql.connect(host='localhost', user='root',password='', database='hustle_db' )
+        cursor = connection.cursor()
+        cursor.execute(sql, company_email)
+
+        count = cursor.rowcount
+        if count == 0:
+            return render_template('company/login.html', error = 'Company Email not Found')
+        else:
+            company = cursor.fetchone()
+            hashed_password = company[9]
+            if hash_verify(company_password, hashed_password):
+                session['key'] = company[1]
+                return redirect('/')
+            else:
+                return render_template('company/login.html', error = 'Password Not Found')
+
+
+    else:
+        return render_template('company/login.html', message = 'Login To Company Account')
+
 
 
 @app.route('/logout')

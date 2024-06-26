@@ -5,6 +5,7 @@
         <div class="auth-form-wrapper">
             <div class="auth-form-title">
                 <p class="text-blue3">{{message}}</p>
+                <p class="text-blue3" style="color: red;">{{error}}</p>
             </div>
             <div class="auth-form-box">
                 <form action="/candidate/login" method="POST">
@@ -28,7 +29,7 @@
                     </div>
                 </form>
             </div>
-            <a href="#" class="auth-form-link">Don't have an account? Click here</a>
+            <a href="/candidate/register" class="auth-form-link">Don't have an account? Click here</a>
         </div>
     </div>
 </section>

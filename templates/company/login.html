@@ -1,25 +1,27 @@
-{% include '../components/header.html.html' %}
-{% include '../components/navbar.html.html' %}
+{% include '/components/header.html' %}
+{% include '/components/navbar.html' %}
+
 <section>
     <div class="auth-form-container">
         <div class="auth-form-wrapper">
             <div class="auth-form-title">
-                <p class="text-blue3">Login To Company Account</p>
+                <p class="text-blue3">{{message}}</p>
+                <p class="text-blue3" style="color: red;">{{error}}</p>
             </div>
             <div class="auth-form-box">
-                <form action="#" method="POST">
+                <form action="/company/login" method="POST">
                     <div class="auth-form-group">
                         <label for="email" class="auth-form-label">Email</label>
-                        <input id="email" class="auth-form-input auth-form-login" type="email" name="company_email" value="{{ old('email.html.html' %} }}"><br>
+                        <input id="email" class="auth-form-input auth-form-login" type="email" name="company_email" value=""><br>
                         <small class="auth-form-error">
-                                {% errors['company_email'] %}
+                                
                         </small>
                     </div>
                     <div class="auth-form-group">
                         <label for="password" class="auth-form-label">Password</label>
                         <input id="password" class="auth-form-input auth-form-login" type="password" name="password"><br>
                         <small>
-                            {% errors['password'] %}
+                            
                         </small><br>
                     </div>
                     <div class="auth-form-group">
@@ -27,7 +29,7 @@
                     </div>
                 </form>
             </div>
-            <a href="#" class="auth-form-link">{{ 'Don\'t have an account? Click here' }}</a>
+            <a href="/company/register" class="auth-form-link">Don't have an account? Click here</a>
         </div>
     </div>
 </section>
