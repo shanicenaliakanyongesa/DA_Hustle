@@ -1,0 +1,160 @@
+a {
+  text-decoration: none;
+}
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  box-sizing: border-box;
+}
+.aboutPart1 {
+  width: 90%;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.techH1{
+  font-size: 2.5em;
+  /* background-color: aqua; */
+}
+.part-1-A {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(18, 27, 36);
+  height: 50vh;
+  font-size: 0.8em;
+  margin: 2px 1px;
+  padding: 10px;
+  border-radius: 20px;
+  color: #fff;
+}
+.part-1-img {
+  min-width: 50%;
+  height: 50vh;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.part-1-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.part-1-A-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: #000;
+  height: 60vh;
+  border: orange;
+  border-width: 5px;
+}
+.part-1-A-card:hover {
+  border: orange;
+  border-width: 2px;
+}
+.part-1-A-card .cardImg {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 2%;
+  background-color: orange;
+}
+.cardImg img {
+  width: 100%;
+}
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  color: #000;
+  padding: 0% 5%;
+}
+.cardh4 {
+  font-size: 1em;
+  font-weight: 700;
+  color:rgb(93,147,240);
+}
+.cardPdiv{
+  height: 20vh;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.cardP {
+  text-align: center;
+  font-size: 0.8em;
+}
+.aboutBC {
+  background-image: url(../img/hero_right_03.jpg);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 20px;
+  width: 80%;
+  height: 60vh;
+}
+.aboutBC-components {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px auto;
+}
+
+
+@media (min-width: 350) and (max-width: 1150) {
+  .cardPdiv{
+    height: 10vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: aqua;
+  }
+}
+@media screen and (max-width: 750px) {
+  .part-1-img {
+    min-width: 50%;
+    height: 50vh;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .aboutPart2 {
+    display: block;
+  }
+  .aboutPart2 .part-1-A-card {
+    gap: 1;
+    height: 50vh;
+  }
+  .aboutBC {
+    background-image: url(../img/hero_right_03.jpg);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 20px;
+    width: 80%;
+    padding: 20px auto;
+    box-sizing: border-box;
+  }
+
+}

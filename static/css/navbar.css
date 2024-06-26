@@ -1,0 +1,68 @@
+.navbar-brand {
+    color: rgb(93, 147, 240) !important; /* Use the same blue color as the example */
+    font-family: 'Robcoto', sans-serif; /* Use the Roboto font */
+    font-weight: bold;
+}
+
+.nav-link {
+    color: rgb(93, 147, 240) !important; /* Use the same blue color as the example */
+    font-family: 'Robcoto', sans-serif; /* Use the Roboto font */
+   
+}
+.nav-link {
+    margin-right: 15px; /* Add spacing between the links */
+}
+.nav-link.active {
+    background: rgb(93, 147, 240);
+    color: white !important;
+    border-radius: 10px;
+}
+.nav-link:hover {
+    background: rgb(86, 145, 248);
+    color: white !important;
+    border-radius: 10px;
+}
+.nav-link.button {
+    border: 2px solid #007BFF; /* Blue outline */
+    border-radius: 10px; /* Rounded corners */
+    padding: 6px 20px; /* Padding inside the badge */
+    color: rgb(93, 147, 240) !important; /* Text color */
+    display: inline-block;
+    text-align: center;
+}
+.nav-link.badge:hover {
+    background-color: #007BFF;
+    color: white !important; /* Text color on hover */
+}
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+      text-align: center; /* Center the text when collapsed */
+      margin-top: 10px;
+    }
+    .navbar-nav {
+      flex-direction: column; /* Stack items vertically */
+    }
+    .nav-item {
+        margin: 4px 0; /* Add vertical margin to space out links */
+      }
+  .nav-link.button {
+    border: 2px solid #007BFF; /* Blue outline */
+    border-radius: 140px; /* Rounded corners */
+    padding: 10px 30px; /* Padding inside the badge */
+
+    display: inline-block;
+    text-align: center;
+  }
+
+
+
+.nav-link.badge:hover {
+    background-color: #007BFF;
+    color: white !important; /* Text color on hover */
+}
+
+#signup:hover {
+    color: white;
+    border: 2px solid #007BFF; 
+}
+}
