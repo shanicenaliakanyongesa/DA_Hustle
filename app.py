@@ -18,7 +18,6 @@ def home():
     featured_jobs = get_featured_jobs()
     return render_template('home.html', locations=locations, jobtypes=jobType, salaryranges=salaryRange, categories=categories, companies=companies, total_pages=total_pages, postedjobs = featured_jobs, candidates=candidates)
 
-
 @app.route('/search', methods=['POST'])
 def search():
     job_title = request.form.get('job_title')
