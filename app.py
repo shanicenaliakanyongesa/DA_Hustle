@@ -67,7 +67,6 @@ def findTalent():
     developertags = developer_tags()
 
     return render_template('find-talent.html',candidates=candidates,locations=locations,developertags=developertags)
-    return render_template('find-talent.html',candidates=candidates,locations=locations,developertags=developertags)
 
 @app.route('/choose')
 def choose():
@@ -245,7 +244,7 @@ def companyLogin():
             hashed_password = company[9]
             if hash_verify(company_password, hashed_password):
                 session['key'] = company[1]
-                return redirect('/')
+                return redirect('/company/dashboard')
             else:
                 return render_template('company/login.html', error = 'Password Not Found')
 
@@ -253,6 +252,22 @@ def companyLogin():
     else:
         return render_template('company/login.html', message = 'Login To Company Account')
 
+@app.route('/company/dashboard')
+def companydashboard():
+   return render_template('company/dashboard.html')
+
+@app.route('/company/postjob')
+def postjob():
+    locations = get_job_locations()
+    jobType = get_jobType()
+    salaryRange = get_salaryRange()
+    skills=get_skills()
+    return render_template('company/post-jobs.html',locations=locations,jobType=jobType,salaryRange=salaryRange,skills=skills)
+
+@app.route('/company/logout')
+def companylogout():
+    session.clear()
+    return redirect('/company/login')
 
 
 @app.route('/logout')
