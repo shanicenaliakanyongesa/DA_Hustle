@@ -6,44 +6,44 @@
 <div class="profile-bio-container">
     <div class="profile-bio-wrapper">
         <div class="post-jobs-form">
-            <form action="{{ route('company.post-jobs.submit') }}" method="POST">
-                @csrf
+            <form action="company/post-jobs/submit" method="POST">
+                
                 <div class="post-jobs-form-row">
                     <div class="post-jobs-form-group">
                         <label class="post-jobs-label" for="">Job Title</label>
-                        <input class="post-jobs-input" type="text" name="job_title" value="{{ old('job_title') }}">
+                        <input class="post-jobs-input" type="text" name="job_title" >
                         <small class="form-error">
-                            @error('job_title')
-                                {{ $message }}
-                            @enderror
+                           
+                                {{ message }}
+                           
                         </small>
                     </div>
                     <div class="post-jobs-form-group">
                         <label class="post-jobs-label" for="">Location</label>
                         <select class="post-jobs-select" name="job_location_id" id="" >
                             <option value="">--Choose--</option>
-                            @foreach ($location as $id => $location_name )
-                                <option value="{{ $id }}">{{ $location_name }}</option>
-                            @endforeach
+                            {% for location in locations %}
+                                <option value="{{ location[0] }}">{{ location[1] }}</option>
+                            {% endfor %}
                         </select>
                         <small class="form-error">
-                            @error('job_location_id')
-                                {{ $message }}
-                            @enderror
+                            
+                                {{ message }}
+                            
                         </small>
                     </div>
                     <div class="post-jobs-form-group">
                         <label class="post-jobs-label" for="">Job Type</label>
                         <select class="post-jobs-select" name="jobtype_id" id="">
                             <option>--Choose--</option>
-                            @foreach ($jobtype as $id => $jobtype_name )
-                            <option value="{{ $id }}">{{ $jobtype_name }}</option>
-                            @endforeach
+                            {% for jobtype in jobType %}
+                            <option value="{{ jobtype[0] }}">{{ jobtype[1] }}</option>
+                            {% endfor %}
                         </select>
                         <small class="form-error">
-                            @error('jobtype_id')
-                                {{ $message }}
-                            @enderror
+                            
+                                {{ message }}
+                            
                         </small>
                     </div>
 
@@ -51,14 +51,12 @@
                         <label class="post-jobs-label" for="">Salary Range</label>
                         <select class="post-jobs-select" name="salary_range_id" id="" >
                             <option value="">--Choose--</option>
-                            @foreach ($salaryrange as $id => $salary_range )
-                                <option value="{{ $id }}">{{ $salary_range }}</option>
-                            @endforeach
+                            {% for salary in salaryRange %}
+                                <option value="{{ salary[0] }}">{{ salary[1] }}</option>
+                            {% endfor %}
                         </select>
                         <small class="form-error">
-                            @error('salary_range_id')
-                                {{ $message }}
-                            @enderror
+                                {{ message }}
                         </small>
                     </div>
                 </div>
@@ -66,14 +64,12 @@
                     <div class="post-jobs-form-group">
                         <label class="post-jobs-label" for="">Skills</label>
                         <select class="post-jobs-skills" name="job_skills[]" id="skills" multiple>
-                            @foreach($skills as $id => $name)
-                                <option value="{{ $id }}">{{ $name }}</option>
-                            @endforeach
+                            {% for skill in skills %}
+                                <option value="{{ skill[0] }}">{{ skill[1] }}</option>
+                            {% endfor %}
                         </select>
                         <small class="form-error">
-                            @error('job_skills')
-                                {{ $message }}
-                            @enderror
+                            {{ message }}
                         </small>
                     </div>
                 </div>
@@ -82,9 +78,9 @@
                         <label class="post-jobs-label" for="" >Job Description</label>
                         <textarea class="post-jobs-textarea" name="job_description"></textarea>
                         <small class="form-error">
-                            @error('job_description')
-                                {{ $message }}
-                            @enderror
+                            
+                                {{ message }}
+                            
                         </small>
                     </div>
                 </div>
@@ -106,18 +102,18 @@
             <div class="company-posted-jobs-list-title">
                 <h4>Jobs you have posted.</h4>
             </div>
-            @foreach($postedjobs as $postedjob)
+            {% for postedJob in postedJobs %}
 
                 <div class="company-posted-job">
                     <h5 class="company-posted-job-title">
-                        {{ $postedjob->job_title }}
+                        {{ postedJob[0] }}
                     </h5>
                     <p class="company-posted-job-description">
-                        {{ $postedjob->job_description }}
+                        {{ postedJob[1] }}
                     </p>
                 </div>
 
-            @endforeach
+           {% endfor %}
 
         </div>
     </div>
