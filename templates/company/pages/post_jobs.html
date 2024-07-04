@@ -1,121 +1,101 @@
 <div class="page-row">
     <div class="page-title">
-        <h3>Post Jobs</h3>
+        <h4 class="top_title ms-4 mt-3">Post Jobs</h4>
     </div>
 </div>
 <div class="profile-bio-container">
     <div class="profile-bio-wrapper">
         <div class="post-jobs-form">
-            <form action="company/post-jobs/submit" method="POST">
-                
-                <div class="post-jobs-form-row">
-                    <div class="post-jobs-form-group">
-                        <label class="post-jobs-label" for="">Job Title</label>
-                        <input class="post-jobs-input" type="text" name="job_title" >
-                        <small class="form-error">
-                           
-                                {{ message }}
-                           
-                        </small>
+            <small class="form-error">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }}" role="alert">
+                        {{ message }}
                     </div>
-                    <div class="post-jobs-form-group">
-                        <label class="post-jobs-label" for="">Location</label>
-                        <select class="post-jobs-select" name="job_location_id" id="" >
-                            <option value="">--Choose--</option>
-                            {% for location in locations %}
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </small>
+            <div class="card shadow p-3 ">
+                <form action="{{ url_for('postjob') }}" method="POST">
+                    <div class="post-jobs-form-row">
+                        <div class="post-jobs-form-group">
+                            <label class="post-jobs-label" for="">Job Title</label>
+                            <input class="post-jobs-input" type="text" name="job_title">
+                        </div>
+                        <div class="post-jobs-form-group">
+                            <label class="post-jobs-label" for="">Location</label>
+                            <select class="post-jobs-select" name="job_location_id" id="">
+                                <option value="">--Choose Job Location--</option>
+                                {% for location in locations %}
                                 <option value="{{ location[0] }}">{{ location[1] }}</option>
-                            {% endfor %}
-                        </select>
-                        <small class="form-error">
-                            
-                                {{ message }}
-                            
-                        </small>
-                    </div>
-                    <div class="post-jobs-form-group">
-                        <label class="post-jobs-label" for="">Job Type</label>
-                        <select class="post-jobs-select" name="jobtype_id" id="">
-                            <option>--Choose--</option>
-                            {% for jobtype in jobType %}
-                            <option value="{{ jobtype[0] }}">{{ jobtype[1] }}</option>
-                            {% endfor %}
-                        </select>
-                        <small class="form-error">
-                            
-                                {{ message }}
-                            
-                        </small>
-                    </div>
-
-                    <div class="post-jobs-form-group">
-                        <label class="post-jobs-label" for="">Salary Range</label>
-                        <select class="post-jobs-select" name="salary_range_id" id="" >
-                            <option value="">--Choose--</option>
-                            {% for salary in salaryRange %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="post-jobs-form-group">
+                            <label class="post-jobs-label" for="">Job Type</label>
+                            <select class="post-jobs-select" name="jobtype_id" id="">
+                                <option>--Choose Job Type--</option>
+                                {% for jobtype in jobType %}
+                                <option value="{{ jobtype[0] }}">{{ jobtype[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="post-jobs-form-group">
+                            <label class="post-jobs-label" for="">Salary Range</label>
+                            <select class="post-jobs-select" name="salary_range_id" id="">
+                                <option value="">--Choose Salary Range--</option>
+                                {% for salary in salaryRange %}
                                 <option value="{{ salary[0] }}">{{ salary[1] }}</option>
-                            {% endfor %}
-                        </select>
-                        <small class="form-error">
-                                {{ message }}
-                        </small>
-                    </div>
-                </div>
-                <div class="post-jobs-form-row">
-                    <div class="post-jobs-form-group">
-                        <label class="post-jobs-label" for="">Skills</label>
-                        <select class="post-jobs-skills" name="job_skills[]" id="skills" multiple>
-                            {% for skill in skills %}
-                                <option value="{{ skill[0] }}">{{ skill[1] }}</option>
-                            {% endfor %}
-                        </select>
-                        <small class="form-error">
-                            {{ message }}
-                        </small>
-                    </div>
-                </div>
-                <div class="post-jobs-form-row">
-                    <div class="post-jobs-form-group">
-                        <label class="post-jobs-label" for="" >Job Description</label>
-                        <textarea class="post-jobs-textarea" name="job_description"></textarea>
-                        <small class="form-error">
-                            
-                                {{ message }}
-                            
-                        </small>
-                    </div>
-                </div>
-                <div class="post-jobs-form-row">
-                    <div class="post-jobs-form-group">
-                        <div class="post-jobs-add-btn">
-                            <button class="btn btn-blue2">Post Job</button>
+                                {% endfor %}
+                            </select>
                         </div>
                     </div>
-                </div>
-            </form>
+                    <div class="post-jobs-form-row">
+                        <div class="post-jobs-form-group">
+                            <label class="post-jobs-label" for="skills">Choose Skills</label>
+                            <select class="post-jobs-skills" name="job_skills[]" id="skills" multiple>
+                                {% for skill in skills %}
+                                <option value="{{ skill[0] }}">{{ skill[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="post-jobs-form-row">
+                        <div class="post-jobs-form-group">
+                            <label class="post-jobs-label" for="">Job Description</label>
+                            <textarea class="post-jobs-textarea" name="job_description"></textarea>
+                        </div>
+                    </div>
+                    <div class="post-jobs-form-row">
+                        <div class="post-jobs-form-group">
+                            <div class="post-jobs-add-btn">
+                                <button class="btn btn-outline-primary mt-2" type="submit">Post Job</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 <div class="profile-bio-container">
     <div class="profile-bio-wrapper">
-
         <div class="company-posted-jobs-list">
             <div class="company-posted-jobs-list-title">
                 <h4>Jobs you have posted.</h4>
             </div>
             {% for postedJob in postedJobs %}
-
-                <div class="company-posted-job">
-                    <h5 class="company-posted-job-title">
-                        {{ postedJob[0] }}
-                    </h5>
-                    <p class="company-posted-job-description">
-                        {{ postedJob[1] }}
-                    </p>
-                </div>
-
-           {% endfor %}
-
+            <div class="company-posted-job">
+                <h5 class="company-posted-job-title">
+                    {{ postedJob[0] }}
+                </h5>
+                <p class="company-posted-job-description">
+                    {{ postedJob[1] }}
+                </p>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
-
