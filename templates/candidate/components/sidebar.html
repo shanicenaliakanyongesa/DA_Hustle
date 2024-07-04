@@ -54,10 +54,11 @@
                             <div class="{{ 'menu-link-overlay-b' if request.path == '/candidate/settings' else '' }}"></div>
                         </li>
                         <li class="">
-                            <form action="/candidate/logout" method="POST">
-                                
-                                <input class="panel-logout-btn menu-link" type="submit" value="Logout">
-                            </form>
+
+                            <a href="/logout" class="">
+                                <span class="las la-home"></span>
+                                <span> Logout</span>
+                            </a>
                         </li>
                     </ul>
                 </div>

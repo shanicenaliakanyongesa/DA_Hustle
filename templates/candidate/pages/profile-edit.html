@@ -4,16 +4,20 @@
 <div class="page-row">
     <div class="page-title">
         <h3>
-            <a href="" class="edit-link">back</a>
+            <!-- <a href="" class="edit-link">back</a> -->
             Profile / Edit
         </h3>
-       
+
+
+       {% if success %}
         <div class="da-alert da-alert-success" role="alert">
-            
+            {{success}}
             <button type="button" class="da-close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+        {% endif %}
+
       
     </div>
 </div>
@@ -30,16 +34,19 @@
 
     <div class="profile-bio-wrapper">
         <div class="profile-image-box">
-            <div class="profile-image">
-                <img src="" alt="" class="profile-img">
+            <div class="profile-image" style="margin-bottom: 20px;">
+                <img src="../../../static/img/candidate/{{session['candidate_profile_pic']}}" alt="" class="profile-img">
             </div>
+
             <div class="profile-image-link">
                 <a href="">Change Photo</a>
             </div>
+
         </div>
+
         <div class="profile-bio">
 
-            <form action="" method="POST">
+            <form action="/candidate/update-bio" method="POST">
                
                 <div class="profile-form-row">
                     <div class="profile-form-group-col">
@@ -50,7 +57,7 @@
 
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">First name</label>
-                        <input type="text" class="profile-input" name="fname" value="">
+                        <input type="text" class="profile-input" name="fname" value="{{session['fname']}}">
                         <small class="form-error">
                             
                         </small>
@@ -58,14 +65,14 @@
 
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">Last name</label>
-                        <input type="text" class="profile-input" name="lname" value="">
+                        <input type="text" class="profile-input" name="lname" value="{{session['lname']}}">
                         <small class="form-error">
                             
                         </small>
                     </div>
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">Surname</label>
-                        <input type="text" class="profile-input" name="surname" value="">
+                        <input type="text" class="profile-input" name="surname" value="{{session['surname']}}">
                         <small class="form-error">
                             
                         </small>
@@ -75,14 +82,14 @@
                 <div class="profile-form-row">
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">Phone</label>
-                        <input type="text" class="profile-input" name="phone" value="">
+                        <input type="text" class="profile-input" name="phone" value="{{session['phone']}}">
                         <small class="form-error">
                             
                         </small>
                     </div>
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">Proffesional Title</label>
-                        <input type="text" class="profile-input" name="professional_title" value="">
+                        <input type="text" class="profile-input" name="title" value="{{session['title']}}">
                         <small class="form-error">
                             
                         </small>
@@ -104,7 +111,7 @@
                 <div class="profile-form-row">
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">D.O.B</label>
-                        <input type="date" class="profile-input" name="dob" value="">
+                        <input type="date" class="profile-input" name="dob" value="{{session['dob']}}">
                         <small class="form-error">
                             <small class="form-error">
                                 
@@ -113,14 +120,14 @@
                     </div>
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">National ID No.</label>
-                        <input type="text" class="profile-input" name="national_id_no" value="">
+                        <input type="text" class="profile-input" name="national_id_no" value="{{session['national_id_no']}}">
                         <small class="form-error">
                             
                         </small>
                     </div>
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">Address</label>
-                        <input type="text" class="profile-input" name="address" value="">
+                        <input type="text" class="profile-input" name="address" value="{{session['address']}}">
                         <small class="form-error">
                             
                         </small>
@@ -129,7 +136,7 @@
                 <div class="profile-form-row">
                     <div class="profile-form-group-col">
                         <label for="" class="profile-label">Bio</label>
-                        <textarea class="profile-textarea" name="bio"></textarea>
+                        <textarea class="profile-textarea" name="bio">{{session['bio']}}</textarea>
                         <small class="form-error">
                             
                         </small>
@@ -137,7 +144,7 @@
                 </div>
                 <div class="profile-form-row">
                     <div class="profile-form-group-col">
-                        <button class="btn btn-blue2">Update</button>
+                        <button type="submit" class="btn btn-blue2">Update</button>
                     </div>
                 </div>
             </form>

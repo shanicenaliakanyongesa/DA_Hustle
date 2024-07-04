@@ -9,7 +9,6 @@
                 </div>
                 <div class="content-search-bar">
                     <form action="">
-                        @csrf
                         <input type="text" name="search_input" placeholder="Search something here...">
                         <button class="content-search-bar-btn" type="submit">
                             <span class="las la-search"></span>
@@ -32,11 +31,11 @@
                 </div>
                 <div class="content-profile-pic">
                     <div class="content-profile-image">
-                        <img src="" alt="">
+                        <img src="../../../static/img/candidate/{{session['candidate_profile_pic']}}" alt="">
                     </div>
                     <div class="content-name-title">
-                        <span></span>
-                        <span></span>
+                        <span>{{session['fname']}} {{session['surname']}}</span>
+                        <span>{{session['email']}}</span>
                     </div>
                     <a href="" class="content-drop-down">
                         <span class="las la-caret-down"></span>

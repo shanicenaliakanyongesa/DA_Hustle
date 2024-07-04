@@ -138,8 +138,14 @@ def candidateLogin():
             candidate = cursor.fetchone()
             hashed_password = candidate[6]
             if hash_verify(candidate_password, hashed_password):
-                session['key'] = candidate[2]
-                return redirect('/')
+                session['key'] = candidate[0]
+                session['email'] = candidate[1]
+                session['fname'] = candidate[2]
+                session['surname'] = candidate[4]
+                session['candidate_profile_pic'] = candidate[8]
+
+                return redirect('/candidate/dashboard')
+            
             else:
                 return render_template('candidate/login.html', error = 'Password Not Found')
 
@@ -254,12 +260,36 @@ def companyLogin():
     
 @app.route('/candidate/dashboard')
 def candidate_dashboard():
-    return render_template('candidate/dashboard.html')
+    if 'key' in session:
+        return render_template('candidate/dashboard.html')
+    else:
+        return redirect('/candidate/login')
 
 
 @app.route('/candidate/profile')
 def candidate_profile():
-    return render_template('candidate/components/profile.html')
+    if 'key' in session:
+        # User Profile
+        connection = pymysql.connect(host='localhost', user='root',password='', database='hustle_db' )
+        sql2 = "select * from candidates where id = %s"
+        cursor2 = connection.cursor()
+        cursor2.execute(sql2, session['key'])
+        candidate = cursor2.fetchone()
+
+        session['fname'] = candidate[2]
+        session['lname'] = candidate[3]
+        session['surname'] = candidate[4]
+        session['phone'] = candidate[5]
+        session['title'] = candidate[9]
+        session['gender'] = candidate[10]
+        session['dob'] = candidate[11]
+        session['national_id_no'] = candidate[12]
+        session['address'] = candidate[13]
+        session['bio'] = candidate[14]
+        return render_template('candidate/components/profile.html')
+    else:
+        return redirect('/candidate/login')
+    
 
 @app.route('/company/dashboard')
 def companydashboard():
@@ -288,6 +318,44 @@ def logout():
 @app.route('/aboutus')
 def about():
     return render_template('about.html')
+
+# update bio
+@app.route('/candidate/update-bio',  methods = ['POST', 'GET'])
+def update_bio():
+    if 'key' in session:
+        if request.method == 'POST':
+            firstname = request.form['fname']
+            lastname = request.form['lname']
+            surname = request.form['surname']
+            phone = request.form['phone']
+            title = request.form['title']
+            gender = request.form['gender']
+            dob = request.form['dob']
+            national_id_no = request.form['national_id_no']
+            address = request.form['address']
+            bio = request.form['bio']
+
+            connection = pymysql.connect(host='localhost', user='root',password='', database='hustle_db' )
+            cursor = connection.cursor()
+
+            data = (firstname, lastname, surname, phone, title, gender, dob, national_id_no, address, bio, session['key'])
+
+            sql = "update candidates set fname = %s, lname = %s, surname = %s, phone = %s, professional_title = %s, gender = %s, dob = %s, national_id_no = %s, address = %s, bio = %s where id = %s"
+            cursor.execute(sql, data)
+            connection.commit()
+
+            
+            
+
+            return render_template('candidate/components/profile.html', success = 'Bio Updated Successfully')
+
+        else:
+            return render_template('candidate/components/profile.html')
+            
+    else:
+        return redirect('/candidate/login')
+    
+
 
 
 if __name__ == '__main__':
