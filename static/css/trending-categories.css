@@ -4,10 +4,24 @@
 .trending-wrapper{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 .trending-box{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cats{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.oneCat{
+    margin: 6px;
 }
 .trending-title{
     font-weight: 700;

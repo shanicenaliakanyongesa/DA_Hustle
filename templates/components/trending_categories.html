@@ -3,9 +3,16 @@
         <div class="trending-wrapper">
             <div class="trending-box">
                 <span class="trending-title text-gray1">Trending Categories</span>
+
+                <div class="cats">
                 {% for cat in categories %}
+                <div class="oneCat">
+
                 <span id="{{cat[0]}}" onclick="(cat_tags(this.id))" id="{{cat[0]}}" class="trending-pill">{{ cat[0]}}</span>
+                
+                </div>
                 {% endfor %}
+            </div>
             </div>
         </div>
     </div>
