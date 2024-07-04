@@ -3,8 +3,8 @@
         <div class="da-col-xs-12">
             <div class="dash-card">
                 <div class="search-bar-main">
-                    <form action="{{ route('candidate.main-job-search') }}" method="POST" >
-                        @csrf
+                    <form action="" method="POST" >
+                       
                         <div class="search-bar-main-location">
                             <div class="search-bar-main-icon">
                                 <span class="las la-map-marker"></span>
@@ -80,38 +80,32 @@
             </div>
         </div>
     </div>
-{{--
-    //da_hustle
-    /public_html/da_hustle
-     --}}
+
     <div class="da-row">
-        @if (!isset($jobs))
-            <p>Search to find Jobs</p>
-        @else
-            @foreach ($jobs as $job)
+        
             <div class="da-col-xs-12 da-col-sm-6 da-col-md-4 da-col-lg-4">
                 <div class="dash-card">
                     <div class="search-result-card">
                         <div class="search-result-card-header">
                             <div class="search-result-card-header-left">
-                                <span>{{ $job->company->company_name }}</span>
-                                <span>{{ $job['job_title'] }}</span>
-                                <span>{{ $job->salaryrange->salary_range }}</span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
                             <div class="search-result-card-header-right">
                                 <div class="search-result-card-header-company-logo">
-                                    <img src="{{ asset('assets/company_logos/'.$job->company->company_logo) }}" alt="">
+                                    <img src="" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="search-result-card-body">
                             <p>
-                                {{ $job['job_description'] }}
+                               
                             </p>
                         </div>
                         <div class="search-result-card-footer">
-                            <span>{{ $job->jobtype->jobtype_name }}</span>
-                            <span>{{ $job->joblocation->location_name }}</span>
+                            <span></span>
+                            <span></span>
                         </div>
                         <div class="search-result-card-foot">
                             <a href="#" class="btn btn-blue2">View</a>
@@ -119,8 +113,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-        @endif
+            
     </div>
 
 </div>

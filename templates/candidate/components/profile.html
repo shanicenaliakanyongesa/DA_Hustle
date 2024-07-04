@@ -1,0 +1,27 @@
+{% include "candidate/components/header.html" %}
+
+{% include "candidate/components/sidebar.html" %}
+{% include "candidate/components/content.html" %}
+{% include "candidate/pages/profile.html" %}
+{% include "candidate/pages/profile-edit.html" %}
+
+{% include "candidate/pages/profile-cv-upload.html" %}
+
+
+
+
+
+
+
+
+
+
+
+ <form action="/logout" method="POST">
+    @csrf
+    <button type="submit">Logout</button>
+</form>  
+
+
+
+{% include "candidate/components/footer.html" %}

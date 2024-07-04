@@ -252,6 +252,15 @@ def companyLogin():
 
     else:
         return render_template('company/login.html', message = 'Login To Company Account')
+    
+@app.route('/candidate/dashboard')
+def candidate_dashboard():
+    return render_template('candidate/dashboard.html')
+
+
+@app.route('/candidate/profile')
+def candidate_profile():
+    return render_template('candidate/components/profile.html')
 
 
 

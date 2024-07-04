@@ -1,0 +1,68 @@
+<div class="sidebar-container">
+    <div class="sidebar-wrapper">
+
+        <div class="sidebar-logo-container">
+            <div class="sidebar-logo-wrapper">
+                <div class="logo-box">
+                    <h4>DA Hustle</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-menu-container">
+            <div class="sidebar-menu-wrapper">
+                <div class="side-menu-box">
+                    <ul class="side-menu-list">
+                        <li class="">
+
+                            <a href="/" class="">
+                                <span class="las la-home"></span>
+                                <span> Home</span>
+                            </a>
+                        </li>
+                        <li class="">
+
+                            <a href="/candidate/dashboard" class="{{ 'active' if request.path in ['/candidate/dashboard', '/candidate/main-job-search'] else '' }}">
+                                <span class="las la-grip-horizontal"></span>
+                                <span> Search</span>
+                            </a>
+                            <div class="{{ 'menu-link-overlay' if request.path in ['/candidate/dashboard', '/candidate/main-job-search'] else '' }}"></div>
+                            <div class="{{ 'menu-link-overlay-b' if request.path in ['/candidate/dashboard', '/candidate/main-job-search'] else '' }}"></div>
+                        </li>
+                        <li class="">
+                            <a href="/candidate/profile" class="{{ 'active' if request.path in ['/candidate/profile', '/candidate/profile-edit'] else '' }}">
+                                <span class="las la-user-circle"></span>
+                                <span> Profile</span>
+                            </a>
+                            <div class="{{ 'menu-link-overlay' if request.path in ['/candidate/profile', '/candidate/profile-edit'] else '' }}"></div>
+                            <div class="{{ 'menu-link-overlay-b' if request.path in ['/candidate/profile', '/candidate/profile-edit'] else '' }}"></div>
+                        </li>
+                        <li class="">
+                            <a href="/candidate/applications" class="{{ 'active' if request.path == '/candidate/applications' else '' }}">
+                                <span class="las la-envelope-open-text"></span>
+                                <span> Applications</span>
+                            </a>
+                            <div class="{{ 'menu-link-overlay' if request.path == '/candidate/applications' else '' }}"></div>
+                            <div class="{{ 'menu-link-overlay-b' if request.path == '/candidate/applications' else '' }}"></div>
+                        </li>
+                        <li class="">
+                            <a href="/candidate/settings" class="{{ 'active' if request.path == '/candidate/settings' else '' }}">
+                                <span class="las la-users-cog"></span>
+                                <span> Settings</span>
+                            </a>
+                            <div class="{{ 'menu-link-overlay' if request.path == '/candidate/settings' else '' }}"></div>
+                            <div class="{{ 'menu-link-overlay-b' if request.path == '/candidate/settings' else '' }}"></div>
+                        </li>
+                        <li class="">
+                            <form action="/candidate/logout" method="POST">
+                                
+                                <input class="panel-logout-btn menu-link" type="submit" value="Logout">
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
