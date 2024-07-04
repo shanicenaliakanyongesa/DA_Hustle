@@ -23,6 +23,7 @@ def get_locations():
     connection.close()
     return locations
 
+
 def get_jobType():
     connection = pymysql.connect(**db_config)
     cursor = connection.cursor()
@@ -40,6 +41,15 @@ def get_salaryRange():
     cursor.close()
     connection.close()
     return range
+
+def get_skills():
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    cursor.execute("SELECT id, skill_name FROM skills")
+    skills = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return skills
 
 # def get_featured_jobs():
 #     connection = pymysql.connect(**db_config)
@@ -258,3 +268,11 @@ def get_allcompanies():
     cursor.close()
     connection.close()
     return companies
+def get_job_locations():
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    cursor.execute("SELECT id,location_name FROM locations")
+    locations = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return locations

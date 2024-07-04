@@ -10,9 +10,13 @@
 .partners-line{
     width: 100%;
 }
-.partners-title{}
+.partners-title{
+    padding: 10px auto;
+}
 .partners-logos{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .partner-logo{
     width: 180px;
