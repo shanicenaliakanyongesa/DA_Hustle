@@ -10,11 +10,23 @@ body{
     display: flex;
     flex-direction: row;
 }
+.top_title{
+    color: var(--blue-1);
+    font-size: 130%;
+    font-weight: lighter;
+}
+.topbar-container{
+    background-color: var(--blue-6);
+    text-align: right;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 120%;
+}
 .sidebar-container{
 
     max-width: 270px;
     width:50%;
-    background-color: var(--blue-9);
+    background-color: var(--blue-6);
     position: fixed;
     top:0;
     left: 0;
@@ -68,13 +80,13 @@ body{
 }
 .side-menu-list a.active{
     background-color: var(--gray-5);
-    color: var(--blue-9);
+    color: var(--blue-6);
     border-radius: 40px 0 0 40px;
 }
 
 .side-menu-list a:hover{
     background-color: var(--gray-5);
-    color: var(--blue-9);
+    color: var(--blue-6);
     border-radius: 40px 40px 40px 40px;
     margin-right: 1.4rem;
 }
@@ -126,7 +138,7 @@ body{
     background-color: pink;
 }
 .menu-link-overlay::after{
-    background-color: var(--blue-9);
+    background-color: var(--blue-6);
     border-radius: 0 0 40px 0;
     right: 0;
     top:-40px;
@@ -137,7 +149,7 @@ body{
     background-color: var(--gray-5);
 }
 .menu-link-overlay-b::after{
-    background-color: var(--blue-9);
+    background-color: var(--blue-6);
     border-radius: 0 40px 0 0;
     right: 0;
     bottom:-40px;
@@ -214,7 +226,7 @@ body{
     background-color: crimson;
 }
 .content-container-overlay::before{
-    background-color: var(--blue-9);
+    background-color: var(--blue-6);
 }
 .content-container-overlay::after{
     background-color: var(--gray-5);
@@ -698,10 +710,10 @@ body{
 }
 .search-bar-main-buttons div:first-child{
     background-color: #e4e4e4;
-    color:var(--blue-9);
+    color:var(--blue-6);
 }
 .search-bar-main-buttons div:nth-child(2){
-    background-color: var(--blue-9);
+    background-color: var(--blue-6);
     padding:.1rem 1rem;
 }
 
@@ -719,7 +731,7 @@ body{
     background-color: #d4bcff;
     padding:.5rem 1.3rem;
     border-radius: 30px;
-    color:var(--blue-9);
+    color:var(--blue-6);
     font-size: .7rem;
     font-weight: 600;
     cursor: pointer;

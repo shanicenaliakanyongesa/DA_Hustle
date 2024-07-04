@@ -1,15 +1,16 @@
+<div class="topbar-container p-3">
+    <span>Welcome: {{session['key']}}</span>
+</div>
 {% include 'company/components/header.html' %}
 {% include 'company/components/sidebar.html' %}
 {% include 'company/components/panel-header.html' %}
 {% include 'company/pages/applications.html' %}
 {% include 'company/components/panel-footer.html' %}
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
 
 
 
-{{-- <form action="#" method="POST">
-    @csrf
-    <button type="submit">Logout</button>
-</form>  --}}
+
 
 
 {% include 'company/components/footer.html' %}

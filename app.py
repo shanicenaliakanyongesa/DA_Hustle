@@ -1,9 +1,28 @@
 from flask import *
 from functions import *
 import math
+from functools import wraps
+
 
 app = Flask(__name__)
 app.secret_key = "jhvahsfgjsgosh.jfa/plj"
+
+# Database configuration
+db_config = {
+    'user': 'root',
+    'password': '',
+    'host': 'localhost',
+    'database': 'hustle_db'
+}
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'key' not in session:
+            flash('Kindly login to access this page.', 'danger')
+            return redirect(url_for('choose'))
+        return f(*args, **kwargs)
+    return decorated_function
 
 @app.route('/')
 def home():
@@ -115,8 +134,6 @@ def candidateReg():
             except:
                 connection.rollback()
                 return render_template('candidate/register.html', warning = 'Something Went Wrong')
-
-
     else:
         return render_template('candidate/register.html', message = "Sign-up Below")
 
@@ -144,8 +161,6 @@ def candidateLogin():
                 return redirect('/')
             else:
                 return render_template('candidate/login.html', error = 'Password Not Found')
-
-
     else:
         return render_template('candidate/login.html', message = 'Login Below')
 
@@ -199,10 +214,8 @@ def companyReg():
             return render_template('company/register.html', error1 = 'Email Cannot be Empty')
         
         elif len(company_name) <= 0:
-            return render_template('company/register.html', error2 = 'Company Name Cannot be Empty')
-        
-        
-        
+            return render_template('company/register.html', error2 = 'Company Name Cannot be Empty')    
+
         elif len(password) <= 0:
             return render_template('company/register.html', error3 = 'Password Cannot be Empty')
         
@@ -221,10 +234,10 @@ def companyReg():
                 connection.rollback()
                 return render_template('company/register.html', warning = 'Something Went Wrong')
 
-
     else:
         return render_template('company/register.html', message = "Register Your Company Below")
     
+
 
 @app.route('/company/login', methods = ['POST', 'GET'])
 def companyLogin():
@@ -246,11 +259,11 @@ def companyLogin():
             hashed_password = company[9]
             if hash_verify(company_password, hashed_password):
                 session['key'] = company[1]
-                return redirect('/company/dashboard')
+                session['id'] = company[0]
+
+                return redirect(url_for('company_dashboard'))
             else:
-                return render_template('company/login.html', error = 'Password Not Found')
-
-
+                return render_template('company/login.html', error = 'Invalid Password')
     else:
         return render_template('company/login.html', message = 'Login To Company Account')
     
@@ -264,16 +277,74 @@ def candidate_profile():
     return render_template('candidate/components/profile.html')
 
 @app.route('/company/dashboard')
-def companydashboard():
+@login_required
+def company_dashboard():
    return render_template('company/dashboard.html')
 
-@app.route('/company/postjob')
+@app.route('/company/profile')
+@login_required
+def company_profile():
+    return render_template('/company/company-profile.html')
+
+@app.route('/company/postjob',methods=['POST','GET'])
+@login_required
 def postjob():
-    locations = get_job_locations()
-    jobType = get_jobType()
-    salaryRange = get_salaryRange()
-    skills=get_skills()
-    return render_template('company/post-jobs.html',locations=locations,jobType=jobType,salaryRange=salaryRange,skills=skills)
+    connection = pymysql.connect(**db_config)
+    cursor = connection.cursor()
+    if request.method == 'POST':
+        job_title = request.form.get('job_title')
+        job_location_id = request.form.get('job_location_id')
+        jobtype_id = request.form.get('jobtype_id')
+        salary_range_id = request.form.get('salary_range_id')
+        job_skills = request.form.getlist('job_skills[]')  
+        job_description = request.form.get('job_description')
+        company_id=session['id']
+        
+        if len(job_title) <= 0:
+            flash('Job Title Cannot be Empty','danger')
+            return redirect(url_for('postjob'))
+        if len(job_location_id) <= 0:
+            flash('Job Location Cannot be Empty','danger')
+            return redirect(url_for('postjob'))
+        if len(jobtype_id) <= 0:
+            flash('Job Type Cannot be Empty','danger')
+            return redirect(url_for('postjob'))
+        if len(salary_range_id) <= 0:
+            flash('Salary Range Cannot be Empty','danger')
+            return redirect(url_for('postjob'))
+        if len(job_skills) <= 0:
+            flash('Job Skills Cannot be Empty','danger')
+            return redirect(url_for('postjob'))
+        if len(job_description) <= 0:
+            flash('Job Description Cannot be Empty','danger')
+            return redirect(url_for('postjob'))
+        else:
+            job_data = (job_title, job_location_id, jobtype_id, salary_range_id, job_description,company_id)
+            job_sql = 'INSERT INTO postedjobs (job_title, job_location_id, jobtype_id, salary_range_id, job_description,company_id) VALUES (%s, %s, %s, %s, %s, %s)'
+            cursor.execute(job_sql, job_data)
+            connection.commit()
+
+            # Get the last inserted job id
+            posted_job_id = cursor.lastrowid
+
+            skill_sql = 'INSERT INTO  postedjobs_skills (posted_job_id, skill_id) VALUES (%s, %s)'
+            for skill_id in job_skills:
+                cursor.execute(skill_sql, (posted_job_id, skill_id))
+            connection.commit()
+            flash("Job Posted Successfully", 'success')
+            return redirect(url_for('postjob'))
+    else:
+        locations = get_job_locations()
+        jobType = get_jobType()
+        salaryRange = get_salaryRange()
+        skills=get_skills()
+        return render_template('company/post-jobs.html',locations=locations,jobType=jobType,salaryRange=salaryRange,skills=skills)
+
+@app.route('/company/applications')
+@login_required
+def company_applications():
+    return render_template('/company/applications.html')
+
 
 @app.route('/company/logout')
 def companylogout():
