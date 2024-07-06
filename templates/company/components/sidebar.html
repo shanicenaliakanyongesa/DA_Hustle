@@ -1,38 +1,36 @@
 
 <div class="sidebar-container">
     <div class="sidebar-wrapper">
-
         <div class="sidebar-logo-container">
             <div class="sidebar-logo-wrapper">
                 <div class="logo-box">
-                    <h4>DA_hustler</h4>
+                    <h4>DA_Hustler</h4>
                 </div>
             </div>
         </div>
-
+        
         <div class="sidebar-menu-container">
             <div class="sidebar-menu-wrapper">
                 <div class="menu-box">
+                                        
                     <ul class="menu-ul">
                         <li class="menu-item">
                             <a href="/" class="menu-link">Home</a>
                         </li>
                         <li class="menu-item">
-                            <a href="company/dashboard" class="menu-link">Dashboard</a>
+                            <a href="{{ url_for('company_dashboard') }}" class="menu-link">Dashboard</a>
                         </li>
                         <li class="menu-item">
-                            <a href="company/company-profile" class="menu-link">Company Profile</a>
+                            <a href="{{ url_for('company_profile') }}" class="menu-link">Company Profile</a>
                         </li>
                         <li class="menu-item">
-                            <a href="/company/postjob" class="menu-link">Post Jobs</a>
+                            <a href="{{ url_for('postjob') }}" class="menu-link">Post Jobs</a>
                         </li>
                         <li class="menu-item">
-                            <a href="company/applications" class="menu-link">Applications</a>
+                            <a href="{{ url_for('company_applications') }}" class="menu-link">Applications</a>
                         </li>
-                        <li class="menu-item">
-                           
-                               <a href="/company/logout" class="menu-link">logout</a>
-                                
+                        <li class="menu-item">                           
+                            <a href="{{ url_for('companylogout') }}" class="menu-link">logout</a>                                
                         </li>
                     </ul>
                 </div>

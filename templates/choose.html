@@ -3,6 +3,16 @@
 
 {% include 'components/navbar.html' %}
 
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
 <section>
     <div class="auth-form-container">
         <div class="auth-form-wrapper">
