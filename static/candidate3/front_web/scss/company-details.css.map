@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,SAAS,CAAC;EACN,KAAK,EAAE,IAAI;EACX,MAAM,EAAC,IAAI;CAOd;;AAJO,MAAM,EAAE,SAAS,EAAE,KAAK;EALhC,AAII,SAJK,CAIL,GAAG,CAAC;IAEI,KAAK,EAAC,IAAI;GAEjB",
+    "sources": [
+        "company-details.scss",
+        "variables.scss"
+    ],
+    "names": [],
+    "file": "company-details.css"
+}

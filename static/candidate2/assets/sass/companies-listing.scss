@@ -1,0 +1,69 @@
+.company-list-div {
+    padding: 15px;
+    background-color: #ececec;
+    margin-top: 20px;
+}
+
+.company-list {
+    margin-left: 10%;
+}
+
+.company-list-card {
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    display: inline-block;
+    margin: 15px;
+    border-radius: 4px;
+    width: 19%;
+    height: 350px;
+    background-color: #ffffff;
+}
+
+.card-img-top {
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    padding: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 190px;
+}
+
+.card-body {
+    margin-top: 20px;
+}
+
+.card-address {
+    margin: -19px 10px -4px 26px;
+    display: flex;
+}
+
+.current-job {
+    margin: 15px;
+}
+
+.card-address-class {
+    margin-top: 10px;
+}
+
+.current-job-class {
+    margin-top: 10px;
+}
+
+.card-title-class {
+    height: 60px;
+}
+
+.pagination {
+    text-align: center;
+    list-style: inside;
+}
+
+.reportToCompany {
+    margin-top: -30px;
+    margin-left: 10px;
+}
+
+.company-web {
+    display: inline-block;
+}

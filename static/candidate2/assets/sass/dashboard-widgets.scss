@@ -1,0 +1,40 @@
+// dashboard css
+.total-users-bg {
+    background: #4facfe;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    background-image: -webkit-linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
+.verified-users-bg {
+    background: #4776E6;
+    background-image: -webkit-linear-gradient(to right, #8E54E9, #4776E6);
+    background-image: linear-gradient(to right, #8E54E9, #4776E6);
+}
+
+.today-jobs-bg {
+    background: #9be15d;
+    background-image: linear-gradient(to top, #9be15d 0%, #00e3ae 100%);
+    background-image: -webkit-linear-gradient(to top, #9be15d 0%, #00e3ae 100%);
+}
+
+.feature-jobs-bg {
+    background: rgba(230, 115, 1, 0.68) 21.4%;
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(230, 115, 1, 0.68) 21.4%, rgba(255, 78, 78, 1) 80.3%);
+    background-image: -webkit-radial-gradient(circle farthest-corner at 10% 20%, rgba(230, 115, 1, 0.68) 21.4%, rgba(255, 78, 78, 1) 80.3%);
+}
+
+.feature-employers-bg {
+    background-image: radial-gradient(circle 465px at -15.1% -25%, rgba(17, 130, 193, 1) 0%, rgba(67, 166, 238, 1) 49%, rgba(126, 203, 244, 1) 90.2%);
+}
+
+.feature-jobs-incomes-bg {
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(241, 180, 47, 1) 0%, rgba(234, 149, 11, 1) 90%);
+}
+
+.feature-employers-incomes-bg {
+    background-image: radial-gradient(circle 595px at 10.2% 19.1%, rgba(200, 137, 244, 1) 27.1%, rgba(113, 149, 244, 1) 98.7%);
+}
+
+.subscription-incomes-bg {
+    background-image: radial-gradient(circle 970px at 10% 20%, rgba(243, 69, 98, 1) 0%, rgba(187, 187, 187, 1) 100.2%);
+}

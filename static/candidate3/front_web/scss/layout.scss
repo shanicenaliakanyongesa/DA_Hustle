@@ -1,0 +1,215 @@
+@import "../scss/variables.scss";
+
+@font-face {
+    font-family: "Circular Std";
+    src: url(../fonts/circular-std-medium-500.ttf);
+    font-weight: 500;
+    font-style: normal;
+    display: swap;
+}
+
+body {
+    font-family: "Circular Std", sans-serif;
+    font-weight: 500;   
+}
+
+header {
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    @media (max-width: 991px) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    @media (max-width: 575px) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .navbar {
+
+        @media (max-width: 991px) {
+            position: static;
+        }
+
+        .navbar-nav {
+            @media (max-width: 991px) {
+                display: block;
+            }
+
+            .nav-item {
+                position: relative;
+                transition: all 0.3s;
+                .language-menu {
+                    .nav-item {
+                        margin: 5px 0;
+                    }
+                     .country-flag {
+                        width: 20px;
+                    }
+                }
+                .submenu {
+                    position: absolute;
+                    min-width: 200px;
+                    width: auto;
+                    padding: 10px;
+                    background:$white;
+                    border-radius: 10px;
+                    height: auto;
+                    display: inline-block;
+                    top: 110%;
+                    left: 12px;
+                    z-index: 1;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: .3s ease-in-out;
+                }
+                &:hover {
+                    .submenu {
+                        opacity: 1;
+                         visibility: visible;
+                    }
+                }
+                .nav-link {
+                    padding-right: 25px;
+                    padding-left: 25px;
+                    color: $gray;
+
+                    @media (max-width: 1399px) {
+                        padding-right: 18px;
+                        padding-left: 18px;
+                    }
+
+                    @media (max-width: 1199px) {
+                        padding-right: 14px;
+                        padding-left: 14px;
+                    }
+
+                    &.active,&:hover {
+                        color: $black;
+                    }
+                }
+                &:last-child {
+                    .nav-link {
+
+                        @media (min-width: 1400px) {
+                            padding-right: 0;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .navbar-toggler {
+            @media (max-width: 991px) {
+                box-shadow: none;
+            }
+        }
+
+        .navbar-collapse {
+
+            @media (max-width: 991px) {
+                position: absolute;
+                width: calc(100% - 24px);
+                // top: calc(100% - 390px);
+                top: calc(100% - 508px);
+                background: $white;
+                left: 0px;
+                right: 0px;
+                margin: auto;
+                max-width: 696px;
+                border-radius: 0.625rem;
+                box-shadow: 0px 0px 20px rgb(173 181 189 / 38%);
+                z-index: 1024;
+            }
+
+            @media (max-width: 767px) {
+                max-width: 516px;
+            }
+        }
+
+        .header-btn-grp {
+
+            @media (max-width: 991px) {
+                padding: 20px 20px 6px;
+            }
+        }
+
+        .dropdown {
+            .dropdown-toggle {
+                padding: 8px 25px;
+                color: $gray;
+
+                @media (max-width: 1399px) {
+                    padding-right: 18px;
+                    padding-left: 18px;
+                }
+
+                @media (max-width: 1199px) {
+                    padding-right: 14px;
+                    padding-left: 14px;
+                }
+
+                &:after {
+                    border: 0;
+                    margin-left: 10px;
+                    font-family: "Font Awesome 6 Free";
+                    font-weight: 900;
+                    -webkit-font-smoothing: antialiased;
+                    display: var(--fa-display, inline-block);
+                    content: "";
+                    vertical-align: middle;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    padding-top: 80px;
+
+    @media (max-width: 991px) {
+        padding-top: 50px;
+    }
+
+.email {
+    input {
+        width:95%;
+        outline: none;
+        border: none;
+        padding:0 20px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+   
+        @media (max-width:1199px){
+          width: 76%;
+        }
+
+    }
+    .icon {
+        width:50px;
+        height:50px;
+        padding:17px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+
+    .social-icon {
+        i {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            @media (max-width: 767px) {
+                width: 30px;
+                font-size: 14px;
+                height: 30px;
+            }
+
+        }
+    }
+}

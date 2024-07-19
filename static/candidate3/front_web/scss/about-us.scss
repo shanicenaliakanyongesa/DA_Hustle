@@ -1,0 +1,54 @@
+@import "../scss/variables.scss";
+
+.how-it-works-section {
+    .work-process {
+        overflow: hidden;
+        .img {
+            width:100px;
+            height:100px;
+            border-radius: $border-radius;
+            box-shadow:$box-shadow;
+
+            @media (max-width:767px) {
+                width:80px;
+                height:80px;
+            }
+
+            img {
+                width:50px;
+                height:50px;
+                @media (max-width:767px) {
+                    width:40px;
+                    height:40px;
+                }
+            }
+        }
+        .arrow1 {
+            left: 23%;
+            top: 0;
+        }
+        .arrow2 {
+            left: 56%;
+            top: 32%;
+        }
+    }
+}
+
+.question-section {
+    .accordion-button::after {
+        display: none;
+    }
+    .accordion-button:not(.collapsed) {
+        color: $primary;
+        background-color: $white;
+        box-shadow: none!important;
+    }
+    .accordion-item {
+        border: none;
+        box-shadow:$box-shadow; 
+        margin-bottom:20px;
+    }
+    .accordion-body {
+       padding: 0 20px 20px 20px;
+    }
+}

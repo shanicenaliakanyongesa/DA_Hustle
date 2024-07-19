@@ -1,0 +1,161 @@
+@import "../scss/variables.scss";
+
+.slider-test-section {
+    .carousel-control-prev, .carousel-control-next {
+        width: 12%;
+        opacity:1;
+        .icon {
+            padding:6px 7px;
+            border:1px solid $white;
+            border-radius: $border-radius;
+
+            @media (max-width:575px) {
+                font-size:12px;
+            }
+        }
+    }
+    .slider-img {
+        height: 400px;
+        object-fit: cover;
+    }
+    .slider-img-desc {
+        bottom:8px;
+        @media (max-width:991px) {
+            bottom:0;
+        }
+    }
+}
+
+.popular-job-categories-section {
+    .job-categories-card {
+        .icon {
+            top: -30px;
+            left:5px;
+
+            @media (max-width:480px) {
+                left: 0px;
+                top: -20px
+            }
+            @media (max-width:325px) {
+                left: -5px;
+                top: -23px;
+            }
+        }
+    }
+}
+
+.notice-section {
+    .notice-content {
+        border-radius: $border-radius;
+       .autoscroller {
+            height: 500px;
+            overflow-y: auto;
+           &::-webkit-scrollbar {
+            display: none;
+           }
+        }
+        .notice-desc {
+           border-radius: 10px;
+           box-shadow: $box-shadow;
+           float: top;
+        }
+        span {
+          padding:10px 30px;
+           border-top-left-radius: 10px;
+           border-bottom-right-radius: 10px;
+           bottom:0;
+           right:12px;
+        }
+    }
+    .marquee{
+        position:relative;
+        animation:scroll 10s linear infinite;
+        &:hover {
+            animation-play-state: paused
+        }
+    }
+    @keyframes scroll{
+    0% {top:500px;}
+    100% {top:-500px;}
+    }
+}
+
+.testimonial-section {
+    .testimonial {
+        .testimonial-card {
+            padding:60px;
+
+            @media (max-width:991px) {
+            padding:40px;
+            }
+            @media (max-width:575px) {
+                padding:30px;
+            }
+            .comma {
+                left: 20px;
+                top: 0;
+            }
+        }
+    }
+    .slick-list {
+        box-shadow: $box-shadow;
+        border-radius: 10px;
+    }
+    .slick-dotted.slick-slider {
+        margin-bottom: 60px;
+    }
+    .slick-dots {
+        bottom: -60px;
+    }
+    .slick-dots li button {
+       display: none;
+    }
+    .slick-dots li {
+        font-size: 0;
+        line-height: 0;
+        display: inline-block;
+        width: 20px;
+        border: 1px solid $gray;
+        border-radius: 10px;
+        height: 8px;
+        padding: 0px;
+        color: transparent;
+        outline: none;
+        background: transparent;
+
+         &:before {
+            font-size:0;
+        }
+    }
+    li.slick-active {
+        background-color: $primary;
+        border: 0;
+        width: 20px;
+        border-radius: 10px;
+        height: 8px;
+    }
+}
+
+.pricing-packages-section {
+    .pricing-plans {
+        .card-body-top {
+            border-bottom:1px solid $cyan;
+        }
+        .card-body-bottom {
+            .check-box {
+                width: 22px;
+                height:22px;
+                min-width:22px;
+                border-radius: $border-radius;
+                background-color: $gray;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+

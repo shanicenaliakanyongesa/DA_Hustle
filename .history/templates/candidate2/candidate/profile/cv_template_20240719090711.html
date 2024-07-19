@@ -1,0 +1,84 @@
+<div class="row resumes">
+    <div class="col-md-12 mb-8">
+        <h1 class="fs-2hx mb-6 text-primary">{{ user.full_name }}</h1>
+        <div class="mt-3 d-flex flex-column">
+           
+            <div class="mb-1 d-flex align-items-center">
+                <img class="me-3" src="../../../../static/assets/img/envelope.png">
+                <span class="text-muted fs-3">{{ user.email }}</span>
+            </div>
+            <div class="d-flex align-items-center">
+                <img class="me-3" src="../../../../static/assets/img/phone.png">
+                <span class="text-muted fs-3">{{ user.phone }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mb-8 ps-7">
+
+            </h2>
+           
+    </div>
+    <div class="col-md-12 mb-8 ps-7">
+       
+            <h2 class="border-bottom border-2 border-danger pb-3 text-info fs-2x mb-5">
+                <img class="text-info p-3 border rounded-circle border-info me-3" src="../../../../static/assets/img/user-graduate.png">
+                'Candidates Education'
+            </h2>
+        
+        <div class="row">
+            {% for candidateEducation in candidateEducations %}
+                <div class="col-6 mt-5">
+                    <h5 class="fs-3 text-primary">{{ candidateEducation.degreeLevel.name }}</h5>
+                    <h6 class="text-muted fs-5">{{ candidateEducation.degree_title }}</h6>
+                    <span class="text-muted fs-4">{{ candidateEducation.year }} | {{ candidateEducation.country }}</span>
+                    <p class="mb-0 fs-4">{{ candidateEducation.institute }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-12 mb-8 ps-7">
+        {% if candidateExperiences|length %}
+            <h2 class="border-bottom border-2 border-danger pb-3 text-info fs-2x mb-5">
+                <img class="text-info p-3 border rounded-circle border-info me-3" src="../../../../static/assets/img/briefcase.png">
+                {{ _('messages.candidate_profile.experience') }}
+            </h2>
+        {% endif %}
+        <div class="row">
+            {% for candidateExperience in candidateExperiences %}
+                <div class="col-6 mt-5">
+                    <h5 class="fs-3 text-primary">{{ candidateExperience.company }}</h5>
+                    <h6 class="fs-5">{{ candidateExperience.country }}</h6>
+                    <span class="text-muted fs-4">{{ candidateExperience.start_date.strftime('%d %B, %Y') }} - </span>
+                    {% if candidateExperience.currently_working %}
+                        <span class="text-muted fs-4">{{ _('messages.candidate_profile.present') }}</span>
+                    {% else %}
+                        <span class="text-muted fs-4">{{ candidateExperience.end_date.strftime('%d %B, %Y') }}</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-12 ps-7">
+        {% if user.is_online_profile_availbal %}
+            <h2 class="border-bottom border-2 border-danger pb-3 text-info fs-2x mb-5">
+                <img class="text-info p-3 border rounded-circle border-info me-3" src="../../../../static/assets/img/link.png">
+                {{ _('messages.candidate_profile.online_profile') }}
+            </h2>
+        {% endif %}
+        {% if user.facebook_url %}
+            <a class="mb-2 fs-4 d-block" href="{{ user.facebook_url }}" target="_blank" id="facebook_url">{{ user.facebook_url }}</a>
+        {% endif %}
+        {% if user.twitter_url %}
+            <a class="mb-2 fs-4 d-block" href="{{ user.twitter_url }}" target="_blank" id="twitter_url">{{ user.twitter_url }}</a>
+        {% endif %}
+        {% if user.linkedin_url %}
+            <a class="mb-2 fs-4 d-block" href="{{ user.linkedin_url }}" target="_blank" id="linkedin_url">{{ user.linkedin_url }}</a>
+        {% endif %}
+        {% if user.google_plus_url %}
+            <a class="mb-2 fs-4 d-block" href="{{ user.google_plus_url }}" target="_blank" id="google_plus_url">{{ user.google_plus_url }}</a>
+        {% endif %}
+        {% if user.pinterest_url %}
+            <a class="mb-2 fs-4 d-block" href="{{ user.pinterest_url }}" target="_blank" id="pinterest_url">{{ user.pinterest_url }}</a>
+        {% endif %}
+    </div>
+</div>

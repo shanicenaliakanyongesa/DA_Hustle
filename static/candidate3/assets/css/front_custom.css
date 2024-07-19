@@ -1,0 +1,9 @@
+.bookmark-class{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #f94a4a;
+}
+.job-post-wrapper ul.pagination {
+    margin-top: 30px !important;
+}

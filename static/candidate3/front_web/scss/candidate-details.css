@@ -1,0 +1,58 @@
+.hero-img {
+    width: 80px;
+    height: 80px;
+}
+
+@media (max-width: 375px) {
+    .hero-img img {
+        width: 60px;
+    }
+}
+
+.candidate-profile-img  {
+    width: 80px;
+    height: 80px;
+}
+
+.candidate-profile-img  img {
+    width: auto;
+    object-fit: cover;
+    height: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.job-description-block{
+    position: relative;
+    padding-left: 60px;
+    z-index: 1;
+    padding-bottom: 40px;
+}
+
+.job-description-block:before {
+    position: absolute;
+    left: 14px;
+    top: 5px;
+    bottom: 0;
+    z-index: -1;
+    border-left: 2px dashed rgba(217, 48, 37, .15);
+    content: "";
+}
+
+.job-description-block .name  {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    display: block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 50%;
+    background: #f9e0df;
+    color: rgba(217, 48, 37, 1);
+    z-index: 2;
+}

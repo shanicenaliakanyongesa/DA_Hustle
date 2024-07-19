@@ -1,0 +1,15 @@
+{% extends 'candidate2/candidate/layouts/app.html' %}
+
+{% block title %}
+     Candidate Dashboard
+{% endblock %}
+{% block content %}
+    {% include 'flash::message' %}
+    <div class="d-flex flex-column">
+        {% livewire 'applied-jobs' %}
+    </div>
+    {% include 'candidate2/candidate/applied_job/show_applied_jobs_modal.html' %}
+    {% include 'candidate2/candidate/applied_job/templates/templates.html' %}
+    {% include 'candidate2/candidate/applied_job/schedule_slot_book.html' %}
+
+{% endblock %}

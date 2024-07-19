@@ -1,0 +1,22 @@
+{% extends 'candidate2/candidate/layouts/app.html' %}
+
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+    
+    <div class="mb-5 mb-xl-3">
+        <div class="py-0">
+            {% include 'candidate2/candidate/profile/profile_menu.html' %}
+        </div>
+    </div>
+    <div>
+        <div class="py-0">
+            {% block section %}
+            
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

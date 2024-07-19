@@ -1,0 +1,193 @@
+$blue-color: #6777ef;
+
+#main-nav {
+    .simple-menu {
+        a {
+            text-transform: capitalize;
+
+            &:focus {
+                color: $blue-color !important;
+            }
+        }
+    }
+}
+
+//Home page
+.overlay-black {
+    &:before {
+        background-image: linear-gradient(130deg, #6777ef 38%, #3ae2f0 123%) !important;
+    }
+}
+
+.alert.alert-warning {
+    background-color: #ffbe52 !important;
+    color: #fdfdff
+}
+
+.job-search-form .btn-purple {
+    background: #fff;
+    color: $blue-color !important;
+    border: 0;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: #e4eeff !important;
+    }
+}
+
+.company-image {
+    height: 100px !important;
+    object-fit: contain !important;
+}
+
+section#job-page .company-info .job-company {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: unset !important;
+
+    a {
+        img {
+            object-fit: contain;
+            max-width: 100px;
+            height: 70px;
+        }
+    }
+}
+
+.job-post-wrapper {
+    .single-job-post {
+        border-color: transparent;
+
+        img {
+            object-fit: contain;
+            height: 100%;
+            width: 100%;
+        }
+
+        .btn-small {
+            border-radius: 12px;
+            box-shadow: none;
+            font-size: 10px;
+            padding-top: 1px;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
+        }
+
+    }
+}
+
+.btn-blue,
+.btn-purple,
+.btn-red {
+    border-radius: 18px;
+    padding: 1px 15px 0 15px;
+    letter-spacing: 0.8px;
+}
+
+section#job-page {
+    .job-overview li h5 i {
+        color: $blue-color;
+    }
+
+    .label.label-info {
+        background-color: $blue-color;
+    }
+}
+
+.job-post-wrapper .single-job-post .job-title, .job-post-wrapper .single-job-post .job-info {
+    padding-right: 10px;
+}
+
+.job-post-wrapper .single-job-post .job-title a {
+    text-transform: capitalize;
+}
+
+// page header style
+section.page-header:after {
+    background: linear-gradient(to right, #6777ef -20%, #443088 120%);
+    opacity: 1;
+}
+
+// back to top button style
+.back-top {
+    background: linear-gradient(to right, #6777ef 60%, #443088 150%);
+}
+
+//About page
+.about-process {
+    .process-icon {
+        background: $blue-color !important;
+    }
+
+    h5.step-no {
+        margin-bottom: 20px !important;
+        font-size: 12px;
+    }
+}
+
+//blog page
+.blog-sidebar .widget-title:after {
+    background: $blue-color;
+}
+
+
+//login page
+section#login .login-box .login-title {
+    background: $blue-color;
+
+    &:before {
+        background: $blue-color;
+    }
+}
+
+//Footer style
+footer {
+    .footer-info:before {
+        background: rgb(41 46 90);
+    }
+
+    .copyright {
+        background: #1b1f3c;
+    }
+
+    .footer-info {
+        form {
+            input.form-control {
+                background: rgba(237, 237, 237, 1) !important;
+                box-shadow: none !important;
+            }
+
+            button.btn-orange {
+                box-shadow: none !important;
+            }
+        }
+    }
+}
+
+footer .footer-info p, footer .footer-info a, footer .footer-info ul li, footer .footer-info span {
+    color: #e3e6ea;
+}
+
+.no-blog-available {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.search-job-location {
+    width: 80% !important;
+    display: inline !important;
+    margin-right: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+    .search-job-location {
+        margin-bottom: 10px !important;
+    }
+}
+
+.front-thumbnail {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+}
+

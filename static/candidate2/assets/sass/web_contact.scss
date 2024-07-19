@@ -1,0 +1,19 @@
+.mobile-itel-width .iti {
+    width: 100%;
+}
+
+#valid-msg,
+.profile-valid-msg {
+    color: green;
+    margin-left: 2px;
+}
+
+#error-msg,
+.profile-error-msg {
+    color: red;
+    margin-left: 2px;
+}
+
+.hide {
+    display: none;
+}

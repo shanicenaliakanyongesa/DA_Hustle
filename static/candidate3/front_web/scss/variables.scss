@@ -1,0 +1,26 @@
+
+//colors
+$red: #F94A4A !default;
+$black:#272727!default;
+$cyan:#E8F4F3!default;
+$gray:#888E8D!default;
+$white:#FFFFFF!default;
+$gray-200:#FAFBFB!default;
+$gray-300:#DAE0DF!default;
+$success: #198754 !default;
+
+//theme color variable
+$primary: $red!default;
+$secondary: $black!default;
+$bg-light: $cyan!default;
+$bg-dark: $black!default;
+$bg-gray:$gray-200!default;
+ 
+// border-radius-variables
+$border-radius :                  50px!default;
+$border-radius-lg:                  100px!default;
+$box-shadow:                     0px 5px 10px rgba(0, 0, 0, 0.1)!default;
+
+// buttons
+$btn-focus-box-shadow:              0 !default;
+

@@ -1,0 +1,86 @@
+.latest-job-section .latest-job-left .form-group .form-check-input:checked, .latest-job-section .latest-job-left .form-group .form-check-input:active {
+  background-color: #F94A4A;
+  border-color: #F94A4A;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.latest-job-section .latest-job-left .form-group .form-switch .form-check-input {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='white'/></svg>");
+  background-color: #DAE0DF;
+  border-color: #DAE0DF;
+}
+
+.latest-job-section .latest-job-left .form-group .form-check-input:checked {
+  background-color: #F94A4A;
+}
+
+.latest-job-section .latest-job-left .form-group .form-check-input:focus {
+  border-color: transpatant;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.latest-job-section .latest-job-left .form-group .form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='white'/></svg>");
+}
+
+.latest-job-section .job-img {
+  width: 100%;
+  height: 100%;
+}
+
+.irs--flat .irs-min, .irs--flat .irs-max {
+  top: 0;
+  padding: 1px 3px;
+  color: #888E8D;
+  text-shadow: none;
+  background-color: transparent;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.irs--flat .irs-single {
+  color: #F94A4A;
+  font-size: 14px;
+  text-shadow: none;
+  padding: 5px 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #DAE0DF;
+  border-radius: 5px;
+}
+
+.irs--flat .irs-bar {
+  top: 40px;
+  height: 4px;
+}
+
+.irs--flat .irs-line {
+  top: 40px;
+  height: 4px;
+  background-color: #DAE0DF;
+  border-radius: 4px;
+}
+
+.irs--flat .irs-handle > i:first-child {
+  position: absolute;
+  display: block;
+  top: 12px;
+  left: 0%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  background-color: #F94A4A;
+}
+
+.irs--flat .irs-single:before {
+  display: none;
+}
+
+.irs-single {
+  position: absolute;
+  display: block;
+  top: -5px;
+}
+/*# sourceMappingURL=jobs.css.map */

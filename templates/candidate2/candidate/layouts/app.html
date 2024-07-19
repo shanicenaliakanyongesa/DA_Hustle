@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="../">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="shortcut icon" href="{{ url_for('static', filename='path_to_your_icon') }}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link rel="stylesheet" href="../../../../static/candidate3/css/third_party.css">
+    <link rel="stylesheet" href="../../../../static/candidate3/assets/css/custom-dark.css">
+    <link rel="stylesheet" href="../../../../static/candidate3/assets/css/style-dark.css">
+    <link rel="stylesheet" href="../../../../static/candidate3/css/plugins.dark.css">
+
+    
+    
+        
+    <link rel="stylesheet" href="../../../../static/candidate3/assets/css/style.css">
+    <link rel="stylesheet" href="../../../../static/candidate3/css/plugins.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/plugins.css') }}">
+ 
+    <link rel="stylesheet" type="text/css" href="../../../../static/candidate3/assets/css/custom.css">
+    <!-- Livewire Styles -->
+    {% block livewire_styles %}
+    {% endblock %}
+    <!-- Routes -->
+    {% block routes %}
+    {% endblock %}
+    <!-- Livewire Scripts -->
+    {% block livewire_scripts %}
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
+        data-turbolinks-eval="false" data-turbo-eval="false"></script>
+</head>
+<script src="../../../../static/candidate3/js/third-party.js"></script>
+<script src="../../../../static/candidate3/js/pages.js"></script>
+
+<body class="overflow-x-hidden">
+    <div class="d-flex flex-column flex-root">
+        <div class="d-flex flex-column flex-column-fluid">
+            <div class="header fixed-header">
+                {% include 'candidate2/candidate/layouts/header.html' %}
+            </div>
+            <div class="theme-wrapper d-flex flex-column flex-row-fluid">
+                <div class='d-flex flex-column flex-row-fluid'>
+                    <div class="d-flex flex-column flex-column-fluid pt-7">
+                        <div class="content flex-column-fluid">
+                            <div class="container-fluid container-xxl">
+                                {% block content %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='container-fluid container-xxl'>
+                
+            </div>
+            
+        </div>
+    </div>
+    <script data-turbo-eval="false">
+        var hostUrl = 'assets/';
+        
+    </script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>

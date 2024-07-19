@@ -1,0 +1,12 @@
+@import "../scss/variables.scss";
+
+.hero-img {
+    width: 80px;
+    height:80px;
+
+    img {
+        @media (max-width:375px) {
+            width:60px;
+        }
+    }
+}

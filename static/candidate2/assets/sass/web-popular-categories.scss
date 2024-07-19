@@ -1,0 +1,90 @@
+.top-categories {
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    border: 1px solid #e1e4fc;
+    border-radius: 8px;
+    background-image: linear-gradient(130deg, #6777ef, #3ae2f0);
+    color: #fff;
+}
+
+.category-listing {
+    text-align: center;
+    border: 1px solid #e1e4fc;
+    display: inline-block;
+    margin: 16px;
+    border-radius: 8px;
+    width: 22%;
+    height: 150px;
+    background-color: #ffffff;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(130deg, #6777ef, #3ae2f0);
+
+    //&:hover {
+    //    &:after {
+    //        animation: show-hover forwards ease-out;
+    //        animation-duration: 0.5s;
+    //    }
+    //
+    //    .top-categories {
+    //        color: #fff;
+    //    }
+    //}
+    //
+    //&::after {
+    //    content: "";
+    //    position: absolute;
+    //    height: 100%;
+    //    width: 100%;
+    //    opacity: 0;
+    //    top: 0;
+    //    left: 0;
+    //    background-image: linear-gradient(to right, #6777ef , #3ae2f0);
+    //}
+    //
+    //@keyframes show-hover {
+    //    0% {
+    //        opacity: 0;
+    //    }
+    //    100% {
+    //        opacity: 1;
+    //        background-image: linear-gradient(130deg, #6777ef , #3ae2f0);
+    //    }
+    //}
+}
+
+.category-listing:nth-child(5) {
+    text-align: center;
+    border: none;
+    display: inline-block;
+    margin: 16px;
+    border-radius: 8px;
+    width: 100%;
+    height: 150px;
+    background-color: transparent;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    background-image: none;
+
+    .top-categories {
+        background-image: linear-gradient(130deg, #6777ef, #3ae2f0);
+        width: 22%;
+        margin: auto;
+        position: relative !important;
+        border-radius: 8px;
+    }
+}
+
+div#infyLoader {
+    display: block;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
+    background: white;
+}

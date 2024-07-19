@@ -1,0 +1,66 @@
+.job-details-section .share-this-job .icon-box .social-icon {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 575px) {
+  .job-details-section .share-this-job .icon-box .social-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.job-details-section .share-this-job .icon-box .social-icon:nth-child(1) {
+  background-color: #3A5BA0;
+}
+
+.job-details-section .share-this-job .icon-box .social-icon:nth-child(2) {
+  background-color: #1DA1F2;
+}
+
+.job-details-section .share-this-job .icon-box .social-icon:nth-child(3) {
+  background-color: #0077B5;
+}
+
+.job-details-section .share-this-job .icon-box .social-icon:nth-child(4) {
+  background-color: #DB4A39;
+}
+
+.job-details-section .share-this-job .icon-box .social-icon:nth-child(5) {
+  background-color: #E60023;
+}
+
+.job-details-section .share-this-job .icon-box .social-icon .icon i {
+  font-size: 22px;
+}
+
+@media (max-width: 575px) {
+  .job-details-section .share-this-job .icon-box .social-icon .icon i {
+    font-size: 14px;
+  }
+}
+
+.company-overview .company-profile .profile {
+  width: 60px;
+  height: 60px;
+}
+
+.job-profile-img {
+    width: 80px;
+    height: 80px;
+}
+
+.company-overview .company-profile .profile img, .job-profile-img img{
+    width: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+    max-width: 100%;
+}
+
+.bookmark {
+    width: auto;
+    right: 0;
+}
+/*# sourceMappingURL=job-details.css.map */

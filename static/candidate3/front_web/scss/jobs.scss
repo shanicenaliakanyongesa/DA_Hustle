@@ -1,0 +1,86 @@
+@import "../scss/variables.scss";
+
+.latest-job-section {
+    .latest-job-left {
+        .form-group {
+            .form-check-input {
+                &:checked,&:active {
+                    background-color: $primary;
+                    border-color: $primary;
+                    box-shadow: none!important;
+                }
+            }
+            .form-switch .form-check-input{
+                background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='white'/></svg>");
+                background-color: $gray-300;
+                border-color:$gray-300;
+            }
+           .form-check-input:checked{
+                background-color: $primary;
+            }
+            .form-check-input:focus {
+                border-color: transpatant;
+                outline: 0;
+                box-shadow:none;
+            }
+            .form-switch .form-check-input:focus {
+                background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='white'/></svg>");
+            }
+        }
+    }
+    .job-img {
+        width:100%;
+         height:100%;
+     }
+ }
+
+//  range-slider
+.irs--flat .irs-min, .irs--flat .irs-max {
+    top: 0;
+    padding: 1px 3px;
+    color: $gray;
+    text-shadow: none;
+     background-color: transparent;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.irs--flat .irs-single {
+    color: $primary;
+   font-size:14px;
+    text-shadow: none;
+    padding: 5px 10px;
+    background-color: $white;
+    border: 1px solid $gray-300;
+    border-radius: 5px;
+}
+.irs--flat .irs-bar {
+    top: 40px;
+    height: 4px;
+}
+.irs--flat .irs-line {
+    top: 40px;
+    height: 4px;
+    background-color: $gray-300;
+    border-radius: 4px;
+}
+.irs--flat .irs-handle>i:first-child {
+    position: absolute;
+    display: block;
+    top: 12px;
+    left: 0%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    background-color: $primary;
+}
+.irs--flat .irs-single:before {
+    display:none;
+}
+.irs-single {
+    position: absolute;
+    display: block;
+    top: -5px;
+}
+
+
+		

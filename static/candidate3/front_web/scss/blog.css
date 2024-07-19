@@ -1,0 +1,33 @@
+.blog-card .card {
+  border: none;
+}
+
+.blog-card .blog-detail-img {
+    height: 300px;
+    width: 300px;
+}
+
+.blog-card .blog-detail-img .inner-image {
+    width: 300px;
+}
+
+@media (max-width: 767px) {
+  .blog-card .card-img-top {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .blog-card .blog-detail-img .inner-image {
+      width: auto;
+      height: 280px !important;
+  }
+}
+
+.recent-post-section .recent-post .img img {
+  width: 100px;
+  height: 70px;
+  border-radius: 5px;
+    object-fit: cover;
+}
+/*# sourceMappingURL=blog.css.map */

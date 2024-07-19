@@ -1,0 +1,17 @@
+.w-150px{
+    width: 150px;
+}
+//.dashboard {
+//    padding-top: 120px;
+//}
+@media (max-width: 991.98px) {
+    .dashboard {
+        padding-top: 55px;
+    }
+}
+.nav-tabs .nav-item .nav-link {
+    background-color: transparent !important;
+    border: 0;
+    font-size: 1rem;
+}
+
