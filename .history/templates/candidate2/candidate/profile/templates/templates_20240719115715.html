@@ -1,0 +1,129 @@
+<script id="candidateExperienceTemplate" type="text/x-jsrender">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 candidate-experience rounded shadow p-5 mb-5 card"
+         data-experience-id="" data-id="">
+        <article class="article article-style-b">
+            <div class="article-details">
+                <div class="d-flex justify-content-between">
+                    <div class="article-title">
+                        <h4 class="text-primary"></h4>
+                        <h6 class="text-muted"></h6>
+                    </div>
+                    <div class="article-cta candidate-experience-edit-delete">
+                        <a href="javascript:void(0)"
+                           class="edit-candidate-experience btn px-2 text-primary fs-3 ps-0"
+                           title="Edit"
+                           data-id=""><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="javascript:void(0)"
+                           class="delete-experience btn px-2 text-danger fs-3 pe-0"
+                           title="Delete"
+                           data-id=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <span class="text-muted"></span>
+                <p></p>
+            </div>
+        </article>
+    </div>
+  </script>
+  
+  <script id="candidateEducationTemplate" type="text/x-jsrender">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 candidate-education shadow rounded p-5 mb-5 card"
+         data-education-id="{{:candidateEducationNumber}}" data-id="">
+        <article class="article article-style-b">
+            <div class="article-details">
+                <div class="d-flex justify-content-between">
+                    <div class="article-title">
+                        <h4 class="text-primary education-degree-level">{{:degreeLevel}}</h4>
+                        <h6 class="text-muted">{{:degreeTitle}}</h6>
+                    </div>
+                    <div class="article-cta candidate-education-edit-delete">
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-primary fs-3 ps-0 edit-candidate-education"
+                           title="Edit"
+                           data-id=""><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-danger fs-3 pe-0 delete-education"
+                           title="Delete"
+                           data-id=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <span class="text-muted">{{:year}} | {{:country}}</span>
+                <p>{{:institute}}</p>
+            </div>
+        </article>
+    </div>
+  </script>
+  
+  <script id="CVcandidateExperienceTemplate" type="text/x-jsrender">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 candidate-experience shadow rounded p-5 mb-5 card"
+         data-experience-id="" data-id="">
+        <article class="article article-style-b">
+            <div class="article-details border-0">
+                <div class="d-flex justify-content-between">
+                    <div class="article-title">
+                        <h5 class="experience-title text-primary"></h5>
+                        <h6 class="text-muted"></h6>
+                    </div>
+                    <div class="article-cta candidate-experience-edit-delete">
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-primary fs-3 ps-0 edit-experience"
+                           title="Edit"
+                           data-id=""><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-danger fs-3 pe-0 btn-sm delete-experience"
+                           title="Delete"
+                           data-id=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <span class="text-muted">{{:startDate}} - {{:endDate}} | {{:country}}</span>
+                <p class="fw-bold"></p>
+            </div>
+        </article>
+    </div>
+  </script>
+  
+  <script id="CVcandidateEducationTemplate" type="text/x-jsrender">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 candidate-education shadow rounded p-5 mb-5 card"
+         data-education-id="{{:candidateEducationNumber}}" data-id="">
+        <article class="article article-style-b">
+            <div class="article-details border-0">
+                <div class="d-flex justify-content-between">
+                    <div class="article-title">
+                        <h5 class="education-degree-level text-primary">{{:degreeLevel}}</h5>
+                        <h6 class="text-muted">{{:degreeTitle}}</h6>
+                    </div>
+                    <div class="article-cta candidate-education-edit-delete">
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-primary fs-3 ps-0 edit-education"
+                           title="Edit"
+                           data-id=""><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-danger fs-3 pe-0 delete-education"
+                           title="Delete"
+                           data-id=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <span class="text-muted">{{:year}} | {{:country}}</span>
+                <p class="fw-bold">{{:institute}}</p>
+            </div>
+        </article>
+    </div>
+  </script>
+  
+  <script id="resumeActionTemplate" type="text/x-jsrender">
+    <a href="{{:downloadResume}}" class="download-link btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+      <i class="fas fa-download download-margin"></i>
+    </a>
+    <a title="Delete" data-id="" class="delete-resume btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+      <span class="svg-icon svg-icon-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <rect x="0" y="0" width="24" height="24"/>
+            <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"/>
+            <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+          </g>
+        </svg>
+      </span>
+    </a>
+  </script>
+  

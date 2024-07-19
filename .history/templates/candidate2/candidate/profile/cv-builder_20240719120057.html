@@ -1,0 +1,127 @@
+<!-- templates/candidate2/profile/section.html -->
+{% extends 'candidate2/candidate/profile/index.html' %}
+
+{% block css %}
+<link href="../../../../static/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+
+{% endblock %}
+
+{% block section %}
+<div class="mb-5 mb-xl-3">
+    <div class="py-0">
+        {% include 'candidate2/candidate/profile/profile_menu.html' %}
+    </div>
+</div>
+    <div class="row">
+        <div class="d-flex justify-content-end">
+            <a href="#cvModal" role="button" class="btn btn-primary cv-preview" data-bs-toggle="modal">Preview/a>
+        </div>
+        <div class="col-md-12 mt-5 shadow p-9 card">
+            <!-- General Section -->
+            <div id="candidateGeneralDiv">
+                {% include 'candidate2/candidate/profile/career_informations/show_general.html' %}
+            </div>
+            <div class="d-none" id="editGeneralDiv">
+                {% include 'candidate2/candidate/profile/career_informations/edit_general.html' %}
+            </div>
+            <!-- Education Section -->
+            <div class="border-bottom border-danger my-5 border-2 d-flex justify-content-between">
+                <h5 class="mt-2 fs-2 text-info">
+                    <i class="fas fa-user-graduate text-info p-3 border rounded-circle border-info me-3"></i>
+                   Candidates Education
+                </h5>
+                <a href="javascript:void(0)" class="addEducationBtn">
+                    <i class="fas fa-plus-circle fa-2x text-primary"></i>
+                </a>
+            </div>
+            <div class="section-body">
+                <div class="row candidate-education-container" id="candidateEducationsDiv">
+                    {% include 'candidate2/candidate/profile/career_informations/show_education.html' %}
+                </div>
+                <div class="d-none" id="createEducationsDiv">
+                    {% include 'candidate2/candidate/profile/career_informations/create_education.html' %}
+                </div>
+                <div class="d-none" id="editEducationsDiv">
+                    {% include 'candidate2/candidate/profile/career_informations/edit_education.html' %}
+                </div>
+            </div>
+            <!-- Experience Section -->
+            <div class="border-bottom my-5 border-danger border-2 d-flex justify-content-between">
+                <h5 class="mt-2 fs-2 text-info">
+                    <i class="fas fa-briefcase text-info p-3 border rounded-circle border-info me-3"></i>
+                 Candidates Experience
+                </h5>
+                <a href="javascript:void(0)" class="addExperienceBtn">
+                    <i class="fas fa-plus-circle fa-2x text-primary"></i>
+                </a>
+            </div>
+            <div class="section-body">
+                <div class="row candidate-experience-container" id="candidateExperienceDiv">
+                    {% include 'candidate2/candidate/profile/career_informations/show_experience.html' %}
+                </div>
+                <div class="d-none" id="createExperienceDiv">
+                    {% include 'candidate2/candidate/profile/career_informations/create_experience.html' %}
+                </div>
+                <div class="d-none" id="editExperienceDiv">
+                    {% include 'candidate2/candidate/profile/career_informations/edit_experience.html' %}
+                </div>
+            </div>
+            <!-- Online Profile Section -->
+            <div class="border-bottom my-5 border-danger border-2 d-flex justify-content-between">
+                <h5 class="mt-2 fs-2 text-info">
+                    <i class="fas fa-link text-info p-3 border rounded-circle border-info me-3"></i>
+                    Candidate Online_profile
+                </h5>
+                <a href="javascript:void(0)" class="addOnlineProfileBtn">
+                    <i class="fas fa-plus-circle fa-2x text-primary"></i>
+                </a>
+            </div>
+            <div class="section-body">
+                <div class="row" id="candidateOnlineProfileDiv">
+                    {% include 'candidate2/candidate/profile/career_informations/show_online_profile.html' %}
+                </div>
+                <div class="d-none" id="addOnlineProfileDiv">
+                    {% include 'candidate2/candidate/profile/career_informations/edit_online_profile.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'candidate2/candidate/profile/modals/cv_preview_model.html' %}
+    {% include 'candidate2/candidate/profile/templates/templates.html' %}
+    <input type="hidden" id="pluginUrl" value="../../../../static/assets/css/plugins.css">
+    <input type="hidden" id="styleCssUrl" value="../../../../static/assets/css/style.css">
+    <input type="hidden" id="fontCssUrl" value="../../../../static/assets/css/font-awesome.min.css">
+    <input type="hidden" id="isEditProfile" value="true">
+    <input type="hidden" id="countryId" value="">
+    <input type="hidden" id="stateId" value="">
+    <input type="hidden" id="cityId" value="">
+    <input type="hidden" id="cvPresent" value="">
+    <input type="hidden" id="indexCvBuilderData" value="true">
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        let candidateProfileUrl = "../../../../candidate/edit_profile";
+        let updateCandidateUrl = "../../../../candidate/general_profile_update";
+        let updateonlineProfileUrl = "../../../../candidate/online_profile_update";
+        let addExperienceUrl = "../../../../candidate/create_experience";
+        let experienceUrl = "../../../../candidate/candidate_experience/";
+        let addEducationUrl = "../../../../candidate/create_education";
+        let candidateUrl = "../../../../candidate/index/";
+        let educationUrl = "../../../../candidate/candidate_education/";
+        let present = "";
+        let countryId = "";
+        let stateId = '';
+        let cityId = '';
+        let pluginUrl = "../../../../static/assets/plugins/plugins.bundle.css";
+        let styleCssUrl = "../../../../static/assets/css/style.bundle.css";
+        let fontCssUrl = "../../../../static/assets/css/font-awesome.min.css";
+        let cvTemplateUrl = "../../../../candidate/cv_template";
+    </script>
+    <script src="../../../../static/assets/js/moment.min.js"></script>
+    <script src="../../../../static/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../../../static/js/html2pdf.bundle.min.js"></script>
+    <script src="../../../../static/js/candidate-profile/candidate-education-experience.js"></script>
+    <script src="../../../../static/js/candidate-profile/cv-builder.js"></script>
+{% endblock %}
+

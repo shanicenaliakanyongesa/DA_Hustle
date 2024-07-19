@@ -1,0 +1,7 @@
+
+    <div class="text-primary py-2">{{ row.custom_properties['title'] }} (Default)</div>
+{% else %}
+    <div class="py-2 text-primary">
+        {{ row.custom_properties['title'] if row.custom_properties else 'N/A' }}
+    </div>
+{% endif %}

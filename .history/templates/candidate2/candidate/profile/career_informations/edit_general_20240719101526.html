@@ -1,0 +1,76 @@
+<form id="editGeneralForm" method="post" action="/update_general">
+    <div class="row">
+        <div class="col-sm-6 mb-5">
+            <label for="first_name" class="form-label">
+                First Name:
+            </label>
+            <span class="required"></span>
+            <input type="text" id="first_name" name="first_name" class="form-control" required placeholder="First Name">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="last_name" class="form-label">
+                Last Name:
+            </label>
+            <span class="required"></span>
+            <input type="text" id="last_name" name="last_name" class="form-control" required placeholder="Last Name">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="email" class="form-label">
+                Email:
+            </label>
+            <span class="required"></span>
+            <input type="text" id="email" name="email" class="form-control" required disabled placeholder="Email">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="phone" class="form-label">
+                Phone:
+            </label>
+            <input type="tel" id="phone" name="phone" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" placeholder="Phone">
+        </div>
+        <div class="col-sm-12 mb-5">
+            <label for="skillId" class="form-label">
+                Skills:
+            </label>
+            <span class="required"></span>
+            <select id="skillId" name="candidateSkills[]" class="form-select" multiple required>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-12 mb-5">
+            <label for="candidateCountryId" class="form-label">
+                Country:
+            </label>
+            <span class="required"></span>
+            <select id="candidateCountryId" name="country_id" class="form-select" required>
+                <option value="" disabled selected>Select Country</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-12 mb-5">
+            <label for="candidateStateId" class="form-label">
+                State:
+            </label>
+            <select id="candidateStateId" name="state_id" class="form-select">
+                <option value="" disabled selected>Select State</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-12 mb-5">
+            <label for="candidateCityId" class="form-label">
+                City:
+            </label>
+            <select id="candidateCityId" name="city_id" class="form-select">
+                <option value="" disabled selected>Select City</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary me-3" id="btnEditGeneralSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing...">
+            Save
+        </button>
+        <button type="button" id="btnGeneralCancel" class="btn btn-secondary me-2">
+            Cancel
+        </button>
+    </div>
+</form>

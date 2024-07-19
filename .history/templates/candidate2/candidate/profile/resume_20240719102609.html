@@ -1,0 +1,10 @@
+<!-- templates/candidate/profile/resume.html -->
+{% extends 'candidate2/candidate/profile/index.html' %}
+
+{% block section %}
+<div class="d-flex flex-column">
+    <!-- Placeholder for Livewire component -->
+    {% include 'candidate2/candidate/profile/resume_table/cv' %}
+    {% include 'candidate2/candidate/profile/modals/upload_resume_modal.html' %}
+</div>
+{% endblock %}

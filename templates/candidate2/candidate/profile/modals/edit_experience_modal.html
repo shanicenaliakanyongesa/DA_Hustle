@@ -1,0 +1,99 @@
+<div id="editExperienceModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Experience</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="editExperienceForm" method="post" action="/edit_experience">
+                <div class="modal-body">
+                    <div class="alert alert-danger hide d-none" id="editValidationErrorsBox">
+                        <i class='fa-solid fa-face-frown me-4'></i>
+                    </div>
+                    <input type="hidden" name="experienceId" id="experienceId">
+                    <div class="row">
+                        <div class="col-sm-6 mb-5">
+                            <label for="editTitle" class="form-label">
+                                Experience Title:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" id="editTitle" name="experience_title" class="form-control" required placeholder="Experience Title">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editCompany" class="form-label">
+                                Company:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" id="editCompany" name="company" class="form-control" required placeholder="Company">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editCountry" class="form-label">
+                                Country:
+                            </label>
+                            <span class="required"></span>
+                            <select id="editCountry" name="country_id" class="form-select countryId" placeholder="Select Country" data-modal-type="experience" data-is-edit="true" required>
+                                <!-- Replace with actual options -->
+                                <option value="1">USA</option>
+                                <option value="2">Canada</option>
+                                <option value="3">UK</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editState" class="form-label">
+                                State:
+                            </label>
+                            <select id="editState" name="state_id" class="form-select stateId" placeholder="Select State" data-modal-type="experience" data-is-edit="true">
+                                <!-- States will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editCity" class="form-label">
+                                City:
+                            </label>
+                            <select id="editCity" name="city_id" class="form-select cityId" placeholder="Select City" data-modal-type="experience" data-is-edit="true">
+                                <!-- Cities will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editStartDate" class="form-label">
+                                Start Date:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" name="start_date" id="editStartDate" class="form-control bg-white" autocomplete="off" placeholder="Start Date">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editEndDate" class="form-label">
+                                End Date:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" name="end_date" id="editEndDate" class="form-control bg-white" autocomplete="off" placeholder="End Date">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editWorking" class="form-label">
+                                Currently Working:
+                            </label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" name="currently_working" type="checkbox" value="1" id="editWorking">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="editDescription" class="form-label">
+                                Description:
+                            </label>
+                            <textarea name="description" id="editDescription" class="form-control" rows="5" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <button type="submit" class="btn btn-primary m-0" id="btnExperienceSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-secondary my-0 ms-5 me-0" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

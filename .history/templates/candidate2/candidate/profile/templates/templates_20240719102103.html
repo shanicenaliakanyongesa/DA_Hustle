@@ -1,0 +1,112 @@
+<script id="candidateExperienceTemplate" type="text/x-jsrender">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 candidate-experience rounded shadow p-5 mb-5 card"
+         data-experience-id="{{:candidateExperienceNumber}}" data-id="{{:id}}">
+        <article class="article article-style-b">
+            <div class="article-details">
+                <div class="d-flex justify-content-between">
+                    <div class="article-title">
+                        <h4 class="text-primary">{{:title}}</h4>
+                        <h6 class="text-muted">{{:company}}</h6>
+                    </div>
+                    <div class="article-cta candidate-experience-edit-delete">
+                        <a href="javascript:void(0)"
+                           class="edit-candidate-experience btn px-2 text-primary fs-3 ps-0"
+                           title="Edit"
+                           data-id="{{:id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="javascript:void(0)"
+                           class="delete-experience btn px-2 text-danger fs-3 pe-0"
+                           title="Delete"
+                           data-id="{{:id}}"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <span class="text-muted">{{:startDateExperience}} - {{:endDateExperience}} | {{:country}}</span>
+                <p>{{:description}}</p>
+            </div>
+        </article>
+    </div>
+  </script>
+  
+  <script id="candidateEducationTemplate" type="text/x-jsrender">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 candidate-education shadow rounded p-5 mb-5 card"
+         data-education-id="{{:candidateEducationNumber}}" data-id="{{:id}}">
+        <article class="article article-style-b">
+            <div class="article-details">
+                <div class="d-flex justify-content-between">
+                    <div class="article-title">
+                        <h4 class="text-primary education-degree-level">{{:degreeLevel}}</h4>
+                        <h6 class="text-muted">{{:degreeTitle}}</h6>
+                    </div>
+                    <div class="article-cta candidate-education-edit-delete">
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-primary fs-3 ps-0 edit-candidate-education"
+                           title="Edit"
+                           data-id="{{:id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-danger fs-3 pe-0 delete-education"
+                           title="Delete"
+                           data-id="{{:id}}"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <span class="text-muted">{{:year}} | {{:country}}</span>
+                <p>{{:institute}}</p>
+            </div>
+        </article>
+    </div>
+  </script>
+  
+  <script id="CVcandidateExperienceTemplate" type="text/x-jsrender">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 candidate-experience shadow rounded p-5 mb-5 card"
+         data-experience-id="{{:candidateExperienceNumber}}" data-id="{{:id}}">
+        <article class="article article-style-b">
+            <div class="article-details border-0">
+                <div class="d-flex justify-content-between">
+                    <div class="article-title">
+                        <h5 class="experience-title text-primary">{{:title}}</h5>
+                        <h6 class="text-muted">{{:company}}</h6>
+                    </div>
+                    <div class="article-cta candidate-experience-edit-delete">
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-primary fs-3 ps-0 edit-experience"
+                           title="Edit"
+                           data-id="{{:id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-danger fs-3 pe-0 btn-sm delete-experience"
+                           title="Delete"
+                           data-id="{{:id}}"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <span class="text-muted">{{:startDate}} - {{:endDate}} | {{:country}}</span>
+                <p class="fw-bold">{{:description}}</p>
+            </div>
+        </article>
+    </div>
+  </script>
+  
+  <script id="CVcandidateEducationTemplate" type="text/x-jsrender">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 candidate-education shadow rounded p-5 mb-5 card"
+         data-education-id="{{:candidateEducationNumber}}" data-id="{{:id}}">
+        <article class="article article-style-b">
+            <div class="article-details border-0">
+                <div class="d-flex justify-content-between">
+                    <div class="article-title">
+                        <h5 class="education-degree-level text-primary">{{:degreeLevel}}</h5>
+                        <h6 class="text-muted">{{:degreeTitle}}</h6>
+                    </div>
+                    <div class="article-cta candidate-education-edit-delete">
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-primary fs-3 ps-0 edit-education"
+                           title="Edit"
+                           data-id="{{:id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="javascript:void(0)"
+                           class="btn px-2 text-danger fs-3 pe-0 delete-education"
+                           title="Delete"
+                           data-id="{{:id}}"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                <span class="text-muted">{{:year}} | {{:country}}</span>
+                <p class="fw-bold">{{:institute}}</p>
+            </div>
+        </article>
+    </div>
+  </script>
+  

@@ -1,0 +1,138 @@
+
+
+{% block title %}
+    Candidate Profile
+{% endblock %{% extends 'candidate2/candidate/layouts/app.html' %}}
+
+{% block page_css %}
+    <link href="../../../../static/assets/css/flatpickr.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../static/assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../../static/assets/css/inttel/css/intlTelInput.min.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+
+<div class="mb-5 mb-xl-3">
+    <div class="py-0">
+        {% include 'candidate2/candidate/profile/profile_menu.html' %}
+    </div>
+</div>
+<div>
+    <div class="py-0">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between mb-5">
+                <h1 class="page-header-title">Candidate Profile</h1>
+            </div>
+            <div class="card">
+                <form method="post" action="/general" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="first_name" class="form-label">First Name:</label>
+                                <input type="text" name="first_name" value="" class="form-control">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="last_name" class="form-label">Last Name:</label>
+                                <input type="text" name="last_name" value="" class="form-control">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" name="email" value="" class="form-control">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="phone" class="form-label">Phone:</label>
+                                <input type="tel" name="phone" value="" class="form-control">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="birth_date" class="form-label">Birth Date:</label>
+                                <input type="text" id="birthDate" name="birth_date" value="" class="form-control" placeholder="YYYY-MM-DD" min="0" max="15" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="career_level" class="form-label">Career Level:</label>
+                                <select name="career_level_id" id="careerLevelId" class="form-select">
+                                    
+                                        <option value="" >Certificate</option>
+                                 
+                                </select>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="industry" class="form-label">Industry:</label>
+                                <select name="industry_id" id="industryId" class="form-select">
+                                    
+                                        <option value="" >Information Technology</option>
+                                   
+                                </select>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="job_type" class="form-label">Job Type:</label>
+                                <select name="job_type_id" id="jobTypeId" class="form-select">
+                                    
+                                        <option value="" >Full Time</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="col-sm-6 mb-5">
+                                <label for="salary_currency" class="form-label">Salary Currency:</label>
+                                <select name="salary_currency" class="form-select">
+                                    
+                                        <option value="" >KES</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="expected_salary" class="form-label">Expected Salary:</label>
+                                <input type="text" name="expected_salary" value="" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57" min="0" max="15">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="facebook_url" class="form-label">Facebook URL:</label>
+                                <input type="text" name="facebook_url" value="" class="form-control" placeholder="Facebook URL">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="twitter_url" class="form-label">Twitter URL:</label>
+                                <input type="text" name="twitter_url" value="" class="form-control" placeholder="Twitter URL">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="linkedin_url" class="form-label">LinkedIn URL:</label>
+                                <input type="text" name="linkedin_url" value="" class="form-control" placeholder="LinkedIn URL">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="google_plus_url" class="form-label">Google Plus URL:</label>
+                                <input type="text" name="google_plus_url" value="" class="form-control" placeholder="Google Plus URL">
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+                                <label for="pinterest_url" class="form-label">Pinterest URL:</label>
+                                <input type="text" name="pinterest_url" value="" class="form-control" placeholder="Pinterest URL">
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+{% endblock %}
+
+{% block scripts %}
+    <script src="../../../../static/candidate3/js/third-party.js"></script>
+    <script src="../../../../static/candidate3/js/pages.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#birthDate').datetimepicker({
+                format: 'YYYY-MM-DD',
+                useCurrent: true,
+                sideBySide: true,
+                widgetPositioning: {
+                    horizontal: 'left',
+                    vertical: 'bottom'
+                }
+            });
+        });
+    </script>
+{% endblock %}

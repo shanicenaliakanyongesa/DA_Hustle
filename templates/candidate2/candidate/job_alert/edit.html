@@ -1,0 +1,70 @@
+{% extends 'candidate/layouts/app.html' %}
+
+{% block title %}
+    {{ _('messages.job.job_alert') }}
+{% endblock %}
+
+{% block header_toolbar %}
+    <div class="container-fluid">
+        <div class="d-md-flex align-items-center justify-content-between mb-5">
+            <h1 class="mb-0">{{ _('messages.job.job_alert') }}</h1>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% with messages.get_flashed_messages(with_categories=True) as msgs %}
+        {% if msgs %}
+            <div class="alert alert-info">
+                {% for category, message in msgs %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    {% if errors %}
+        <div class="alert alert-danger">
+            {% for error in errors %}
+                <div>{{ error }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('candidate.job_alert_update') }}">
+                {{ csrf_token() }}
+                <div class="col-lg-12 col-md-6 mb-5 d-flex justify-content-start form-check form-switch">
+                    <label class="mt-2 me-2">
+                        <input type="checkbox" name="job_alert" value="1"
+                               class="form-check-input" {% if candidate.job_alert %} checked {% endif %}>
+                        <span class=""></span>
+                    </label>
+                    <span class="mt-2 fs-6 text-gray-600">{{ _('messages.candidate.job_alert_message') }}</span>
+                </div>
+                <div class="form-group ms-19">
+                    <div class="custom-switches-stacked">
+                        {% for job_type in job_types %}
+                            <div class="col-lg-12 col-md-6 mb-2 d-flex justify-content-start form-check form-switch">
+                                <label class="mt-2 me-2">
+                                    <input type="checkbox" name="job_types[]" value="{{ job_type.id }}"
+                                           class="form-check-input cursor-pointer" {% if job_type.id in job_alerts %} checked {% endif %}>
+                                    <span class="custom-switch-indicator"></span>
+                                </label>
+                                <span class="mt-2 fs-6 text-gray-600">{{ job_type.name|safe }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Submit Field -->
+                <div class="separator my-5"></div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary me-3 btnSave">{{ _('messages.common.save') }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

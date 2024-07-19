@@ -1,0 +1,49 @@
+<div id="candidateResumeModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Resume</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="addCandidateResumeForm" method="post" action="/upload_resume" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="alert alert-danger hide d-none" id="validationErrorsBox">
+                        <i class='fa-solid fa-face-frown me-4'></i>
+                    </div>
+                    <div class="mb-5">
+                        <label for="uploadResumeTitle" class="form-label">
+                            Title:
+                        </label>
+                        <span class="required"></span>
+                        <input type="text" id="uploadResumeTitle" name="title" class="form-control" required maxlength="150" placeholder="Title">
+                    </div>
+                    <div class="mb-5">
+                        <label for="customFile" class="form-label">
+                            Choose File:
+                        </label>
+                        <span class="required"></span>
+                        <input type="file" class="form-control custom-file-input" id="customFile" name="file" required>
+                    </div>
+                    <div>
+                        <label for="default" class="form-label">
+                            Set as Default:
+                        </label>
+                        <br>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" name="is_default" type="checkbox" value="1" id="default">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <button type="submit" class="btn btn-primary m-0" id="candidateSaveBtn" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-secondary my-0 ms-5 me-0" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

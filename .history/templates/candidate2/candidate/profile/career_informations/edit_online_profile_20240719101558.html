@@ -1,0 +1,67 @@
+<form id="editOnlineProfileForm" method="post" action="/update_online_profile">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+            <label for="facebookId" class="form-label">
+                Facebook URL:
+            </label>
+            <div class="input-group">
+                <div class="input-group-text border-0">
+                    <i class="fab fa-facebook-f facebook-fa-icon"></i>
+                </div>
+                <input type="text" id="facebookId" name="facebook_url" class="form-control" placeholder="https://www.facebook.com">
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+            <label for="twitterId" class="form-label">
+                Twitter URL:
+            </label>
+            <div class="input-group">
+                <div class="input-group-text border-0">
+                    <i class="fab fa-twitter twitter-fa-icon"></i>
+                </div>
+                <input type="text" id="twitterId" name="twitter_url" class="form-control" placeholder="https://www.twitter.com">
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+            <label for="linkedinId" class="form-label">
+                LinkedIn URL:
+            </label>
+            <div class="input-group">
+                <div class="input-group-text border-0">
+                    <i class="fab fa-linkedin-in linkedin-fa-icon"></i>
+                </div>
+                <input type="text" id="linkedinId" name="linkedin_url" class="form-control" placeholder="https://www.linkedin.com">
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+            <label for="googlePlusId" class="form-label">
+                Google Plus URL:
+            </label>
+            <div class="input-group">
+                <div class="input-group-text border-0">
+                    <i class="fab fa-google-plus-g google-plus-fa-icon"></i>
+                </div>
+                <input type="text" id="googlePlusId" name="google_plus_url" class="form-control" placeholder="https://www.plus.google.com">
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-sm-12 mb-5">
+            <label for="pinterestId" class="form-label">
+                Pinterest URL:
+            </label>
+            <div class="input-group">
+                <div class="input-group-text border-0">
+                    <i class="fab fa-pinterest-p pinterest-fa-icon"></i>
+                </div>
+                <input type="text" id="pinterestId" name="pinterest_url" class="form-control" placeholder="https://www.pinterest.com">
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary me-3" id="btnOnlineProfileSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing...">
+            Save
+        </button>
+        <button type="button" id="btnOnlineProfileCancel" class="btn btn-secondary me-2">
+            Cancel
+        </button>
+    </div>
+</form>

@@ -1,0 +1,86 @@
+<form id="editCVExperienceForm" method="post" action="/update_experience">
+    <div class="alert alert-danger d-none" id="editValidationErrorsBox">
+        <i class='fa-solid fa-face-frown me-4'></i>
+    </div>
+    <input type="hidden" id="experienceId" name="experience_id">
+    <div class="row">
+        <div class="col-sm-6 mb-5">
+            <label for="editTitle" class="form-label">
+                Experience Title:
+            </label>
+            <span class="required"></span>
+            <input type="text" id="editTitle" name="experience_title" class="form-control" required placeholder="Experience Title">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="editCompany" class="form-label">
+                Company:
+            </label>
+            <span class="required"></span>
+            <input type="text" id="editCompany" name="company" class="form-control" required placeholder="Company">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="editCvCountry" class="form-label">
+                Country:
+            </label>
+            <span class="required"></span>
+            <select id="editCvCountry" name="country_id" class="form-select" required>
+                <option value="" disabled selected>Select Country</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="editCvState" class="form-label">
+                State:
+            </label>
+            <select id="editCvState" name="state_id" class="form-select">
+                <option value="" disabled selected>Select State</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="editCvCity" class="form-label">
+                City:
+            </label>
+            <select id="editCvCity" name="city_id" class="form-select">
+                <option value="" disabled selected>Select City</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="editStartDate" class="form-label">
+                Start Date:
+            </label>
+            <span class="required"></span>
+            <input type="text" name="start_date" id="editStartDate" class="form-control" autocomplete="off" placeholder="Start Date">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="editEndDate" class="form-label">
+                End Date:
+            </label>
+            <span class="required d-none" id="editRequiredText"></span>
+            <input type="text" name="end_date" id="editEndDate" class="form-control" autocomplete="off" placeholder="End Date">
+        </div>
+        <div class="col-sm-6 mb-0">
+            <label class='form-label'>
+                Currently Working
+            </label>
+            <label class="form-check form-switch form-switch-sm">
+                <input type="checkbox" name="currently_working" class="form-check-input" value="1" id="editWorking">
+            </label>
+        </div>
+        <div class="col-sm-12 mb-5">
+            <label for="editDescription" class="form-label">
+                Description:
+            </label>
+            <textarea id="editDescription" name="description" class="form-control" rows="5" placeholder="Description"></textarea>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary me-3" id="btnEditExperienceSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing...">
+            Save
+        </button>
+        <button type="button" id="btnEditExperienceCancel" class="btn btn-secondary me-2">
+            Cancel
+        </button>
+    </div>
+</form>

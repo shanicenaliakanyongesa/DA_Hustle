@@ -1,0 +1,103 @@
+<div id="addEducationModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Education</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="addNewEducationForm" method="post" action="/add_education">
+                <div class="modal-body">
+                    <div class="alert alert-danger hide d-none" id="validationErrorsBox">
+                        <i class='fa-solid fa-face-frown me-4'></i>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mb-5">
+                            <label for="degreeLevelId" class="form-label">
+                                Degree Level:
+                            </label>
+                            <span class="required"></span>
+                            <select id="degreeLevelId" name="degree_level_id" class="form-select" required>
+                                <option value="">Select Degree Level</option>
+                                <!-- Replace with actual options -->
+                                <option value="1">Bachelor's</option>
+                                <option value="2">Master's</option>
+                                <option value="3">PhD</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="degreeTitle" class="form-label">
+                                Degree Title:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" id="degreeTitle" name="degree_title" class="form-control" required placeholder="Degree Title">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="educationCountryId" class="form-label">
+                                Country:
+                            </label>
+                            <span class="required"></span>
+                            <select id="educationCountryId" name="country_id" class="form-select" data-modal-type="education" placeholder="Select Country">
+                                <option value="">Select Country</option>
+                                <!-- Replace with actual options -->
+                                <option value="1">USA</option>
+                                <option value="2">Canada</option>
+                                <option value="3">UK</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="educationStateId" class="form-label">
+                                State:
+                            </label>
+                            <select id="educationStateId" name="state_id" class="form-select stateId" placeholder="Select State">
+                                <option value="">Select State</option>
+                                <!-- States will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="educationCityId" class="form-label">
+                                City:
+                            </label>
+                            <select id="educationCityId" name="city_id" class="form-select cityId" placeholder="Select City">
+                                <option value="">Select City</option>
+                                <!-- Cities will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="institute" class="form-label">
+                                Institute:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" id="institute" name="institute" class="form-control" placeholder="Institute">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="result" class="form-label">
+                                Result:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" id="result" name="result" class="form-control" placeholder="Result">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="educationYearId" class="form-label required">
+                                Year:
+                            </label>
+                            <select id="educationYearId" name="year" class="form-select" data-modal-type="education" placeholder="Select Year">
+                                <option value="">Select Year</option>
+                                <!-- Populate dynamically -->
+                              
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <button type="submit" class="btn btn-primary m-0" id="btnEducationSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-secondary my-0 ms-5 me-0" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

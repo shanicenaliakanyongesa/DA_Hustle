@@ -1,0 +1,104 @@
+<div id="editEducationModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Education</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="editCareerEducationForm" method="post" action="/edit_education">
+                <div class="modal-body">
+                    <div class="alert alert-danger hide d-none" id="editValidationErrorsBox">
+                        <i class='fa-solid fa-face-frown me-4'></i>
+                    </div>
+                    <input type="hidden" name="educationId" id="educationId">
+                    <div class="row">
+                        <div class="col-sm-6 mb-5">
+                            <label for="editDegreeLevel" class="form-label">
+                                Degree Level:
+                            </label>
+                            <span class="required"></span>
+                            <select id="editDegreeLevel" name="degree_level_id" class="form-select" required>
+                                <!-- Replace with actual options -->
+                                <option value="1">Bachelor's</option>
+                                <option value="2">Master's</option>
+                                <option value="3">PhD</option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-6 mb-5">
+                            <label for="editDegreeTitle" class="form-label">
+                                Degree Title:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" id="editDegreeTitle" name="degree_title" class="form-control" required placeholder="Degree Title">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editEducationCountry" class="form-label">
+                                Country:
+                            </label>
+                            <span class="required"></span>
+                            <select id="editEducationCountry" name="country_id" class="form-select" data-modal-type="education" placeholder="Select Country" data-is-edit="true" required>
+                                <!-- Replace with actual options -->
+                                <option value="1">USA</option>
+                                <option value="2">Canada</option>
+                                <option value="3">UK</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editEducationState" class="form-label">
+                                State:
+                            </label>
+                            <select id="editEducationState" name="state_id" class="form-select" placeholder="Select State" data-modal-type="education" data-is-edit="true">
+                                <!-- States will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editEducationCity" class="form-label">
+                                City:
+                            </label>
+                            <select id="editEducationCity" name="city_id" class="form-select" placeholder="Select City">
+                                <!-- Cities will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editInstitute" class="form-label">
+                                Institute:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" id="editInstitute" name="institute" class="form-control" placeholder="Institute">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editResult" class="form-label">
+                                Result:
+                            </label>
+                            <span class="required"></span>
+                            <input type="text" id="editResult" name="result" class="form-control" placeholder="Result">
+                        </div>
+                        <div class="col-sm-6 mb-5">
+                            <label for="editYear" class="form-label">
+                                Year:
+                            </label>
+                            <span class="required"></span>
+                            <select id="editYear" name="year" class="form-select" placeholder="Select Year">
+                                <!-- Replace with actual year options -->
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <!-- More years can be added here -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <button type="submit" class="btn btn-primary me-0" id="editEducationSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-secondary my-0 ms-5 me-0" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

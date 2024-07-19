@@ -1,0 +1,87 @@
+<form id="addCVEducationForm" method="post" action="/submit_education">
+    <div class="alert alert-danger d-none" id="validationErrorsBox">
+        <i class='fa-solid fa-face-frown me-4'></i>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-5">
+            <label for="degreeLevelId" class="form-label">
+                Degree Level:
+            </label>
+            <span class="required"></span>
+            <select id="degreeLevelId" name="degree_level_id" class="form-select" required>
+                <option value="" disabled selected>Select Degree Level</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="degreeTitle" class="form-label">
+                Degree Title:
+            </label>
+            <span class="required"></span>
+            <input type="text" id="degreeTitle" name="degree_title" class="form-control" placeholder="Degree Title">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="cvEducationCountryId" class="form-label">
+                Country:
+            </label>
+            <span class="required"></span>
+            <select id="cvEducationCountryId" name="country_id" class="form-select" required data-modal-type="education">
+                <option value="" disabled selected>Select Country</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="cvEducationStateId" class="form-label">
+                State:
+            </label>
+            <select id="cvEducationStateId" name="state_id" class="form-select" data-modal-type="education">
+                <option value="" disabled selected>Select State</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="cvEducationCityId" class="form-label">
+                City:
+            </label>
+            <select id="cvEducationCityId" name="city_id" class="form-select">
+                <option value="" disabled selected>Select City</option>
+                <!-- Populate options dynamically -->
+            </select>
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="institute" class="form-label">
+                Institute:
+            </label>
+            <span class="required"></span>
+            <input type="text" id="institute" name="institute" class="form-control" required placeholder="Institute">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="result" class="form-label">
+                Result:
+            </label>
+            <span class="required"></span>
+            <input type="text" id="result" name="result" class="form-control" required placeholder="Result">
+        </div>
+        <div class="col-sm-6 mb-5">
+            <label for="educationYearId" class="form-label">
+                Year:
+            </label>
+            <span class="required"></span>
+            <select id="educationYearId" name="year" class="form-select">
+                <option value="" disabled selected>Select Year</option>
+                <!-- Populate options dynamically -->
+                <!-- Example options -->
+                <!-- <option value="2024">2024</option> -->
+                <!-- <option value="2023">2023</option> -->
+            </select>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary me-3" id="btnEducationSave" data-loading-text="<span class='spinner-border spinner-border-sm'></span> Processing...">
+            Save
+        </button>
+        <button type="button" id="btnEducationCancel" class="btn btn-secondary me-2">
+            Cancel
+        </button>
+    </div>
+</form>
